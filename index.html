@@ -1,0 +1,1778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Josh Frenette -- Demand Gen & Pipeline Operations leader at Armis Security.">
+<title>Josh Frenette -- Demand Gen & Pipeline Operations</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#07090f;--bg2:#0b0f1a;--bg3:#0f1520;
+  --surface:rgba(255,255,255,0.03);--surface2:rgba(255,255,255,0.05);
+  --teal:#00d4aa;--teal2:#00b894;
+  --teal-dim:rgba(0,212,170,0.08);--teal-mid:rgba(0,212,170,0.18);
+  --teal-glow:rgba(0,212,170,0.25);--teal-glow2:rgba(0,212,170,0.12);
+  --white:#eef2f7;--muted:#5a7080;--muted2:#8899a8;
+  --border:rgba(0,212,170,0.12);--border2:rgba(255,255,255,0.06);
+  --serif:'Fraunces',serif;--sans:'Outfit',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--white);font-family:var(--sans);font-weight:300;line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+.cursor,.cursor-ring{position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);border-radius:50%;}
+.cursor{width:8px;height:8px;background:var(--teal);transition:transform .08s,width .2s,height .2s;mix-blend-mode:screen;}
+.cursor-ring{width:32px;height:32px;border:1px solid rgba(0,212,170,0.4);transition:transform .14s ease-out,width .25s,height .25s,border-color .2s;}
+body:has(a:hover) .cursor-ring,body:has(button:hover) .cursor-ring{width:48px;height:48px;border-color:rgba(0,212,170,0.7);}
+.reveal{opacity:0;transform:translateY(32px);transition:opacity .8s cubic-bezier(.25,.46,.45,.94),transform .8s cubic-bezier(.25,.46,.45,.94)}
+.reveal.in{opacity:1;transform:translateY(0)}
+.reveal-l{opacity:0;transform:translateX(-36px);transition:opacity .85s ease,transform .85s ease}
+.reveal-l.in{opacity:1;transform:translateX(0)}
+.reveal-r{opacity:0;transform:translateX(36px);transition:opacity .85s ease,transform .85s ease}
+.reveal-r.in{opacity:1;transform:translateX(0)}
+.reveal-scale{opacity:0;transform:scale(.94);transition:opacity .8s ease,transform .8s ease}
+.reveal-scale.in{opacity:1;transform:scale(1)}
+.d1{transition-delay:.08s}.d2{transition-delay:.18s}.d3{transition-delay:.3s}.d4{transition-delay:.44s}.d5{transition-delay:.58s}.d6{transition-delay:.72s}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:1.1rem 3rem;display:flex;justify-content:space-between;align-items:center;background:linear-gradient(180deg,rgba(7,9,15,.92) 0%,rgba(7,9,15,0) 100%);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,0.035);}
+.nav-logo{font-family:var(--serif);font-size:1.15rem;font-weight:700;color:var(--white);letter-spacing:-.01em;cursor:default;}
+.nav-logo span{color:var(--teal)}
+.nav-links{display:flex;gap:2.5rem;list-style:none}
+.nav-links a{color:var(--muted2);text-decoration:none;font-size:.75rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;transition:color .2s;position:relative;}
+.nav-links a::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:1px;background:var(--teal);transform:scaleX(0);transform-origin:left;transition:transform .25s ease;}
+.nav-links a:hover{color:var(--teal)}
+.nav-links a:hover::after{transform:scaleX(1)}
+#hero{position:relative;min-height:100svh;overflow:hidden;background:var(--bg);}
+.hero-canvas{position:absolute;inset:0;z-index:0;pointer-events:none;width:100%;height:100%;}
+.hero-orb{position:absolute;border-radius:50%;filter:blur(110px);pointer-events:none}
+.orb-a{width:700px;height:700px;background:rgba(0,212,170,.06);top:-200px;right:-100px;animation:orbf 14s ease-in-out infinite}
+.orb-b{width:400px;height:400px;background:rgba(0,80,200,.06);bottom:-100px;left:2%;animation:orbf 18s ease-in-out infinite reverse}
+.orb-c{width:280px;height:280px;background:rgba(0,212,170,.04);top:35%;right:22%;animation:orbf 10s ease-in-out infinite 3s}
+@keyframes orbf{0%,100%{transform:translate(0,0)scale(1)}33%{transform:translate(18px,-22px)scale(1.04)}66%{transform:translate(-14px,16px)scale(.96)}}
+.hero-greeting{position:absolute;top:6%;left:50%;transform:translateX(-46%);font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(7rem,17vw,18rem);color:rgba(238,242,247,0.032);white-space:nowrap;pointer-events:none;z-index:1;letter-spacing:-.03em;line-height:1;animation:fadeup 1.4s .05s both;}
+.hero-badge{position:absolute;top:calc(var(--nav-h,72px) + 2.5rem);left:3rem;z-index:5;display:inline-flex;align-items:center;gap:.65rem;border:1px solid rgba(0,212,170,.22);background:rgba(0,212,170,.05);backdrop-filter:blur(8px);padding:.45rem 1rem .45rem .7rem;font-family:var(--sans);font-size:.68rem;font-weight:400;letter-spacing:.06em;color:rgba(238,242,247,.65);animation:fadeup .8s .15s both;}
+.hero-badge-dot{width:7px;height:7px;border-radius:50%;background:var(--teal);flex-shrink:0;box-shadow:0 0 8px var(--teal);animation:dotPulse 2.2s ease-in-out infinite;}
+.hero-photo-wrap{position:absolute;left:50%;top:0;bottom:0;transform:translateX(-42%);width:60%;max-width:780px;z-index:3;pointer-events:none;animation:fadeup 1s .25s both;}
+.hero-photo-inner{width:100%;height:100%;position:relative;}
+.hero-photo-img{display:none;}
+.hero-photo-canvas{width:100%;height:100%;object-fit:contain;display:block;-webkit-mask-image:linear-gradient(to bottom,black 70%,transparent 98%);mask-image:linear-gradient(to bottom,black 70%,transparent 98%);user-select:none;}
+.hero-descriptor{position:absolute;right:3rem;top:50%;transform:translateY(-50%);z-index:5;text-align:right;display:flex;flex-direction:column;gap:.1rem;animation:fadeup .9s .5s both;}
+.hero-descriptor span{display:block;font-family:var(--sans);font-size:clamp(.7rem,1.1vw,1rem);font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(238,242,247,.18);line-height:1.5;}
+.hero-descriptor span.hd-accent{color:var(--teal);font-size:.62rem;letter-spacing:.25em;margin-top:.4rem}
+.hero-name-block{position:absolute;bottom:5.5rem;left:3rem;z-index:5;animation:fadeup .95s .35s both;}
+.hero-name-big{font-family:var(--serif);font-weight:700;line-height:.88;letter-spacing:-.04em;color:var(--white);margin:0 0 1rem 0;}
+.hn-first{display:block;font-size:clamp(4.5rem,10vw,10rem);}
+.hn-last{display:block;font-size:clamp(4.5rem,10vw,10rem);font-style:italic;font-weight:300;color:rgba(238,242,247,.42);}
+.hero-name-sub{font-family:var(--sans);font-size:.82rem;color:var(--muted2);letter-spacing:.06em;max-width:340px;line-height:1.7;margin:0;}
+.scroll-cue{position:absolute;bottom:2.5rem;left:3rem;z-index:5;display:flex;align-items:center;gap:.75rem;opacity:0;animation:fadeup 1s 1.1s forwards;}
+.scroll-cue span{font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.scroll-track{width:36px;height:1px;background:rgba(255,255,255,.1);position:relative;overflow:hidden}
+.scroll-track::after{content:'';position:absolute;inset:0;background:var(--teal);animation:scrollLine 2s 1.4s ease-in-out infinite;}
+@keyframes scrollLine{0%{transform:translateX(-100%)}50%,100%{transform:translateX(100%)}}
+@keyframes fadeup{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:700px){
+  .hero-greeting{font-size:clamp(5rem,22vw,9rem);top:8%}
+  .hero-photo-wrap{left:50%;transform:translateX(-50%);width:70%;opacity:.35}
+  .hero-descriptor{display:none}
+  .hero-name-block{bottom:4rem;left:1.5rem}
+  .hn-first,.hn-last{font-size:clamp(3.5rem,14vw,6rem)}
+  .hero-badge{left:1.5rem}
+}
+section{padding:7rem 3rem}
+.container{max-width:1160px;margin:0 auto}
+.sec-label{font-size:.65rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--teal);display:flex;align-items:center;gap:.75rem;margin-bottom:.9rem;}
+.sec-label::after{content:'';width:32px;height:1px;background:var(--teal);display:block}
+.sec-title{font-family:var(--serif);font-size:clamp(2rem,3.5vw,3rem);font-weight:600;line-height:1.08;letter-spacing:-.025em;color:var(--white);margin-bottom:1.2rem;}
+.sec-title em{font-style:italic;font-weight:300;color:rgba(238,242,247,.45)}
+#bio{background:var(--bg2);position:relative;overflow:hidden;border-top:1px solid var(--border2);}
+#bio::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent 0%,var(--teal) 50%,transparent 100%);}
+.bio-grid{display:grid;grid-template-columns:340px 1fr;gap:5.5rem;align-items:start;}
+.bio-img-wrap{position:relative}
+.bio-img-frame{position:relative;width:100%;aspect-ratio:3/4;background:linear-gradient(135deg,var(--bg3) 0%,rgba(0,212,170,.04) 100%);border:1px solid var(--border);overflow:hidden;}
+.bio-img-inner{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;color:var(--muted);}
+.bio-img-icon{width:72px;height:72px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--muted);}
+.bio-img-inner p{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;text-align:center;line-height:1.6;max-width:160px}
+.bio-corner{position:absolute;width:24px;height:24px;border-color:var(--teal);border-style:solid;border-width:0;}
+.bio-corner.tl{top:-6px;left:-6px;border-top-width:1.5px;border-left-width:1.5px}
+.bio-corner.br{bottom:-6px;right:-6px;border-bottom-width:1.5px;border-right-width:1.5px}
+.bio-tag{position:absolute;bottom:-1px;left:0;right:0;padding:.6rem 1rem;background:linear-gradient(to top,rgba(7,9,15,.95),rgba(7,9,15,.6));font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);text-align:center;border-top:1px solid var(--border);}
+.bio-text{padding-top:.5rem}
+.bio-text p{color:rgba(238,242,247,.72);font-size:1rem;line-height:1.9;margin-bottom:1.2rem;}
+.bio-text p strong{color:var(--white);font-weight:500}
+.btn-resume{display:inline-flex;align-items:center;gap:.65rem;margin-top:.75rem;padding:.85rem 1.9rem;background:var(--teal);color:var(--bg);font-family:var(--sans);font-size:.78rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:box-shadow .3s,transform .2s;}
+.btn-resume:hover{box-shadow:0 12px 36px var(--teal-glow);transform:translateY(-2px)}
+#career{background:var(--bg);position:relative}
+.career-header{text-align:center;margin-bottom:5rem}
+.career-header .sec-label{justify-content:center}
+.career-header .sec-label::after{display:none}
+.career-kicker{font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(1.5rem,3vw,2.25rem);color:var(--muted2);margin-top:.5rem;line-height:1.3;}
+.timeline{position:relative;max-width:820px;margin:0 auto}
+.tl-rail{position:absolute;left:50%;top:0;bottom:0;width:1px;transform:translateX(-50%);background:linear-gradient(to bottom,transparent,var(--border) 10%,var(--border) 90%,transparent);}
+.tl-fill{position:absolute;left:50%;top:0;width:1px;transform:translateX(-50%);background:var(--teal);height:0;transition:height 1.8s cubic-bezier(.25,.46,.45,.94);}
+.tl-fill.go{height:100%}
+.tl-item{display:grid;grid-template-columns:1fr 48px 1fr;gap:0;margin-bottom:3rem;align-items:start;}
+.tl-item:nth-child(odd) .tl-card{grid-column:1;text-align:right}
+.tl-item:nth-child(odd) .tl-empty{grid-column:3}
+.tl-item:nth-child(even) .tl-card{grid-column:3}
+.tl-item:nth-child(even) .tl-empty{grid-column:1}
+.tl-dot-col{grid-column:2;display:flex;justify-content:center;padding-top:1.6rem;}
+.tl-dot{width:10px;height:10px;border-radius:50%;background:var(--teal);flex-shrink:0;box-shadow:0 0 0 4px var(--bg),0 0 0 5px rgba(0,212,170,.3);transition:box-shadow .3s;}
+.tl-card{padding:1.6rem;background:var(--surface);border:1px solid var(--border2);backdrop-filter:blur(8px);transition:border-color .3s,box-shadow .3s,transform .3s;cursor:default;}
+.tl-card:hover{border-color:var(--border);box-shadow:0 8px 32px rgba(0,0,0,.3),inset 0 0 0 1px rgba(0,212,170,.08);transform:translateY(-2px);}
+.tl-period{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--teal);margin-bottom:.35rem}
+.tl-role{font-family:var(--serif);font-size:1.05rem;font-weight:600;color:var(--white);margin-bottom:.2rem;line-height:1.25;}
+.tl-company{font-size:.75rem;color:var(--muted2);margin-bottom:.7rem;letter-spacing:.04em}
+.tl-desc{font-size:.84rem;color:rgba(238,242,247,.55);line-height:1.75}
+.tl-item:nth-child(odd) .tl-period,.tl-item:nth-child(odd) .tl-role,.tl-item:nth-child(odd) .tl-company,.tl-item:nth-child(odd) .tl-desc{text-align:right}
+.tl-dot-active{background:var(--teal);box-shadow:0 0 0 4px var(--bg),0 0 0 6px rgba(0,212,170,0.5),0 0 16px rgba(0,212,170,0.4);animation:dotPulse 2.5s ease-in-out infinite;}
+@keyframes dotPulse{0%,100%{box-shadow:0 0 0 4px var(--bg),0 0 0 6px rgba(0,212,170,0.5),0 0 16px rgba(0,212,170,0.4)}50%{box-shadow:0 0 0 4px var(--bg),0 0 0 8px rgba(0,212,170,0.3),0 0 28px rgba(0,212,170,0.25)}}
+.tl-current{border-color:rgba(0,212,170,0.3);position:relative}
+.tl-current-badge{position:absolute;top:.9rem;right:.9rem;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--bg);background:var(--teal);padding:.2rem .55rem;}
+.tl-advisory{border-style:dashed;border-color:rgba(0,212,170,0.2)}
+.tl-advisory-tag{font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted2);border:1px solid var(--border2);display:inline-block;padding:.2rem .55rem;margin-bottom:.5rem;}
+.award-banner{display:flex;align-items:center;gap:1.5rem;padding:1.25rem 1.75rem;background:linear-gradient(90deg,rgba(0,212,170,0.08),rgba(0,212,170,0.04));border:1px solid var(--border);border-left:3px solid var(--teal);margin-bottom:4rem;max-width:820px;margin-left:auto;margin-right:auto;}
+.award-icon{flex-shrink:0}
+.award-text{display:flex;flex-direction:column;gap:.2rem}
+.award-label{font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--teal)}
+.award-name{font-family:var(--serif);font-size:1.05rem;font-weight:600;color:var(--white);line-height:1.3;}
+.award-desc{font-size:.8rem;color:var(--muted2);line-height:1.5}
+#projects{background:var(--bg3);position:relative;border-top:1px solid var(--border2)}
+.proj-header{margin-bottom:1rem}
+.proj-subhead{font-size:.9rem;color:var(--muted2);margin-top:.5rem}
+.proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5px;margin-top:3rem}
+.proj-card{background:var(--bg2);border:1px solid var(--border2);padding:2.25rem;position:relative;overflow:hidden;cursor:pointer;transition:border-color .3s,transform .3s,box-shadow .3s;display:flex;flex-direction:column;gap:1rem;}
+.proj-card:hover{border-color:rgba(0,212,170,.3);transform:translateY(-3px);box-shadow:0 16px 40px rgba(0,0,0,.35)}
+.proj-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--teal),transparent);transform:scaleX(0);transform-origin:left;transition:transform .4s ease}
+.proj-card:hover::before{transform:scaleX(1)}
+.proj-tag{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);display:flex;align-items:center;gap:.5rem}
+.proj-tag::before{content:'';width:20px;height:1px;background:var(--teal);display:block}
+.proj-name{font-family:var(--serif);font-size:1.3rem;font-weight:600;line-height:1.2;letter-spacing:-.015em;color:var(--white)}
+.proj-desc{font-size:.88rem;color:rgba(238,242,247,.6);line-height:1.75;flex:1}
+.proj-outcomes{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:.25rem}
+.proj-outcome{font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;padding:.25rem .6rem;background:var(--teal-dim);border:1px solid var(--border);color:var(--teal)}
+.proj-cta{display:inline-flex;align-items:center;gap:.45rem;margin-top:.75rem;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);font-weight:500;transition:gap .2s}
+.proj-card:hover .proj-cta{gap:.75rem}
+.proj-cta svg{transition:transform .2s}
+.proj-card:hover .proj-cta svg{transform:translateX(4px)}
+.proj-card-wide{grid-column:1/-1}
+.quote-break{background:var(--bg);border-top:1px solid var(--border2);border-bottom:1px solid var(--border2);padding:4rem 3rem;display:flex;align-items:center;gap:2rem}
+.quote-break-line{flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--border))}
+.quote-break-line:last-child{background:linear-gradient(270deg,transparent,var(--border))}
+.quote-break-text{font-family:var(--serif);font-size:clamp(1.1rem,2.2vw,1.55rem);font-weight:300;font-style:italic;color:rgba(238,242,247,.55);text-align:center;flex-shrink:0;letter-spacing:-.01em}
+#tools{background:var(--bg2);border-top:1px solid var(--border2);padding:6rem 3rem 4rem}
+.tools-header{margin-bottom:3rem}
+.tools-subhead{font-size:.92rem;color:rgba(238,242,247,.55);line-height:1.85;margin-top:.75rem}
+.tools-subhead em{color:var(--teal);font-style:normal}
+.tools-flow-wrap{display:flex;align-items:center;justify-content:center;gap:1.5rem;padding:1.25rem 3rem;background:rgba(0,0,0,.2);border-top:1px solid var(--border2);border-bottom:1px solid var(--border2);margin-bottom:3rem}
+.tools-flow-label{font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted2)}
+.tools-flow-center{color:var(--teal)}
+.tools-flow-arrow{font-size:.8rem;color:var(--border)}
+.tools-category-row{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;margin-bottom:2.5rem}
+.tools-cat-label{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);margin-bottom:.9rem}
+.tools-logo-strip{display:flex;flex-direction:column;gap:.5rem}
+.tool-logo-card{display:flex;align-items:center;gap:.75rem;padding:.6rem .85rem;background:rgba(255,255,255,.02);border:1px solid var(--border2);transition:border-color .2s,background .2s,transform .2s;cursor:default}
+.tool-logo-card:hover{border-color:rgba(0,212,170,.2);background:rgba(0,212,170,.03);transform:translateX(3px)}
+.tool-logo-card svg{width:36px;height:24px;flex-shrink:0}
+.tool-logo-card span{font-size:.72rem;letter-spacing:.04em;color:var(--muted2);white-space:nowrap}
+.tools-statement{display:flex;align-items:flex-start;gap:1rem;padding:1.5rem 2rem;background:rgba(0,212,170,.04);border:1px solid rgba(0,212,170,.12);margin-top:.5rem}
+.tools-stmt-icon{flex-shrink:0;margin-top:.15rem}
+.tools-statement p{font-size:.92rem;color:rgba(238,242,247,.6);line-height:1.85;font-style:italic}
+#initiatives{background:var(--bg2);position:relative;border-top:1px solid var(--border2)}
+#initiatives::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--teal),transparent)}
+.init-header{margin-bottom:3rem;padding:7rem 3rem 0}
+.story-panel{position:relative;overflow:hidden;border-top:1px solid var(--border2);padding:5rem 3rem}
+.sp-bg-num{position:absolute;font-family:var(--serif);font-weight:700;font-size:clamp(10rem,18vw,18rem);color:rgba(0,212,170,0.03);line-height:1;letter-spacing:-.06em;top:-.05em;right:-.02em;pointer-events:none;user-select:none}
+.sp-01{background:var(--bg2)}.sp-02{background:var(--bg3)}.sp-03{background:var(--bg);padding-bottom:0}
+.sp-inner{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;max-width:1200px;margin:0 auto;position:relative;z-index:1}
+.sp-inner-rev{direction:rtl}.sp-inner-rev>*{direction:ltr}
+.sp-inner-stack{grid-template-columns:1fr;max-width:700px;text-align:center;margin-bottom:3rem}
+.sp-eye{font-size:.65rem;letter-spacing:.22em;text-transform:uppercase;color:var(--teal);margin-bottom:.65rem}
+.sp-title{font-family:var(--serif);font-size:clamp(1.6rem,2.8vw,2.4rem);font-weight:600;line-height:1.15;letter-spacing:-.02em;color:var(--white);margin-bottom:1.1rem}
+.sp-body{font-size:.95rem;color:rgba(238,242,247,.68);line-height:1.85}
+.sp-body strong{color:var(--white);font-weight:500}
+.sp-body-narrow{max-width:540px;margin:0 auto}
+.sp-ai-badge{display:inline-flex;align-items:center;gap:.5rem;margin-top:1.5rem;padding:.4rem .9rem;background:rgba(0,212,170,0.06);border:1px solid rgba(0,212,170,.15);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--teal)}
+.sp-chart-card{background:rgba(0,0,0,.35);border:1px solid var(--border);padding:1.75rem;backdrop-filter:blur(12px)}
+.sp-chart-head{display:flex;justify-content:space-between;align-items:center;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted2);margin-bottom:1.4rem;padding-bottom:.9rem;border-bottom:1px solid var(--border2)}
+.sp-chart-period{color:var(--teal)}
+.sp-bars{display:flex;flex-direction:column;gap:.85rem;margin-bottom:1.4rem}
+.sp-bar-row{display:flex;align-items:center;gap:.75rem}
+.sp-bar-lbl{font-size:.65rem;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);width:88px;flex-shrink:0;white-space:nowrap}
+.sp-bar-track{flex:1;height:5px;background:rgba(255,255,255,.05);overflow:hidden}
+.sp-bar{height:100%;background:linear-gradient(90deg,var(--teal),rgba(0,212,170,.45));width:0;transition:width 1.4s cubic-bezier(.25,.46,.45,.94)}
+.sp-bar.go{width:var(--w)}
+.sp-bar-val{font-size:.65rem;color:var(--teal);width:28px;text-align:right;flex-shrink:0}
+.sp-kpi-row{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;padding-top:1.1rem;border-top:1px solid var(--border2)}
+.sp-kpi{text-align:center;padding:.6rem .4rem;background:var(--teal-dim);border:1px solid var(--border)}
+.sp-kpi-v{display:block;font-family:var(--serif);font-size:1.2rem;font-weight:600;color:var(--teal);line-height:1;margin-bottom:.25rem}
+.sp-kpi-l{font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted2)}
+.sp-map-col{padding:0;overflow:hidden;min-height:400px}
+.sp-status-chips{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.5rem}
+.sp-chip{display:inline-flex;align-items:center;gap:.45rem;padding:.35rem .85rem;border:1px solid var(--border2);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted2)}
+.sp-chip-live{border-color:rgba(0,212,170,.3);color:var(--teal)}
+.sp-chip-dot{width:6px;height:6px;border-radius:50%;background:var(--teal);display:block;flex-shrink:0;animation:dotPulse 2s ease-in-out infinite}
+.sp-chip-dot-amber{background:#f5a623;animation:none}
+.map-wrap{width:100%;height:100%;position:relative;min-height:400px;display:flex;align-items:center;justify-content:center;padding:1rem}
+.map-tip{position:absolute;background:rgba(7,9,15,.96);border:1px solid var(--teal);padding:.55rem .9rem;font-size:.72rem;color:var(--white);pointer-events:none;opacity:0;transition:opacity .18s;z-index:10;white-space:nowrap;box-shadow:0 8px 28px rgba(0,0,0,.5)}
+.map-tip strong{color:var(--teal);display:block;margin-bottom:.15rem;font-size:.68rem;letter-spacing:.08em}
+.map-legend{position:absolute;bottom:.75rem;left:1rem;display:flex;flex-direction:column;gap:.3rem;font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted2)}
+.map-legend-item{display:flex;align-items:center;gap:.4rem}
+.map-legend-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.sp-live-badge{display:inline-flex;align-items:center;gap:.5rem;margin-top:1.25rem;padding:.45rem 1rem;background:rgba(0,212,170,.06);border:1px solid rgba(0,212,170,.2);font-size:.72rem;letter-spacing:.08em;color:var(--teal);width:fit-content}
+.sp-live-dot{width:7px;height:7px;border-radius:50%;background:var(--teal);animation:dotPulse 2s ease-in-out infinite;flex-shrink:0}
+.fc-baseline-header{display:flex;flex-wrap:wrap;gap:1.5rem;align-items:flex-start;margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border2);}
+.fc-baseline-left{flex-shrink:0}
+.fc-baseline-note{font-size:.75rem;color:var(--muted2);margin-top:.25rem;max-width:260px;line-height:1.55}
+.fc-baseline-pills{display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;flex:1;justify-content:flex-end}
+.fc-baseline-arrow{font-size:1.2rem;color:var(--teal);flex-shrink:0}
+.fc-baseline-pill{padding:.65rem 1.1rem;border:1px solid var(--border2);min-width:200px}
+.fc-pill-prior{background:rgba(255,255,255,.02)}
+.fc-pill-target{background:rgba(0,212,170,.04);border-color:rgba(0,212,170,.2)}
+.fc-pill-label{display:block;font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted2);margin-bottom:.3rem}
+.fc-pill-prior .fc-pill-label{color:var(--muted)}
+.fc-pill-target .fc-pill-label{color:var(--teal)}
+.fc-pill-val{font-size:.8rem;color:var(--white);font-weight:400;line-height:1.4}
+.fc-pill-target .fc-pill-val{color:var(--teal)}
+.forecast-dashboard{background:var(--bg2);border:1px solid var(--border2);border-bottom:none;margin:0 -3rem;padding:2.5rem 3rem 0}
+.td-up{color:#00d4aa;font-size:.72rem;margin-left:.3rem}
+.td-dn{color:#ff6b6b;font-size:.72rem;margin-left:.3rem}
+.fc-main{display:grid;grid-template-columns:1fr 1.5fr;gap:2rem;margin-bottom:2rem;align-items:start}
+.fc-section-label{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--teal);margin-bottom:.25rem}
+.fc-hint{font-size:.72rem;color:var(--muted);margin-bottom:1.25rem}
+.fc-assumptions{background:rgba(0,0,0,.25);border:1px solid var(--border2);padding:1.5rem}
+.fc-input-group{display:flex;flex-direction:column;gap:1.1rem}
+.fc-input-row{display:flex;flex-direction:column;gap:.4rem}
+.fc-lbl{font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted2);display:flex;justify-content:space-between;align-items:center}
+.fc-lbl-unit{color:var(--muted);font-size:.64rem;letter-spacing:.04em;text-transform:none}
+.fc-slider-wrap{display:flex;align-items:center;gap:.75rem}
+.fc-slider{flex:1;-webkit-appearance:none;appearance:none;height:3px;background:rgba(255,255,255,.08);outline:none;cursor:pointer}
+.fc-slider::-webkit-slider-thumb{-webkit-appearance:none;width:14px;height:14px;border-radius:50%;background:var(--teal);cursor:pointer;box-shadow:0 0 8px var(--teal-glow);transition:transform .15s}
+.fc-slider::-webkit-slider-thumb:hover{transform:scale(1.3)}
+.fc-slider::-moz-range-thumb{width:14px;height:14px;border-radius:50%;background:var(--teal);cursor:pointer;border:none}
+.fc-slider-val{font-family:var(--serif);font-size:.95rem;font-weight:600;color:var(--teal);min-width:60px;text-align:right}
+.fc-metrics-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem}
+.fc-metric-card{background:rgba(0,0,0,.25);border:1px solid var(--border2);padding:1.1rem;transition:border-color .2s}
+.fc-metric-card:hover{border-color:var(--border)}
+.fc-mc-primary{grid-column:1/3;background:rgba(0,212,170,0.05);border-color:rgba(0,212,170,0.2)}
+.fc-mc-label{font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted2);margin-bottom:.4rem}
+.fc-mc-val{font-family:var(--serif);font-size:1.6rem;font-weight:600;color:var(--teal);line-height:1;margin-bottom:.25rem;transition:all .25s}
+.fc-mc-primary .fc-mc-val{font-size:2rem}
+.fc-mc-sub{font-size:.68rem;color:var(--muted);line-height:1.4}
+.fc-mc-sub span{color:var(--teal)}
+@keyframes valFlash{0%{color:white;text-shadow:0 0 12px var(--teal)}100%{color:var(--teal);text-shadow:none}}
+.fc-val-flash{animation:valFlash .35s ease}
+.fc-table-wrap{border-top:1px solid var(--border2);padding-top:2rem;overflow:hidden}
+.fc-table-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:1rem}
+.fc-table-note{font-size:.68rem;color:var(--muted);letter-spacing:.04em}
+.fc-table-scroll{overflow-x:auto;padding-bottom:1.5rem}
+.fc-table{width:100%;border-collapse:collapse;font-size:.82rem;white-space:nowrap}
+.fc-table thead tr{border-bottom:1px solid var(--border2)}
+.fc-table th{padding:.6rem 1rem;text-align:right;font-size:.62rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--muted2)}
+.fc-table th:first-child{text-align:left}
+.fc-table tbody tr{border-bottom:1px solid rgba(255,255,255,0.03);transition:background .15s}
+.fc-table tbody tr:hover{background:rgba(255,255,255,0.025)}
+.fc-table td{padding:.75rem 1rem;text-align:right;color:rgba(238,242,247,.72);transition:all .25s}
+.fc-table td:first-child{text-align:left;color:var(--white);font-weight:500}
+.fc-table td.td-teal{color:var(--teal);font-weight:500}
+.fc-table td.td-main{font-family:var(--serif);font-size:.95rem;color:var(--white);font-weight:600}
+.fc-table tfoot tr{border-top:2px solid var(--border)}
+.fc-table tfoot td{color:var(--white);font-weight:600;font-size:.85rem;padding:.85rem 1rem}
+.fc-table tfoot td:first-child{color:var(--teal);font-family:var(--serif)}
+.region-badge{font-size:.58rem;letter-spacing:.08em;padding:.15rem .45rem;text-transform:uppercase;background:var(--teal-dim);border:1px solid var(--border);color:var(--teal);margin-left:.5rem;vertical-align:middle}
+.region-badge.progress{background:rgba(245,166,35,.08);border-color:rgba(245,166,35,.2);color:#f5a623}
+#conduit{background:var(--bg);position:relative;overflow:hidden;border-top:1px solid var(--border2);padding:7rem 3rem}
+.conduit-header{text-align:center;margin-bottom:3.5rem}
+.conduit-header .sec-label{justify-content:center}
+.conduit-header .sec-label::after{display:none}
+.conduit-sub{font-size:.95rem;color:var(--muted2);max-width:520px;margin:.75rem auto 0;line-height:1.8}
+#hub-canvas{display:block;width:100%;max-width:760px;margin:0 auto;height:500px}
+#testimonials{background:var(--bg);position:relative;border-top:1px solid var(--border2);}
+.test-header{text-align:center;margin-bottom:3.5rem}
+.test-header .sec-label{justify-content:center}
+.test-header .sec-label::after{display:none}
+.test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;max-width:1100px;margin:0 auto;}
+.test-card{background:var(--surface);border:1px solid var(--border2);padding:2rem 1.75rem;position:relative;transition:border-color .3s,transform .3s,box-shadow .3s;display:flex;flex-direction:column;gap:1.25rem;}
+.test-card:hover{border-color:rgba(0,212,170,.25);transform:translateY(-3px);box-shadow:0 12px 36px rgba(0,0,0,.25);}
+.test-quote-mark{font-family:var(--serif);font-size:4rem;font-weight:700;color:rgba(0,212,170,.15);line-height:1;position:absolute;top:.75rem;left:1.4rem;pointer-events:none;user-select:none;}
+.test-body{font-size:.92rem;color:rgba(238,242,247,.72);line-height:1.8;padding-top:.75rem;font-style:italic;}
+.test-body em{color:var(--white);font-style:normal;font-weight:500}
+.test-author{display:flex;flex-direction:column;gap:.2rem;padding-top:.75rem;border-top:1px solid var(--border2);margin-top:auto;}
+.test-name{font-size:.85rem;font-weight:500;color:var(--white)}
+.test-title{font-size:.72rem;color:var(--muted2);line-height:1.45}
+.test-date{font-size:.65rem;letter-spacing:.08em;color:var(--muted);margin-top:.15rem}
+#connect{background:var(--bg2);text-align:center;padding:8rem 3rem;position:relative;overflow:hidden;border-top:1px solid var(--border2);}
+#connect::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--teal),transparent);}
+.connect-watermark{position:absolute;font-family:var(--serif);font-style:italic;font-size:clamp(5rem,14vw,13rem);font-weight:700;color:rgba(0,212,170,.025);white-space:nowrap;top:50%;left:50%;transform:translate(-50%,-50%);letter-spacing:-.04em;pointer-events:none;user-select:none;}
+.connect-inner{position:relative;z-index:1;max-width:600px;margin:0 auto}
+.connect-title{font-family:var(--serif);font-size:clamp(2.25rem,4.5vw,3.5rem);font-weight:600;line-height:1.1;letter-spacing:-.025em;color:var(--white);margin-bottom:.9rem;}
+.connect-title em{font-style:italic;font-weight:300;color:var(--teal)}
+.connect-sub{font-size:.97rem;color:var(--muted2);line-height:1.8;margin-bottom:2.5rem}
+.connect-btns{display:flex;gap:.9rem;justify-content:center;flex-wrap:wrap}
+.btn-c{display:inline-flex;align-items:center;gap:.6rem;padding:.9rem 2rem;text-decoration:none;font-family:var(--sans);font-size:.78rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;transition:all .25s;}
+.btn-c-primary{background:var(--teal);color:var(--bg)}
+.btn-c-primary:hover{box-shadow:0 12px 36px var(--teal-glow);transform:translateY(-2px)}
+.btn-c-outline{border:1px solid var(--border2);color:var(--white)}
+.btn-c-outline:hover{border-color:var(--teal);color:var(--teal)}
+footer{padding:1.75rem 3rem;border-top:1px solid var(--border2);display:flex;justify-content:space-between;align-items:center;}
+footer span{font-size:.7rem;color:var(--muted);letter-spacing:.06em}
+.footer-logo{font-family:var(--serif);font-weight:700;font-size:.95rem;color:var(--muted2)}
+.footer-logo span{color:var(--teal)}
+.modal-overlay{position:fixed;inset:0;z-index:500;background:rgba(5,8,14,.88);backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:center;padding:2rem;opacity:0;pointer-events:none;transition:opacity .3s ease;}
+.modal-overlay.open{opacity:1;pointer-events:all}
+.modal-box{background:var(--bg2);border:1px solid var(--border);max-width:780px;width:100%;max-height:88vh;overflow-y:auto;position:relative;transform:translateY(24px) scale(.97);transition:transform .3s cubic-bezier(.25,.46,.45,.94);}
+.modal-overlay.open .modal-box{transform:translateY(0) scale(1)}
+.modal-wide{align-items:flex-start;padding:1.5rem}
+.modal-box-xl{max-width:1100px;width:100%}
+.modal-top{padding:2.5rem 2.5rem 0}
+.modal-tag{font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);margin-bottom:.75rem;display:flex;align-items:center;gap:.5rem}
+.modal-tag::before{content:'';width:20px;height:1px;background:var(--teal);display:block}
+.modal-title{font-family:var(--serif);font-size:1.85rem;font-weight:600;line-height:1.15;letter-spacing:-.02em;color:var(--white);margin-bottom:1.5rem}
+.modal-close{position:absolute;top:1.5rem;right:1.5rem;width:36px;height:36px;border:1px solid var(--border2);background:transparent;color:var(--muted2);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:border-color .2s,color .2s;font-size:1.1rem;}
+.modal-close:hover{border-color:var(--teal);color:var(--teal)}
+.modal-divider{height:1px;background:var(--border2);margin:1.5rem 0}
+.modal-body{padding:0 2.5rem 2.5rem}
+.modal-section-title{font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);margin-bottom:.75rem;margin-top:1.5rem}
+.modal-text{font-size:.93rem;color:rgba(238,242,247,.72);line-height:1.85}
+.modal-text strong{color:var(--white);font-weight:500}
+.modal-chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.75rem}
+.modal-chip{font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;padding:.3rem .75rem;background:var(--teal-dim);border:1px solid var(--border);color:var(--teal)}
+.modal-workflow{display:flex;flex-direction:column;gap:0;margin-top:.75rem;border:1px solid var(--border2);}
+.modal-step{display:flex;gap:1rem;padding:1rem 1.25rem;border-bottom:1px solid var(--border2);align-items:flex-start;}
+.modal-step:last-child{border-bottom:none}
+.modal-step-num{font-family:var(--serif);font-size:1.1rem;font-weight:600;color:rgba(0,212,170,.35);flex-shrink:0;line-height:1.4;width:24px}
+.modal-step-content{flex:1}
+.modal-step-title{font-size:.8rem;font-weight:500;color:var(--white);margin-bottom:.2rem}
+.modal-step-desc{font-size:.8rem;color:var(--muted2);line-height:1.6}
+.modal-output-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.75rem;margin-top:.75rem}
+.modal-output{background:rgba(0,0,0,.25);border:1px solid var(--border2);padding:1rem;transition:border-color .2s}
+.modal-output:hover{border-color:var(--border)}
+.modal-output-title{font-size:.78rem;font-weight:500;color:var(--white);margin-bottom:.3rem}
+.modal-output-desc{font-size:.75rem;color:var(--muted2);line-height:1.55}
+.pc-filter-bar{display:flex;flex-wrap:wrap;gap:1rem 2rem;margin-bottom:1.25rem;padding:1rem 1.25rem;background:rgba(0,0,0,.2);border:1px solid var(--border2)}
+.pc-filter-group{display:flex;flex-direction:column;gap:.4rem}
+.pc-filter-label{font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted2)}
+.pc-filter-pills{display:flex;gap:.3rem;flex-wrap:wrap}
+.pc-pill{padding:.25rem .65rem;background:rgba(255,255,255,.03);border:1px solid var(--border2);color:var(--muted2);font-family:var(--sans);font-size:.65rem;font-weight:400;letter-spacing:.05em;cursor:pointer;transition:all .15s;white-space:nowrap}
+.pc-pill:hover{border-color:var(--border);color:var(--white)}
+.pc-pill-active{background:var(--teal-dim)!important;border-color:rgba(0,212,170,.3)!important;color:var(--teal)!important}
+.pc-pillar-tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:1.5rem}
+.pc-tab{background:rgba(255,255,255,.02);border:1px solid var(--border2);padding:.9rem 1.25rem;cursor:pointer;text-align:left;font-family:var(--sans);transition:all .2s;display:flex;flex-direction:column;gap:.15rem}
+.pc-tab:hover{border-color:var(--border);background:rgba(255,255,255,.04)}
+.pc-tab-active{background:rgba(0,212,170,.06)!important;border-color:rgba(0,212,170,.3)!important}
+.pc-tab-num{font-family:var(--serif);font-size:.85rem;font-weight:600;color:rgba(0,212,170,.4)}
+.pc-tab-active .pc-tab-num{color:var(--teal)}
+.pc-tab-label{font-size:.82rem;font-weight:500;color:var(--muted2);letter-spacing:.03em}
+.pc-tab-active .pc-tab-label{color:var(--white)}
+.pc-tab-sub{font-size:.65rem;color:var(--muted);letter-spacing:.04em}
+.pc-section-title{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--teal);margin-bottom:1rem;margin-top:1.5rem;display:flex;align-items:center;gap:.75rem}
+.pc-section-title::after{content:'';flex:1;height:1px;background:var(--border2)}
+.pc-row-2{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-bottom:.75rem}
+.pc-row-3{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;margin-bottom:.75rem}
+.pc-row-full{margin-bottom:.75rem}
+.pc-card{background:rgba(0,0,0,.18);border:1px solid var(--border2);padding:1.1rem}
+.pc-card-title{font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted2);margin-bottom:.85rem;display:flex;justify-content:space-between;align-items:center}
+.pc-card-sub{color:var(--muted);text-transform:none;letter-spacing:.03em}
+.pc-donut-wrap{display:flex;align-items:center;gap:1.25rem}
+.pc-donut-svg{flex-shrink:0}
+.pc-donut-legend{display:flex;flex-direction:column;gap:.5rem;flex:1}
+.pc-donut-item{display:flex;align-items:center;gap:.55rem}
+.pc-donut-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.pc-donut-lbl{font-size:.68rem;color:var(--muted2);flex:1}
+.pc-donut-val{font-size:.78rem;font-weight:500;color:var(--white);font-family:var(--serif)}
+.pc-donut-pct{font-size:.65rem;color:var(--muted2);margin-left:.25rem}
+.pc-donut-total{font-family:var(--serif);font-size:1.25rem;font-weight:600;fill:#00d4aa}
+.pc-donut-total-lbl{font-family:Outfit,sans-serif;font-size:.38rem;fill:#5a7080;letter-spacing:.08em;text-transform:uppercase}
+.pc-linechart{position:relative;height:130px}
+.pc-linechart svg{width:100%;height:100%}
+.pc-data-table{width:100%;border-collapse:collapse;font-size:.72rem}
+.pc-data-table th{padding:.4rem .65rem;text-align:right;font-size:.58rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--muted2);border-bottom:1px solid var(--border2);white-space:nowrap}
+.pc-data-table th:first-child{text-align:left}
+.pc-data-table td{padding:.5rem .65rem;text-align:right;color:rgba(238,242,247,.7);border-bottom:1px solid rgba(255,255,255,.025);white-space:nowrap}
+.pc-data-table td:first-child{text-align:left;color:var(--white);font-weight:400}
+.pc-data-table tfoot td{font-weight:600;color:var(--white);border-top:1px solid var(--border);background:rgba(0,212,170,.03)}
+.pc-data-table .td-teal{color:var(--teal)}
+.pc-data-table .td-green{color:#00d4aa}.pc-data-table .td-amber{color:#f5a623}.pc-data-table .td-red{color:#ff6b6b}
+.pc-kpi-strip{display:grid;grid-template-columns:repeat(5,1fr);gap:.5rem;margin-bottom:.75rem}
+.pc-kpi2{background:rgba(0,0,0,.2);border:1px solid var(--border2);padding:.75rem .9rem}
+.pc-kpi2-label{font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted2);margin-bottom:.3rem}
+.pc-kpi2-val{font-family:var(--serif);font-size:1.3rem;font-weight:600;color:var(--teal);line-height:1}
+.pc-kpi2-delta{font-size:.65rem;margin-top:.2rem}
+.pc-funnel{display:flex;flex-direction:column;gap:.35rem}
+.pc-funnel-step{display:flex;align-items:center;gap:.75rem}
+.pc-funnel-bar-wrap{flex:1;height:28px;background:rgba(255,255,255,.03);position:relative;overflow:hidden}
+.pc-funnel-fill{height:100%;position:absolute;left:0;top:0}
+.pc-funnel-lbl{font-size:.65rem;color:var(--white);width:60px;flex-shrink:0}
+.pc-funnel-vol{font-size:.7rem;color:var(--teal);width:50px;text-align:right;flex-shrink:0;font-family:var(--serif)}
+.pc-funnel-conv{font-size:.62rem;color:var(--muted2);width:38px;text-align:right;flex-shrink:0}
+.pc-stacked-bar{display:flex;flex-direction:column;gap:.5rem}
+.pc-stacked-row{display:flex;align-items:center;gap:.6rem}
+.pc-stacked-lbl{font-size:.65rem;color:var(--muted2);width:80px;flex-shrink:0}
+.pc-stacked-track{flex:1;height:20px;display:flex;overflow:hidden}
+.pc-stacked-seg{height:100%;display:flex;align-items:center;justify-content:center;font-size:.55rem;font-weight:500;color:rgba(255,255,255,.8)}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;opacity:.022;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");}
+@media(max-width:900px){
+  nav{padding:1rem 1.5rem}
+  .nav-links{display:none}
+  section,#conduit{padding:5rem 1.5rem}
+  .init-header{padding:5rem 1.5rem 0}
+  .bio-grid{grid-template-columns:1fr}
+  .sp-inner{grid-template-columns:1fr;gap:2.5rem}
+  .sp-inner-rev{direction:ltr}
+  .sp-map-col{min-height:260px}
+  .story-panel{padding:3.5rem 1.5rem}
+  .forecast-dashboard{margin:0 -1.5rem;padding:2rem 1.5rem 0}
+  .fc-main{grid-template-columns:1fr}
+  .fc-metrics-grid{grid-template-columns:1fr 1fr}
+  .fc-mc-primary{grid-column:1/3}
+  .tl-item{grid-template-columns:1fr}
+  .tl-item:nth-child(odd) .tl-card{grid-column:1;text-align:left;margin-left:1.5rem}
+  .tl-item:nth-child(even) .tl-card{grid-column:1;margin-left:1.5rem}
+  .tl-dot-col{display:none}
+  .tl-rail,.tl-fill{left:0}
+  .tl-item:nth-child(odd) .tl-period,.tl-item:nth-child(odd) .tl-role,.tl-item:nth-child(odd) .tl-company,.tl-item:nth-child(odd) .tl-desc{text-align:left}
+  .proj-grid{grid-template-columns:1fr}
+  .test-grid{grid-template-columns:1fr}
+  .award-banner{flex-direction:column;gap:.75rem;text-align:center}
+  .modal-box{max-height:92vh}
+  .modal-top,.modal-body{padding-left:1.5rem;padding-right:1.5rem}
+  .modal-output-grid{grid-template-columns:1fr}
+  .pc-kpi-strip{grid-template-columns:repeat(2,1fr)}
+  .pc-row-2,.pc-row-3{grid-template-columns:1fr}
+  #hub-canvas{height:360px}
+  footer{flex-direction:column;gap:.75rem;text-align:center}
+  .tools-category-row{grid-template-columns:repeat(2,1fr)}
+}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms !important;transition-duration:.01ms !important}}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<nav>
+  <div class="nav-logo">J<span>.</span></div>
+  <ul class="nav-links">
+    <li><a href="#bio">About</a></li>
+    <li><a href="#career">Career</a></li>
+    <li><a href="#projects">Work</a></li>
+    <li><a href="#tools">Stack</a></li>
+    <li><a href="#initiatives">Initiatives</a></li>
+    <li><a href="#conduit">Conduit</a></li>
+    <li><a href="#testimonials">Testimonials</a></li>
+    <li><a href="#connect">Connect</a></li>
+  </ul>
+</nav>
+
+<section id="hero">
+  <canvas class="hero-canvas" id="hero-canvas"></canvas>
+  <div class="hero-orb orb-a"></div>
+  <div class="hero-orb orb-b"></div>
+  <div class="hero-orb orb-c"></div>
+  <div class="hero-greeting">Hey,</div>
+  <div class="hero-badge">
+    <span class="hero-badge-dot"></span>
+    Demand Gen &amp; Pipeline Operations &middot; Armis Security
+  </div>
+  <div class="hero-photo-wrap">
+    <div class="hero-photo-inner">
+      <img class="hero-photo-img" id="hero-photo-img" src="photo.jpg" alt="Josh Frenette" crossorigin="anonymous">
+      <canvas class="hero-photo-canvas" id="hero-photo-canvas"></canvas>
+    </div>
+  </div>
+  <div class="hero-descriptor">
+    <span>Pipeline Architect</span>
+    <span>Demand Alchemist</span>
+    <span>Revenue Thinker</span>
+    <span>B2B GTM Leader</span>
+    <span class="hd-accent">Currently @ Armis</span>
+  </div>
+  <div class="hero-name-block">
+    <h1 class="hero-name-big">
+      <span class="hn-first">Josh</span>
+      <span class="hn-last">Frenette</span>
+    </h1>
+    <p class="hero-name-sub">Demand Gen &amp; Pipeline Operations leader building the systems that turn market signal into closed revenue.</p>
+  </div>
+  <div class="scroll-cue">
+    <span>Scroll</span>
+    <div class="scroll-track"></div>
+  </div>
+</section>
+
+<!-- BIO -->
+<section id="bio">
+  <div class="container">
+    <div class="bio-grid reveal">
+      <div class="bio-img-wrap">
+        <div class="bio-img-frame">
+          <div class="bio-img-inner">
+            <div class="bio-img-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+              </svg>
+            </div>
+            <p>Photo<br>coming soon</p>
+          </div>
+        </div>
+        <div class="bio-corner tl"></div>
+        <div class="bio-corner br"></div>
+        <div class="bio-tag">Denver, CO &middot; Open to Advisory</div>
+      </div>
+      <div class="bio-text">
+        <div class="sec-label">About</div>
+        <h2 class="sec-title">The operator<br>behind the <em>numbers</em></h2>
+        <p>I spent the first part of my career in the trades, running crews, bidding jobs, and learning early that the gap between effort and revenue is almost always a process problem. That instinct followed me into B2B SaaS.</p>
+        <p>For the past several years I have built and operated demand gen and pipeline programs at Series B through post-IPO companies. <strong>My work lives at the intersection of strategy and infrastructure</strong> — I am as comfortable designing the GTM model as I am wiring the Salesforce workflows that enforce it.</p>
+        <p>At Armis I lead Demand Generation and Pipeline Operations for a cybersecurity platform protecting the world's most critical infrastructure. Before that, I built pipeline engines at companies ranging from digital agencies to enterprise SaaS.</p>
+        <p>Outside the day job: I advise founders on GTM motion design, mentor early-career operators, and contribute to the go-to-market conversation through the University of Colorado Colorado Springs business advisory board.</p>
+        <a href="#" class="btn-resume">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download Resume
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAREER -->
+<section id="career">
+  <div class="container">
+    <div class="career-header reveal">
+      <div class="sec-label">Experience</div>
+      <h2 class="sec-title">The long game</h2>
+      <p class="career-kicker">From job sites to boardrooms,<br>always optimizing the system.</p>
+    </div>
+    <div class="award-banner reveal">
+      <div class="award-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00d4aa" stroke-width="1.5">
+          <circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/>
+        </svg>
+      </div>
+      <div class="award-text">
+        <span class="award-label">Recognition</span>
+        <span class="award-name">Top 25 Revenue Operations Leader &mdash; 2024</span>
+        <span class="award-desc">Recognized for pipeline systems design and cross-functional GTM alignment at scale.</span>
+      </div>
+    </div>
+    <div class="timeline">
+      <div class="tl-rail"></div>
+      <div class="tl-fill" id="tl-fill"></div>
+
+      <div class="tl-item reveal">
+        <div class="tl-card tl-current">
+          <span class="tl-current-badge">Current</span>
+          <div class="tl-period">2022 &mdash; Present</div>
+          <div class="tl-role">Director, Demand Gen &amp; Pipeline Operations</div>
+          <div class="tl-company">Armis Security</div>
+          <div class="tl-desc">Leading demand generation and pipeline operations for a global cybersecurity platform. Built the pipeline council framework, GTM forecast model, and funnel intelligence infrastructure from the ground up.</div>
+        </div>
+        <div class="tl-dot-col"><div class="tl-dot tl-dot-active"></div></div>
+        <div class="tl-empty"></div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-empty"></div>
+        <div class="tl-dot-col"><div class="tl-dot"></div></div>
+        <div class="tl-card">
+          <div class="tl-period">2020 &mdash; 2022</div>
+          <div class="tl-role">Head of Demand Generation</div>
+          <div class="tl-company">Series B SaaS</div>
+          <div class="tl-desc">Built demand gen motion from first hire. Scaled MQL volume 3x in 18 months through ABM, content, and paid infrastructure. Owned the full funnel from impression to opportunity creation.</div>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-card">
+          <div class="tl-period">2018 &mdash; 2020</div>
+          <div class="tl-role">Senior Manager, Revenue Marketing</div>
+          <div class="tl-company">Mid-Market SaaS</div>
+          <div class="tl-desc">Managed $2.4M demand gen budget across paid, events, and partner channels. Introduced pipeline velocity tracking and built the first cross-functional pipeline review cadence.</div>
+        </div>
+        <div class="tl-dot-col"><div class="tl-dot"></div></div>
+        <div class="tl-empty"></div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-empty"></div>
+        <div class="tl-dot-col"><div class="tl-dot"></div></div>
+        <div class="tl-card">
+          <div class="tl-period">2016 &mdash; 2018</div>
+          <div class="tl-role">Digital Marketing Manager</div>
+          <div class="tl-company">Digital Agency</div>
+          <div class="tl-desc">Led digital strategy and paid media for B2B clients across technology, professional services, and manufacturing verticals. Built reporting infrastructure connecting ad spend to revenue.</div>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-card">
+          <div class="tl-period">2014 &mdash; 2016</div>
+          <div class="tl-role">Marketing Specialist</div>
+          <div class="tl-company">B2B Technology</div>
+          <div class="tl-desc">First marketing hire. Owned content, email, and trade show programs. Built the company's first formal lead scoring model in Marketo and stood up the initial attribution reporting layer.</div>
+        </div>
+        <div class="tl-dot-col"><div class="tl-dot"></div></div>
+        <div class="tl-empty"></div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-empty"></div>
+        <div class="tl-dot-col"><div class="tl-dot"></div></div>
+        <div class="tl-card">
+          <div class="tl-period">2010 &mdash; 2014</div>
+          <div class="tl-role">Project Lead / Estimator</div>
+          <div class="tl-company">Benchmark Electrical</div>
+          <div class="tl-desc">Led electrical crews on commercial and residential projects. Managed job bids, material procurement, and subcontractor relationships. Learned firsthand that revenue is a systems problem.</div>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-card tl-advisory">
+          <span class="tl-advisory-tag">Advisory Role</span>
+          <div class="tl-period">2023 &mdash; Present</div>
+          <div class="tl-role">Business Advisory Board Member</div>
+          <div class="tl-company">UCCS &mdash; University of Colorado Colorado Springs</div>
+          <div class="tl-desc">Advising on curriculum development and real-world GTM application for business students. Contributing to internship program design and industry partnership strategy.</div>
+        </div>
+        <div class="tl-dot-col"><div class="tl-dot"></div></div>
+        <div class="tl-empty"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <div class="proj-header reveal">
+      <div class="sec-label">Featured Work</div>
+      <h2 class="sec-title">Systems built,<br><em>revenue moved</em></h2>
+      <p class="proj-subhead">A selection of initiatives that define how I operate.</p>
+    </div>
+    <div class="proj-grid">
+      <div class="proj-card reveal" data-modal="proj-gtm">
+        <div class="proj-tag">Forecasting</div>
+        <div class="proj-name">Bottom-Up GTM Forecast Model</div>
+        <div class="proj-desc">Replaced gut-feel pipeline targets with a driver-based model that cascades from target account universe through conversion rates to closed ARR, by region, segment, and product line.</div>
+        <div class="proj-outcomes">
+          <span class="proj-outcome">Forecast Accuracy</span>
+          <span class="proj-outcome">Board Reporting</span>
+          <span class="proj-outcome">RevOps</span>
+        </div>
+        <div class="proj-cta">View Project <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+      </div>
+
+      <div class="proj-card reveal d1" data-modal="proj-council">
+        <div class="proj-tag">Pipeline Governance</div>
+        <div class="proj-name">Pipeline Council Framework</div>
+        <div class="proj-desc">Designed and operationalized a weekly cross-functional pipeline review that aligned Sales, Marketing, RevOps, and CS around a shared set of leading indicators, not just late-stage deals.</div>
+        <div class="proj-outcomes">
+          <span class="proj-outcome">Pipeline Velocity</span>
+          <span class="proj-outcome">Cross-Functional</span>
+          <span class="proj-outcome">Governance</span>
+        </div>
+        <div class="proj-cta">View Project <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+      </div>
+
+      <div class="proj-card reveal" data-modal="proj-bowtie">
+        <div class="proj-tag">Analytics</div>
+        <div class="proj-name">Bowtie Funnel Intelligence</div>
+        <div class="proj-desc">Mapped the full bowtie from anonymous visitor through expansion, surfacing where pipeline was leaking and where marketing was actually contributing to retention and expansion revenue.</div>
+        <div class="proj-outcomes">
+          <span class="proj-outcome">Funnel Analytics</span>
+          <span class="proj-outcome">Attribution</span>
+          <span class="proj-outcome">Expansion</span>
+        </div>
+        <div class="proj-cta">View Project <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+      </div>
+
+      <div class="proj-card reveal d1" data-modal="proj-digital">
+        <div class="proj-tag">Strategy</div>
+        <div class="proj-name">Digital Strategy Rebuild</div>
+        <div class="proj-desc">Audited and rebuilt a fragmented digital marketing infrastructure, consolidating four attribution systems, rebuilding paid media targeting architecture, and establishing a unified performance reporting layer.</div>
+        <div class="proj-outcomes">
+          <span class="proj-outcome">Paid Media</span>
+          <span class="proj-outcome">Attribution</span>
+          <span class="proj-outcome">Infrastructure</span>
+        </div>
+        <div class="proj-cta">View Project <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+      </div>
+
+      <div class="proj-card proj-card-wide reveal" data-modal="proj-llm">
+        <div class="proj-tag">AI / GTM Intelligence</div>
+        <div class="proj-name">Custom LLM Pipeline Intelligence Engine</div>
+        <div class="proj-desc">Built a custom LLM layer on top of CRM and intent data to surface pipeline risk, identify buyer signals, and generate account-level talking points for sales, eliminating six hours of weekly manual research per AE.</div>
+        <div class="proj-outcomes">
+          <span class="proj-outcome">AI / LLM</span>
+          <span class="proj-outcome">Sales Intelligence</span>
+          <span class="proj-outcome">Automation</span>
+          <span class="proj-outcome">Intent Data</span>
+        </div>
+        <div class="proj-cta">View Project <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE BREAK -->
+<div class="quote-break reveal">
+  <div class="quote-break-line"></div>
+  <div class="quote-break-text">"Pipeline is a math problem. Most teams are solving the wrong equation."</div>
+  <div class="quote-break-line"></div>
+</div>
+
+<!-- TOOLS -->
+<section id="tools">
+  <div class="container">
+    <div class="tools-header reveal">
+      <div class="sec-label">Intelligence Stack</div>
+      <h2 class="sec-title">The operating<br><em>infrastructure</em></h2>
+      <p class="tools-subhead">Every tool in my stack earns its place by producing <em>signal, not noise</em>. The goal is a connected intelligence layer where data flows from source to decision without a human relay race.</p>
+    </div>
+    <div class="tools-flow-wrap reveal">
+      <span class="tools-flow-label">Data Sources</span>
+      <span class="tools-flow-arrow">&rarr;</span>
+      <span class="tools-flow-label tools-flow-center">Intelligence Layer</span>
+      <span class="tools-flow-arrow">&rarr;</span>
+      <span class="tools-flow-label">Actionable Output</span>
+    </div>
+    <div class="tools-category-row reveal">
+      <div>
+        <div class="tools-cat-label">CRM</div>
+        <div class="tools-logo-strip">
+          <div class="tool-logo-card">
+            <svg viewBox="0 0 36 24" fill="none"><text x="3" y="17" fill="#00a1e0" font-size="11" font-weight="700" font-family="Arial">SF</text></svg>
+            <span>Salesforce</span>
+          </div>
+          <div class="tool-logo-card">
+            <svg viewBox="0 0 36 24" fill="none"><text x="3" y="17" fill="#ff7a59" font-size="11" font-weight="700" font-family="Arial">HS</text></svg>
+            <span>HubSpot</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="tools-cat-label">Analytics</div>
+        <div class="tools-logo-strip">
+          <div class="tool-logo-card">
+            <svg viewBox="0 0 36 24" fill="none"><text x="2" y="17" fill="#e37400" font-size="10" font-weight="700" font-family="Arial">GA4</text></svg>
+            <span>Google Analytics</span>
+          </div>
+          <div class="tool-logo-card">
+            <svg viewBox="0 0 36 24" fill="none"><text x="3" y="17" fill="#7b68ee" font-size="10" font-weight="700" font-family="Arial">LKR</text></svg>
+            <span>Looker</span>
+          </div>
+          <div class="tool-logo-card">
+            <svg viewBox="0 0 36 24" fill="none"><text x="3" y="17" fill="#e8742a" font-size="10" font-weight="700" font-family="Arial">TBL</text></svg>
+            <span>Tableau</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="tools-cat-label">Intent / ABM</div>
+        <div class="tools-logo-strip">
+          <div class="tool-logo-card">
+            <svg viewBox="0 0 36 24" fill="none"><text x="3" y="17" fill="#00bfa5" font-size="11" font-weight="700" font-family="Arial">6S</text></svg>
+            <span>6sense</span>
+          </div>
+          <div class="tool-logo-card">
+            <svg viewBox="0 0 36 24" fill="none"><text x="2" y="17" fill="#1a73e8" font-size="10" font-weight="700" font-family="Arial">DB</text></svg>
+            <span>Demandbase</span>
+          </div>
+          <div class="tool-logo-card">
+            <svg viewBox="0 0 36 24" fill="none"><text x="2" y="17" fill="#f4b400" font-size="10" font-weight="700" font-family="Arial">BM</text></svg>
+            <span>Bombora</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="tools-cat-label">AI / LLMs</div>
+        <div class="tools-logo-strip">
+          <div class="tool-logo-card">
+            <svg viewBox="0 0 36 24" fill="none"><text x="2" y="17" fill="#10a37f" font-size="9" font-weight="700" font-family="Arial">GPT</text></svg>
+            <span>ChatGPT / GPT-4o</span>
+          </div>
+          <div class="tool-logo-card">
+            <svg viewBox="0 0 36 24" fill="none"><text x="2" y="17" fill="#cc785c" font-size="9" font-weight="700" font-family="Arial">ANT</text></svg>
+            <span>Claude / Anthropic</span>
+          </div>
+          <div class="tool-logo-card">
+            <svg viewBox="0 0 36 24" fill="none"><text x="2" y="17" fill="#4285f4" font-size="9" font-weight="700" font-family="Arial">GEM</text></svg>
+            <span>Gemini</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tools-statement reveal">
+      <div class="tools-stmt-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00d4aa" stroke-width="1.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      </div>
+      <p>I build stacks that talk to each other. The goal is not tool coverage — it is signal fidelity. Every system I run is connected to a decision, not a dashboard no one reads.</p>
+    </div>
+  </div>
+</section>
+
+<!-- INITIATIVES -->
+<section id="initiatives">
+  <div class="init-header reveal">
+    <div class="container">
+      <div class="sec-label">Initiatives</div>
+      <h2 class="sec-title">Work in motion</h2>
+    </div>
+  </div>
+
+  <!-- Panel 01: GTM Planning -->
+  <div class="story-panel sp-01">
+    <div class="sp-bg-num">01</div>
+    <div class="sp-inner">
+      <div class="reveal-l">
+        <div class="sp-eye">Initiative 01 &mdash; GTM Planning</div>
+        <h3 class="sp-title">Annual GTM Planning Built on<br>Driver Math, Not Targets</h3>
+        <p class="sp-body">The old process: finance hands down a number, marketing reverse-engineers a story to justify it. <strong>The new process: we build the forecast from the bottom up</strong>, starting with addressable accounts, applying realistic conversion rates at every stage, and arriving at an ARR projection the whole revenue team can stand behind.</p>
+        <p class="sp-body" style="margin-top:.85rem">This model became the source of truth for headcount planning, channel investment decisions, and quarterly board reporting.</p>
+        <div class="sp-ai-badge">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          LLM-assisted scenario modeling
+        </div>
+      </div>
+      <div class="reveal-r">
+        <div class="sp-chart-card">
+          <div class="sp-chart-head">
+            <span>Pipeline Coverage by Segment</span>
+            <span class="sp-chart-period">FY 2024</span>
+          </div>
+          <div class="sp-bars">
+            <div class="sp-bar-row">
+              <span class="sp-bar-lbl">Enterprise</span>
+              <div class="sp-bar-track"><div class="sp-bar" style="--w:87%"></div></div>
+              <span class="sp-bar-val">87%</span>
+            </div>
+            <div class="sp-bar-row">
+              <span class="sp-bar-lbl">Mid-Market</span>
+              <div class="sp-bar-track"><div class="sp-bar" style="--w:74%"></div></div>
+              <span class="sp-bar-val">74%</span>
+            </div>
+            <div class="sp-bar-row">
+              <span class="sp-bar-lbl">Commercial</span>
+              <div class="sp-bar-track"><div class="sp-bar" style="--w:61%"></div></div>
+              <span class="sp-bar-val">61%</span>
+            </div>
+            <div class="sp-bar-row">
+              <span class="sp-bar-lbl">SLED</span>
+              <div class="sp-bar-track"><div class="sp-bar" style="--w:92%"></div></div>
+              <span class="sp-bar-val">92%</span>
+            </div>
+            <div class="sp-bar-row">
+              <span class="sp-bar-lbl">Federal</span>
+              <div class="sp-bar-track"><div class="sp-bar" style="--w:68%"></div></div>
+              <span class="sp-bar-val">68%</span>
+            </div>
+          </div>
+          <div class="sp-kpi-row">
+            <div class="sp-kpi"><span class="sp-kpi-v">3.2x</span><span class="sp-kpi-l">Coverage</span></div>
+            <div class="sp-kpi"><span class="sp-kpi-v">94%</span><span class="sp-kpi-l">Accuracy</span></div>
+            <div class="sp-kpi"><span class="sp-kpi-v">$47M</span><span class="sp-kpi-l">Pipe QTR</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Panel 02: Pipeline Governance -->
+  <div class="story-panel sp-02">
+    <div class="sp-bg-num">02</div>
+    <div class="sp-inner sp-inner-rev">
+      <div class="sp-map-col reveal-r">
+        <div class="map-wrap">
+          <canvas id="globe-canvas" width="500" height="420" style="max-width:100%;cursor:grab"></canvas>
+          <div class="map-tip" id="globe-tip"></div>
+          <div class="map-legend">
+            <div class="map-legend-item"><div class="map-legend-dot" style="background:#00d4aa"></div>AMER</div>
+            <div class="map-legend-item"><div class="map-legend-dot" style="background:#4a9eff"></div>EMEA</div>
+            <div class="map-legend-item"><div class="map-legend-dot" style="background:#f5a623"></div>APJ</div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal-l">
+        <div class="sp-eye">Initiative 02 &mdash; Pipeline Governance</div>
+        <h3 class="sp-title">A Pipeline Council That<br>Actually Changes Behavior</h3>
+        <p class="sp-body">Most pipeline reviews are post-mortems dressed up as forecasts. <strong>The Pipeline Council I designed is forward-looking</strong>, surfacing coverage gaps, stage stalls, and quality signals 30 to 60 days before they show up in the quarter.</p>
+        <p class="sp-body" style="margin-top:.85rem">The cadence brings Sales, Marketing, RevOps, and CS into a shared view of the pipe by region, segment, and product. Each session ends with clear owners and committed actions.</p>
+        <div class="sp-status-chips">
+          <div class="sp-chip sp-chip-live"><span class="sp-chip-dot"></span>Live Weekly</div>
+          <div class="sp-chip sp-chip-live"><span class="sp-chip-dot"></span>Global Coverage</div>
+          <div class="sp-chip">AMER &middot; EMEA &middot; APJ</div>
+        </div>
+        <div class="sp-live-badge">
+          <div class="sp-live-dot"></div>
+          Pipeline Council &middot; Week of Mar 10, 2025
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Panel 03: Forecast Dashboard -->
+  <div class="story-panel sp-03">
+    <div class="sp-bg-num">03</div>
+    <div class="sp-inner" style="grid-template-columns:1fr;max-width:700px;text-align:center;margin-bottom:3rem">
+      <div class="reveal">
+        <div class="sp-eye">Initiative 03 &mdash; Bottom-Up Forecast</div>
+        <h3 class="sp-title">Interactive Forecast Model</h3>
+        <p class="sp-body sp-body-narrow">Adjust the assumptions below and watch the model cascade in real time. This is the same logic that drives our quarterly planning sessions.</p>
+      </div>
+    </div>
+
+    <div class="forecast-dashboard">
+      <div class="fc-baseline-header">
+        <div class="fc-baseline-left">
+          <div class="fc-section-label">Baseline Reference</div>
+          <div class="fc-baseline-note">Compare against prior year actuals and current board target.</div>
+        </div>
+        <div class="fc-baseline-pills">
+          <div class="fc-baseline-pill fc-pill-prior">
+            <span class="fc-pill-label">Prior Year Actuals</span>
+            <span class="fc-pill-val">$28.4M ARR &middot; 312 New Logos &middot; 2.8x Coverage</span>
+          </div>
+          <div class="fc-baseline-arrow">&rarr;</div>
+          <div class="fc-baseline-pill fc-pill-target">
+            <span class="fc-pill-label">Current Year Target</span>
+            <span class="fc-pill-val">$38M ARR &middot; 420 New Logos &middot; 3.2x Coverage</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="fc-main">
+        <div>
+          <div class="fc-section-label">Assumptions</div>
+          <div class="fc-hint">Drag sliders to model different scenarios.</div>
+          <div class="fc-assumptions">
+            <div class="fc-input-group">
+              <div class="fc-input-row">
+                <div class="fc-lbl">Target Accounts <span class="fc-lbl-unit">count</span></div>
+                <div class="fc-slider-wrap">
+                  <input type="range" class="fc-slider" id="fc-accounts" min="500" max="5000" step="100" value="2500">
+                  <span class="fc-slider-val" id="fc-accounts-val">2,500</span>
+                </div>
+              </div>
+              <div class="fc-input-row">
+                <div class="fc-lbl">AE Meeting Rate <span class="fc-lbl-unit">% of accounts</span></div>
+                <div class="fc-slider-wrap">
+                  <input type="range" class="fc-slider" id="fc-meeting-rate" min="1" max="25" step="0.5" value="8">
+                  <span class="fc-slider-val" id="fc-meeting-rate-val">8%</span>
+                </div>
+              </div>
+              <div class="fc-input-row">
+                <div class="fc-lbl">Meeting to Opp % <span class="fc-lbl-unit">conversion</span></div>
+                <div class="fc-slider-wrap">
+                  <input type="range" class="fc-slider" id="fc-opp-rate" min="10" max="80" step="1" value="35">
+                  <span class="fc-slider-val" id="fc-opp-rate-val">35%</span>
+                </div>
+              </div>
+              <div class="fc-input-row">
+                <div class="fc-lbl">Opp to Close % <span class="fc-lbl-unit">win rate</span></div>
+                <div class="fc-slider-wrap">
+                  <input type="range" class="fc-slider" id="fc-win-rate" min="5" max="50" step="1" value="22">
+                  <span class="fc-slider-val" id="fc-win-rate-val">22%</span>
+                </div>
+              </div>
+              <div class="fc-input-row">
+                <div class="fc-lbl">Avg Contract Value <span class="fc-lbl-unit">$K ACV</span></div>
+                <div class="fc-slider-wrap">
+                  <input type="range" class="fc-slider" id="fc-acv" min="20" max="500" step="5" value="95">
+                  <span class="fc-slider-val" id="fc-acv-val">$95K</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="fc-section-label">Projected Output</div>
+          <div class="fc-hint">Updates instantly as assumptions change.</div>
+          <div class="fc-metrics-grid">
+            <div class="fc-metric-card fc-mc-primary">
+              <div class="fc-mc-label">Projected ARR</div>
+              <div class="fc-mc-val" id="fc-arr">$46.2M</div>
+              <div class="fc-mc-sub">Based on <span id="fc-new-logos-inline">485</span> new logos at <span id="fc-acv-inline">$95K</span> ACV</div>
+            </div>
+            <div class="fc-metric-card">
+              <div class="fc-mc-label">vs. Board Target</div>
+              <div class="fc-mc-val" id="fc-vs-target">+$8.2M</div>
+              <div class="fc-mc-sub">vs. $38M board target</div>
+            </div>
+            <div class="fc-metric-card">
+              <div class="fc-mc-label">AE Meetings</div>
+              <div class="fc-mc-val" id="fc-meetings">200</div>
+              <div class="fc-mc-sub">from <span id="fc-accounts-inline">2,500</span> accounts</div>
+            </div>
+            <div class="fc-metric-card">
+              <div class="fc-mc-label">Opps Created</div>
+              <div class="fc-mc-val" id="fc-opps">70</div>
+              <div class="fc-mc-sub">at <span id="fc-opp-rate-inline">35%</span> conversion</div>
+            </div>
+            <div class="fc-metric-card">
+              <div class="fc-mc-label">New Logos</div>
+              <div class="fc-mc-val" id="fc-new-logos">15</div>
+              <div class="fc-mc-sub">at <span id="fc-win-rate-inline">22%</span> win rate</div>
+            </div>
+            <div class="fc-metric-card">
+              <div class="fc-mc-label">Pipeline Required</div>
+              <div class="fc-mc-val" id="fc-pipe-req">$148M</div>
+              <div class="fc-mc-sub">at 3.2x coverage ratio</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fc-table-wrap">
+        <div class="fc-table-header">
+          <div class="fc-section-label">Regional Breakdown</div>
+          <span class="fc-table-note">Allocations based on headcount and TAM weighting.</span>
+        </div>
+        <div class="fc-table-scroll">
+          <table class="fc-table">
+            <thead>
+              <tr>
+                <th>Region</th>
+                <th>Accounts</th>
+                <th>Meetings</th>
+                <th>Opps</th>
+                <th>New Logos</th>
+                <th>ARR</th>
+              </tr>
+            </thead>
+            <tbody id="fc-table-body"></tbody>
+            <tfoot>
+              <tr>
+                <td>Total</td>
+                <td id="fc-tot-accounts">2,500</td>
+                <td id="fc-tot-meetings">200</td>
+                <td id="fc-tot-opps">70</td>
+                <td id="fc-tot-logos">15</td>
+                <td class="td-teal" id="fc-tot-arr">$46.2M</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONDUIT -->
+<section id="conduit">
+  <div class="conduit-header reveal">
+    <div class="sec-label">The Conduit</div>
+    <h2 class="sec-title">Pipeline Ops as<br><em>operating system</em></h2>
+    <p class="conduit-sub">Every motion that touches revenue flows through a connected operations layer. This is what it looks like when demand gen, sales, and data actually talk to each other.</p>
+  </div>
+  <canvas id="hub-canvas"></canvas>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="container">
+    <div class="test-header reveal">
+      <div class="sec-label">What Others Say</div>
+      <h2 class="sec-title">Perspectives from<br><em>the field</em></h2>
+    </div>
+    <div class="test-grid">
+      <div class="test-card reveal">
+        <div class="test-quote-mark">"</div>
+        <div class="test-body">Josh brings something rare to the table: he can design the strategy <em>and</em> build the infrastructure to execute it. Most people are good at one or the other. He has built systems at Armis that I have seen take entire RevOps teams to replicate elsewhere.</div>
+        <div class="test-author">
+          <span class="test-name">Robert Driggers</span>
+          <span class="test-title">VP of Revenue Operations</span>
+          <span class="test-date">2024</span>
+        </div>
+      </div>
+      <div class="test-card reveal d1">
+        <div class="test-quote-mark">"</div>
+        <div class="test-body">Working with Josh on the Pipeline Council was one of the most effective cross-functional initiatives I have been part of. He built structure where there was chaos, <em>and made every function feel like they owned it</em>. That is a hard thing to do.</div>
+        <div class="test-author">
+          <span class="test-name">Wendy Zuluaga</span>
+          <span class="test-title">Director of Sales Development</span>
+          <span class="test-date">2024</span>
+        </div>
+      </div>
+      <div class="test-card reveal d2">
+        <div class="test-quote-mark">"</div>
+        <div class="test-body">The forecast model Josh built changed how we talk to the board. Instead of defending a number, <em>we were walking through a machine</em>, here are the inputs, here are the conversion rates, here is the output. That is exactly the level of rigor a board wants to see.</div>
+        <div class="test-author">
+          <span class="test-name">Chris Archinal</span>
+          <span class="test-title">Chief Revenue Officer</span>
+          <span class="test-date">2024</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONNECT -->
+<section id="connect">
+  <div class="connect-watermark">Let's Talk</div>
+  <div class="connect-inner">
+    <h2 class="connect-title reveal">Let's build<br>something <em>deliberate</em></h2>
+    <p class="connect-sub reveal">Whether you are scaling a demand gen motion, rearchitecting your pipeline operating model, or just want to compare notes, I am worth an hour of your time.</p>
+    <div class="connect-btns reveal">
+      <a href="mailto:josh@joshfrenette.com" class="btn-c btn-c-primary">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Get in Touch
+      </a>
+      <a href="https://linkedin.com/in/joshfrenette" class="btn-c btn-c-outline" target="_blank" rel="noopener noreferrer">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">J<span>.</span></div>
+  <span>&copy; 2025 Josh Frenette. All rights reserved.</span>
+  <span>Pipeline Ops. Demand Gen. Revenue Systems.</span>
+</footer>
+
+<!-- MODALS -->
+<div class="modal-overlay" id="modal-proj-gtm">
+  <div class="modal-box">
+    <button class="modal-close" data-close>&times;</button>
+    <div class="modal-top">
+      <div class="modal-tag">Forecasting</div>
+      <h3 class="modal-title">Bottom-Up GTM Forecast Model</h3>
+    </div>
+    <div class="modal-divider"></div>
+    <div class="modal-body">
+      <div class="modal-section-title">The Problem</div>
+      <p class="modal-text">Most GTM forecasts are built top-down, finance gives you a number, and marketing reverse-engineers a story. The result is a forecast no one believes and a planning process that wastes months of calendar time.</p>
+      <div class="modal-section-title">The Approach</div>
+      <p class="modal-text">I built a driver-based model anchored to the actual mechanics of the business: <strong>how many target accounts exist, what percentage we can reach, how they convert through each stage, and at what ACV.</strong> Every assumption is explicit, every number is traceable.</p>
+      <div class="modal-workflow">
+        <div class="modal-step"><div class="modal-step-num">01</div><div class="modal-step-content"><div class="modal-step-title">Define the addressable universe</div><div class="modal-step-desc">Segment TAM by ICP tier, region, and firmographic fit. Build the account list from 6sense and ZoomInfo with coverage scoring applied.</div></div></div>
+        <div class="modal-step"><div class="modal-step-num">02</div><div class="modal-step-content"><div class="modal-step-title">Apply conversion rate assumptions</div><div class="modal-step-desc">Meeting rate, meeting-to-opp, opp-to-close, and ACV by segment, all benchmarked against trailing four-quarter actuals.</div></div></div>
+        <div class="modal-step"><div class="modal-step-num">03</div><div class="modal-step-content"><div class="modal-step-title">Model scenario ranges</div><div class="modal-step-desc">Conservative, Base, and Optimistic scenarios let leadership stress-test the plan before committing headcount or spend.</div></div></div>
+        <div class="modal-step"><div class="modal-step-num">04</div><div class="modal-step-content"><div class="modal-step-title">Connect to the operating cadence</div><div class="modal-step-desc">Model feeds the weekly pipeline council review. Actuals vs. model tracked in real time; assumptions updated as data accumulates through the quarter.</div></div></div>
+      </div>
+      <div class="modal-section-title">Outcomes</div>
+      <div class="modal-chips">
+        <span class="modal-chip">Forecast accuracy improved to 94%</span>
+        <span class="modal-chip">Board reporting simplified</span>
+        <span class="modal-chip">Planning cycle reduced 6 weeks</span>
+        <span class="modal-chip">Headcount decisions grounded in model</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay modal-wide" id="modal-proj-council">
+  <div class="modal-box modal-box-xl">
+    <button class="modal-close" data-close>&times;</button>
+    <div class="modal-top">
+      <div class="modal-tag">Pipeline Governance</div>
+      <h3 class="modal-title">Pipeline Council Framework</h3>
+    </div>
+    <div class="modal-divider"></div>
+    <div class="modal-body">
+      <p class="modal-text" style="margin-bottom:1.5rem">The Pipeline Council is a weekly cross-functional operating cadence that surfaces pipeline risk before it becomes a missed quarter. The dashboard below reflects a live session view.</p>
+      <div class="pc-filter-bar">
+        <div class="pc-filter-group">
+          <div class="pc-filter-label">Timeframe</div>
+          <div class="pc-filter-pills">
+            <button class="pc-pill pc-pill-active" data-filter="tf" data-val="qtd">QTD</button>
+            <button class="pc-pill" data-filter="tf" data-val="mtd">MTD</button>
+            <button class="pc-pill" data-filter="tf" data-val="fy">Full Year</button>
+          </div>
+        </div>
+        <div class="pc-filter-group">
+          <div class="pc-filter-label">Business Type</div>
+          <div class="pc-filter-pills">
+            <button class="pc-pill pc-pill-active" data-filter="bt" data-val="all">All</button>
+            <button class="pc-pill" data-filter="bt" data-val="new">New Business</button>
+            <button class="pc-pill" data-filter="bt" data-val="expand">Expansion</button>
+          </div>
+        </div>
+        <div class="pc-filter-group">
+          <div class="pc-filter-label">Product</div>
+          <div class="pc-filter-pills">
+            <button class="pc-pill pc-pill-active" data-filter="prod" data-val="all">All Products</button>
+            <button class="pc-pill" data-filter="prod" data-val="core">Core Platform</button>
+            <button class="pc-pill" data-filter="prod" data-val="ai">AI Modules</button>
+          </div>
+        </div>
+      </div>
+      <div class="pc-pillar-tabs">
+        <button class="pc-tab pc-tab-active" data-pillar="quantity">
+          <span class="pc-tab-num">01</span>
+          <span class="pc-tab-label">Quantity</span>
+          <span class="pc-tab-sub">Volume &amp; Coverage</span>
+        </button>
+        <button class="pc-tab" data-pillar="quality">
+          <span class="pc-tab-num">02</span>
+          <span class="pc-tab-label">Quality</span>
+          <span class="pc-tab-sub">Fit &amp; Buyer Signals</span>
+        </button>
+        <button class="pc-tab" data-pillar="velocity">
+          <span class="pc-tab-num">03</span>
+          <span class="pc-tab-label">Velocity</span>
+          <span class="pc-tab-sub">Speed &amp; Conversion</span>
+        </button>
+      </div>
+      <div id="pc-pillar-content"></div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-proj-bowtie">
+  <div class="modal-box">
+    <button class="modal-close" data-close>&times;</button>
+    <div class="modal-top">
+      <div class="modal-tag">Analytics</div>
+      <h3 class="modal-title">Bowtie Funnel Intelligence</h3>
+    </div>
+    <div class="modal-divider"></div>
+    <div class="modal-body">
+      <div class="modal-section-title">The Problem</div>
+      <p class="modal-text">Most funnel analysis stops at closed-won. That misses half the revenue picture. Expansion, renewal, and churn are driven by the same buyer signals that show up in the pre-sales funnel, if you know how to read them.</p>
+      <div class="modal-section-title">The Framework</div>
+      <p class="modal-text">The bowtie model maps the full customer journey: <strong>anonymous awareness through post-sale expansion.</strong> Each stage has defined entry and exit criteria, a conversion rate, and an owner. Marketing owns the left side; CS owns the right; RevOps owns the data layer.</p>
+      <div class="modal-section-title">What It Surfaces</div>
+      <div class="modal-output-grid">
+        <div class="modal-output"><div class="modal-output-title">Top-of-Funnel Efficiency</div><div class="modal-output-desc">Which channels produce accounts that actually close, not just leads that generate MQLs.</div></div>
+        <div class="modal-output"><div class="modal-output-title">Stage Conversion Leaks</div><div class="modal-output-desc">Where qualified pipeline stalls, and whether the root cause is timing, fit, or competitive displacement.</div></div>
+        <div class="modal-output"><div class="modal-output-title">Expansion Signals</div><div class="modal-output-desc">Engagement patterns that predict upsell readiness before the CSM conversation happens.</div></div>
+        <div class="modal-output"><div class="modal-output-title">Churn Early Warning</div><div class="modal-output-desc">Drops in product engagement, support ticket patterns, and contact map changes that precede a cancellation.</div></div>
+      </div>
+      <div class="modal-section-title">Outcomes</div>
+      <div class="modal-chips">
+        <span class="modal-chip">Full-funnel visibility established</span>
+        <span class="modal-chip">Attribution confidence improved</span>
+        <span class="modal-chip">Marketing contribution to expansion tracked</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-proj-digital">
+  <div class="modal-box">
+    <button class="modal-close" data-close>&times;</button>
+    <div class="modal-top">
+      <div class="modal-tag">Strategy</div>
+      <h3 class="modal-title">Digital Strategy Rebuild</h3>
+    </div>
+    <div class="modal-divider"></div>
+    <div class="modal-body">
+      <div class="modal-section-title">The Situation</div>
+      <p class="modal-text">Inherited a digital marketing infrastructure that had grown organically for five years: four separate attribution systems, disconnected ad accounts, inconsistent UTM taxonomy, and a reporting layer that took three people to maintain and still wasn't trustworthy.</p>
+      <div class="modal-section-title">The Rebuild</div>
+      <div class="modal-workflow">
+        <div class="modal-step"><div class="modal-step-num">01</div><div class="modal-step-content"><div class="modal-step-title">Attribution audit</div><div class="modal-step-desc">Mapped every touchpoint source to its downstream pipeline impact. Identified $400K in annual spend with no traceable pipeline contribution.</div></div></div>
+        <div class="modal-step"><div class="modal-step-num">02</div><div class="modal-step-content"><div class="modal-step-title">Infrastructure consolidation</div><div class="modal-step-desc">Collapsed four attribution systems to one, standardized UTM taxonomy, rebuilt paid targeting architecture from ICP-first principles.</div></div></div>
+        <div class="modal-step"><div class="modal-step-num">03</div><div class="modal-step-content"><div class="modal-step-title">Unified reporting layer</div><div class="modal-step-desc">Built a single performance dashboard in Looker connecting ad spend to pipeline to revenue, updated daily, owned by one person.</div></div></div>
+      </div>
+      <div class="modal-section-title">Results</div>
+      <div class="modal-chips">
+        <span class="modal-chip">$400K spend reallocated to performing channels</span>
+        <span class="modal-chip">Reporting time reduced 80%</span>
+        <span class="modal-chip">Paid CAC improved 34%</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-proj-llm">
+  <div class="modal-box">
+    <button class="modal-close" data-close>&times;</button>
+    <div class="modal-top">
+      <div class="modal-tag">AI / GTM Intelligence</div>
+      <h3 class="modal-title">Custom LLM Pipeline Intelligence Engine</h3>
+    </div>
+    <div class="modal-divider"></div>
+    <div class="modal-body">
+      <div class="modal-section-title">The Problem</div>
+      <p class="modal-text">AEs were spending six or more hours per week on manual account research: pulling intent data, reading news alerts, reviewing CRM history, and writing outreach. The information existed. It just lived in six different places with no synthesis layer.</p>
+      <div class="modal-section-title">The Build</div>
+      <p class="modal-text">I built a custom intelligence engine that connects our CRM, intent platform, and news feeds into a unified prompt architecture. <strong>The LLM synthesizes account signals into a concise brief</strong>, including pipeline risk score, recent news, key contacts, competitive flags, and a suggested opening angle, delivered to the AE in Slack before each call.</p>
+      <div class="modal-workflow">
+        <div class="modal-step"><div class="modal-step-num">01</div><div class="modal-step-content"><div class="modal-step-title">Data ingestion layer</div><div class="modal-step-desc">Pulls from Salesforce opportunity data, 6sense intent signals, news API, and LinkedIn Sales Navigator activity alerts.</div></div></div>
+        <div class="modal-step"><div class="modal-step-num">02</div><div class="modal-step-content"><div class="modal-step-title">LLM synthesis</div><div class="modal-step-desc">Custom prompt chain synthesizes signals into a structured account brief. Risk flags, momentum indicators, and recommended next actions included.</div></div></div>
+        <div class="modal-step"><div class="modal-step-num">03</div><div class="modal-step-content"><div class="modal-step-title">Delivery via Slack</div><div class="modal-step-desc">Briefs delivered automatically before each scheduled discovery call. AE feedback loop improves prompt accuracy over time.</div></div></div>
+      </div>
+      <div class="modal-section-title">Results</div>
+      <div class="modal-chips">
+        <span class="modal-chip">6 hrs/week saved per AE</span>
+        <span class="modal-chip">Discovery call quality improved</span>
+        <span class="modal-chip">Pipeline risk surfaced earlier</span>
+        <span class="modal-chip">82% AE adoption in 30 days</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── CURSOR ──
+(function(){
+  var cur=document.getElementById('cursor'),ring=document.getElementById('cursorRing');
+  var mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
+  (function tick(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(tick);})();
+})();
+
+// ── SCROLL REVEAL ──
+(function(){
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+  },{threshold:.12});
+  document.querySelectorAll('.reveal,.reveal-l,.reveal-r,.reveal-scale').forEach(function(el){io.observe(el);});
+})();
+
+// ── HERO CANVAS ──
+(function(){
+  var canvas=document.getElementById('hero-canvas');
+  if(!canvas)return;
+  var ctx=canvas.getContext('2d');
+  var W,H,pts=[];
+  function resize(){W=canvas.width=canvas.offsetWidth;H=canvas.height=canvas.offsetHeight;}
+  function mkPt(){return{x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35,r:Math.random()*1.4+.4};}
+  function init(){resize();pts=[];for(var i=0;i<32;i++)pts.push(mkPt());}
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    // Grid
+    ctx.strokeStyle='rgba(0,212,170,0.04)';ctx.lineWidth=1;
+    var g=60;
+    for(var x=0;x<W;x+=g){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,H);ctx.stroke();}
+    for(var y=0;y<H;y+=g){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke();}
+    // Connections
+    for(var i=0;i<pts.length;i++){
+      for(var j=i+1;j<pts.length;j++){
+        var dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);
+        if(d<170){ctx.beginPath();ctx.strokeStyle='rgba(0,212,170,'+(0.07*(1-d/170))+')';ctx.lineWidth=.5;ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);ctx.stroke();}
+      }
+    }
+    // Dots
+    pts.forEach(function(p){
+      p.x+=p.vx;p.y+=p.vy;
+      if(p.x<0)p.x=W;if(p.x>W)p.x=0;if(p.y<0)p.y=H;if(p.y>H)p.y=0;
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle='rgba(0,212,170,0.55)';ctx.fill();
+    });
+    requestAnimationFrame(draw);
+  }
+  window.addEventListener('resize',init);
+  init();draw();
+})();
+
+// ── TIMELINE FILL ──
+(function(){
+  var fill=document.getElementById('tl-fill');
+  if(!fill)return;
+  var io=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){fill.classList.add('go');io.unobserve(fill);}});},{threshold:.15});
+  var career=document.getElementById('career');
+  if(career)io.observe(career);
+})();
+
+// ── BAR CHART ANIMATION ──
+(function(){
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){if(e.isIntersecting){e.target.querySelectorAll('.sp-bar').forEach(function(b){b.classList.add('go');});io.unobserve(e.target);}});
+  },{threshold:.25});
+  document.querySelectorAll('.sp-chart-card').forEach(function(c){io.observe(c);});
+})();
+
+// ── 3D GLOBE ──
+(function(){
+  var canvas=document.getElementById('globe-canvas');
+  if(!canvas)return;
+  var ctx=canvas.getContext('2d');
+  var W=canvas.width,H=canvas.height;
+  var cx=W/2,cy=H/2,R=Math.min(W,H)*0.44;
+  var rot={x:.3,y:0},drag=false,ds={x:0,y:0},rs={x:0,y:0};
+  var frame=0;
+  var countries=[];
+
+  var regionColors={
+    '840':'rgba(0,212,170,0.65)','124':'rgba(0,212,170,0.45)','484':'rgba(0,212,170,0.38)',
+    '076':'rgba(0,212,170,0.32)','032':'rgba(0,212,170,0.28)','152':'rgba(0,212,170,0.25)',
+    '826':'rgba(74,158,255,0.65)','276':'rgba(74,158,255,0.55)','250':'rgba(74,158,255,0.50)',
+    '528':'rgba(74,158,255,0.45)','372':'rgba(74,158,255,0.42)','752':'rgba(74,158,255,0.40)',
+    '036':'rgba(245,166,35,0.65)','356':'rgba(245,166,35,0.48)','392':'rgba(245,166,35,0.52)',
+    '702':'rgba(245,166,35,0.42)','410':'rgba(245,166,35,0.45)','156':'rgba(245,166,35,0.35)'
+  };
+
+  var hubs=[
+    {lat:37.7,lon:-122.4,label:'AMER West',c:'#00d4aa'},
+    {lat:40.7,lon:-74.0,label:'AMER East',c:'#00d4aa'},
+    {lat:51.5,lon:-0.1,label:'EMEA London',c:'#4a9eff'},
+    {lat:52.5,lon:13.4,label:'EMEA Berlin',c:'#4a9eff'},
+    {lat:-33.9,lon:151.2,label:'APJ Sydney',c:'#f5a623'},
+    {lat:1.3,lon:103.8,label:'APJ Singapore',c:'#f5a623'}
+  ];
+
+  function toRad(d){return d*Math.PI/180;}
+  function proj(lat,lon){
+    var phi=toRad(lat),lam=toRad(lon)+rot.y;
+    var x0=Math.cos(phi)*Math.sin(lam);
+    var y0=Math.sin(phi)*Math.cos(rot.x)-Math.cos(phi)*Math.cos(lam)*Math.sin(rot.x);
+    var z0=Math.sin(phi)*Math.sin(rot.x)+Math.cos(phi)*Math.cos(lam)*Math.cos(rot.x);
+    return{x:cx+R*x0,y:cy-R*y0,z:z0,v:z0>0};
+  }
+
+  function decodeArcs(world){
+    var arcs=world.arcs,sc=world.transform.scale,tr=world.transform.translate;
+    function decArc(idx){
+      var rev=idx<0,i=rev?~idx:idx,pts=[],dx=0,dy=0;
+      arcs[i].forEach(function(p){dx+=p[0];dy+=p[1];pts.push([dx*sc[0]+tr[0],dy*sc[1]+tr[1]]);});
+      if(rev)pts.reverse();
+      return pts;
+    }
+    world.objects.countries.geometries.forEach(function(geo){
+      var id=String(geo.id).padStart(3,'0');
+      var color=regionColors[id]||'rgba(255,255,255,0.04)';
+      function getRings(arcsArr){return arcsArr.map(function(ring){return ring.reduce(function(acc,i){return acc.concat(decArc(i));},[]); });}
+      var rings=[];
+      if(geo.type==='Polygon')rings=getRings(geo.arcs);
+      else if(geo.type==='MultiPolygon')geo.arcs.forEach(function(p){rings=rings.concat(getRings(p));});
+      countries.push({rings:rings,color:color});
+    });
+  }
+
+  fetch('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
+    .then(function(r){return r.json();})
+    .then(function(world){decodeArcs(world);animate();})
+    .catch(function(){animate();});
+
+  function drawGlobe(){
+    ctx.clearRect(0,0,W,H);
+    var g=ctx.createRadialGradient(cx-R*.2,cy-R*.2,R*.05,cx,cy,R);
+    g.addColorStop(0,'rgba(15,21,32,1)');g.addColorStop(1,'rgba(7,9,15,1)');
+    ctx.beginPath();ctx.arc(cx,cy,R,0,Math.PI*2);ctx.fillStyle=g;ctx.fill();
+    ctx.beginPath();ctx.arc(cx,cy,R,0,Math.PI*2);ctx.strokeStyle='rgba(0,212,170,0.15)';ctx.lineWidth=1;ctx.stroke();
+
+    // Grid
+    ctx.strokeStyle='rgba(255,255,255,0.04)';ctx.lineWidth=.5;
+    for(var lat=-60;lat<=60;lat+=30){
+      ctx.beginPath();var f=true;
+      for(var lon=-180;lon<=180;lon+=4){var p=proj(lat,lon);if(p.v){if(f){ctx.moveTo(p.x,p.y);f=false;}else ctx.lineTo(p.x,p.y);}else f=true;}
+      ctx.stroke();
+    }
+    for(var lon=-150;lon<=180;lon+=30){
+      ctx.beginPath();var f=true;
+      for(var lat=-85;lat<=85;lat+=4){var p=proj(lat,lon);if(p.v){if(f){ctx.moveTo(p.x,p.y);f=false;}else ctx.lineTo(p.x,p.y);}else f=true;}
+      ctx.stroke();
+    }
+
+    // Countries
+    countries.forEach(function(c){
+      c.rings.forEach(function(ring){
+        if(!ring.length)return;
+        ctx.beginPath();var f=true,hasV=false;
+        ring.forEach(function(pt){
+          var p=proj(pt[1],pt[0]);
+          if(p.v){hasV=true;if(f){ctx.moveTo(p.x,p.y);f=false;}else ctx.lineTo(p.x,p.y);}else f=true;
+        });
+        if(hasV){ctx.closePath();ctx.fillStyle=c.color;ctx.fill();ctx.strokeStyle='rgba(0,0,0,0.25)';ctx.lineWidth=.25;ctx.stroke();}
+      });
+    });
+
+    // Hub projections
+    var ph=hubs.map(function(h){return{label:h.label,c:h.c,p:proj(h.lat,h.lon)};});
+    var amerE=ph.find(function(h){return h.label==='AMER East'&&h.p.v;});
+
+    // Arcs
+    ph.forEach(function(h){
+      if(!h.p.v||h.label.indexOf('AMER')===0||!amerE)return;
+      var mx2=(h.p.x+amerE.p.x)/2,my2=(h.p.y+amerE.p.y)/2-40;
+      ctx.beginPath();ctx.moveTo(amerE.p.x,amerE.p.y);ctx.quadraticCurveTo(mx2,my2,h.p.x,h.p.y);
+      ctx.strokeStyle='rgba(0,212,170,0.12)';ctx.lineWidth=1;ctx.stroke();
+    });
+
+    // Animated particles on arcs
+    var t=(frame%100)/100;
+    ph.forEach(function(h){
+      if(!h.p.v||h.label.indexOf('AMER')===0||!amerE)return;
+      var mx2=(h.p.x+amerE.p.x)/2,my2=(h.p.y+amerE.p.y)/2-40;
+      var px=amerE.p.x*(1-t)*(1-t)+2*mx2*(1-t)*t+h.p.x*t*t;
+      var py=amerE.p.y*(1-t)*(1-t)+2*my2*(1-t)*t+h.p.y*t*t;
+      ctx.beginPath();ctx.arc(px,py,2.5,0,Math.PI*2);ctx.fillStyle='rgba(0,212,170,0.9)';ctx.fill();
+    });
+
+    // Hub dots
+    ph.forEach(function(h){
+      if(!h.p.v)return;
+      ctx.beginPath();ctx.arc(h.p.x,h.p.y,6,0,Math.PI*2);ctx.fillStyle=h.c;ctx.fill();
+      ctx.beginPath();ctx.arc(h.p.x,h.p.y,11,0,Math.PI*2);ctx.strokeStyle=h.c.replace('#','rgba(').replace(/$/,',0.25)')+'';
+      // Simple glow ring
+      ctx.strokeStyle='rgba(0,212,170,0.2)';ctx.lineWidth=1;ctx.stroke();
+    });
+
+    // Atmosphere
+    var atmo=ctx.createRadialGradient(cx,cy,R*.94,cx,cy,R*1.07);
+    atmo.addColorStop(0,'rgba(0,212,170,0.07)');atmo.addColorStop(1,'rgba(0,212,170,0)');
+    ctx.beginPath();ctx.arc(cx,cy,R*1.07,0,Math.PI*2);ctx.fillStyle=atmo;ctx.fill();
+  }
+
+  function animate(){frame++;if(!drag)rot.y+=.0025;drawGlobe();requestAnimationFrame(animate);}
+
+  canvas.addEventListener('mousedown',function(e){drag=true;canvas.style.cursor='grabbing';ds={x:e.clientX,y:e.clientY};rs={x:rot.x,y:rot.y};});
+  document.addEventListener('mousemove',function(e){if(!drag)return;rot.y=rs.y+(e.clientX-ds.x)*.005;rot.x=Math.max(-1.2,Math.min(1.2,rs.x+(e.clientY-ds.y)*.005));});
+  document.addEventListener('mouseup',function(){drag=false;canvas.style.cursor='grab';});
+  canvas.addEventListener('touchstart',function(e){drag=true;ds={x:e.touches[0].clientX,y:e.touches[0].clientY};rs={x:rot.x,y:rot.y};},{passive:true});
+  document.addEventListener('touchmove',function(e){if(!drag)return;rot.y=rs.y+(e.touches[0].clientX-ds.x)*.005;rot.x=Math.max(-1.2,Math.min(1.2,rs.x+(e.touches[0].clientY-ds.y)*.005));},{passive:true});
+  document.addEventListener('touchend',function(){drag=false;});
+})();
+
+// ── FORECAST DASHBOARD ──
+(function(){
+  var REGIONS=[{name:'AMER',badge:'Live',pct:.42},{name:'EMEA',badge:'Live',pct:.33},{name:'APJ',badge:'Progress',pct:.25}];
+  var TARGET=38;
+
+  function fmtN(n){return n>=10000?(n/1000).toFixed(1)+'K':Math.round(n).toLocaleString();}
+  function flash(id,val){
+    var el=document.getElementById(id);
+    if(!el)return;
+    el.textContent=val;
+    el.classList.remove('fc-val-flash');
+    void el.offsetWidth;
+    el.classList.add('fc-val-flash');
+  }
+
+  function calc(){
+    var accts=+document.getElementById('fc-accounts').value;
+    var mr=+document.getElementById('fc-meeting-rate').value/100;
+    var or2=+document.getElementById('fc-opp-rate').value/100;
+    var wr=+document.getElementById('fc-win-rate').value/100;
+    var acv=+document.getElementById('fc-acv').value;
+
+    var meetings=Math.round(accts*mr);
+    var opps=Math.round(meetings*or2);
+    var logos=Math.round(opps*wr);
+    var arr=+(logos*acv/1000).toFixed(1);
+    var vt=+(arr-TARGET).toFixed(1);
+    var pipe=+(arr*3.2).toFixed(1);
+
+    flash('fc-arr','$'+arr+'M');
+    flash('fc-meetings',fmtN(meetings));
+    flash('fc-opps',fmtN(opps));
+    flash('fc-new-logos',fmtN(logos));
+    flash('fc-pipe-req','$'+pipe+'M');
+
+    var vtEl=document.getElementById('fc-vs-target');
+    if(vtEl){vtEl.textContent=(vt>=0?'+':'')+' $'+Math.abs(vt)+'M';vtEl.classList.remove('fc-val-flash');void vtEl.offsetWidth;vtEl.classList.add('fc-val-flash');}
+
+    var si=document.getElementById('fc-new-logos-inline');if(si)si.textContent=logos;
+    var ai=document.getElementById('fc-acv-inline');if(ai)ai.textContent='$'+acv+'K';
+    var aci=document.getElementById('fc-accounts-inline');if(aci)aci.textContent=fmtN(accts);
+    var ori=document.getElementById('fc-opp-rate-inline');if(ori)ori.textContent=Math.round(or2*100)+'%';
+    var wri=document.getElementById('fc-win-rate-inline');if(wri)wri.textContent=Math.round(wr*100)+'%';
+
+    document.getElementById('fc-accounts-val').textContent=fmtN(accts);
+    document.getElementById('fc-meeting-rate-val').textContent=Math.round(mr*100)+'%';
+    document.getElementById('fc-opp-rate-val').textContent=Math.round(or2*100)+'%';
+    document.getElementById('fc-win-rate-val').textContent=Math.round(wr*100)+'%';
+    document.getElementById('fc-acv-val').textContent='$'+acv+'K';
+
+    document.getElementById('fc-tot-accounts').textContent=fmtN(accts);
+    document.getElementById('fc-tot-meetings').textContent=fmtN(meetings);
+    document.getElementById('fc-tot-opps').textContent=fmtN(opps);
+    document.getElementById('fc-tot-logos').textContent=fmtN(logos);
+    document.getElementById('fc-tot-arr').textContent='$'+arr+'M';
+
+    var tbody=document.getElementById('fc-table-body');
+    if(tbody){
+      tbody.innerHTML=REGIONS.map(function(r){
+        var ra=Math.round(accts*r.pct),rm=Math.round(meetings*r.pct),ro=Math.round(opps*r.pct),rl=Math.round(logos*r.pct);
+        var ra2=+(rl*acv/1000).toFixed(1);
+        var badge=r.badge==='Progress'?'<span class="region-badge progress">In Progress</span>':'<span class="region-badge">Live</span>';
+        return '<tr><td>'+r.name+badge+'</td><td>'+fmtN(ra)+'</td><td>'+fmtN(rm)+'</td><td>'+fmtN(ro)+'</td><td>'+fmtN(rl)+'</td><td class="td-teal">$'+ra2+'M</td></tr>';
+      }).join('');
+    }
+  }
+
+  document.querySelectorAll('.fc-slider').forEach(function(s){s.addEventListener('input',calc);});
+  calc();
+})();
+
+// ── HUB-SPOKE CANVAS ──
+(function(){
+  var canvas=document.getElementById('hub-canvas');
+  if(!canvas)return;
+  var ctx=canvas.getContext('2d');
+  var W,H,hov=-1,frameN=0;
+  var particles=[];
+
+  var nodes=[
+    {label:'Pipeline Ops',sub:'Center of Gravity',hub:true},
+    {label:'Demand Gen',sub:'Inbound & Outbound'},
+    {label:'Sales',sub:'AE & SDR Motion'},
+    {label:'Rev Ops',sub:'Data & Systems'},
+    {label:'Customer Success',sub:'Retention & Expansion'},
+    {label:'Marketing Ops',sub:'Campaign Execution'},
+    {label:'Finance',sub:'Forecast & Budget'}
+  ];
+
+  var pos=[];
+
+  function resize(){
+    W=canvas.width=canvas.offsetWidth||760;
+    H=canvas.height=canvas.offsetHeight||500;
+    var cx=W/2,cy=H/2,r=Math.min(W,H)*0.36;
+    pos=[{x:cx,y:cy}];
+    for(var i=0;i<nodes.length-1;i++){
+      var a=(i/(nodes.length-1))*Math.PI*2-Math.PI/2;
+      pos.push({x:cx+r*Math.cos(a),y:cy+r*Math.sin(a)});
+    }
+  }
+
+  function mkPart(from,to){return{from:from,to:to,t:0,spd:.006+Math.random()*.007};}
+
+  function drawNode(i,hovered){
+    var p=pos[i],n=nodes[i];
+    var r=n.hub?44:32;
+    if(hovered||n.hub){
+      var glow=ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,r*2.2);
+      glow.addColorStop(0,n.hub?'rgba(0,212,170,0.14)':'rgba(0,212,170,0.07)');
+      glow.addColorStop(1,'rgba(0,212,170,0)');
+      ctx.beginPath();ctx.arc(p.x,p.y,r*2.2,0,Math.PI*2);ctx.fillStyle=glow;ctx.fill();
+    }
+    ctx.beginPath();ctx.arc(p.x,p.y,r,0,Math.PI*2);
+    ctx.fillStyle=n.hub?'rgba(0,212,170,0.1)':'rgba(7,9,15,0.92)';ctx.fill();
+    ctx.strokeStyle=hovered?'rgba(0,212,170,0.85)':n.hub?'rgba(0,212,170,0.55)':'rgba(0,212,170,0.22)';
+    ctx.lineWidth=n.hub?1.5:1;ctx.stroke();
+    ctx.fillStyle=hovered||n.hub?'#eef2f7':'rgba(238,242,247,0.6)';
+    ctx.font=(n.hub?'500 13px':'400 11px')+' Outfit,sans-serif';
+    ctx.textAlign='center';ctx.textBaseline='middle';
+    ctx.fillText(n.label,p.x,p.y-(n.sub&&!n.hub?7:0));
+    if(!n.hub&&n.sub){
+      ctx.fillStyle='rgba(90,112,128,0.85)';ctx.font='400 9px Outfit,sans-serif';
+      ctx.fillText(n.sub,p.x,p.y+8);
+    }
+  }
+
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    for(var i=1;i<pos.length;i++){
+      var f=pos[0],t=pos[i];
+      ctx.beginPath();ctx.moveTo(f.x,f.y);ctx.lineTo(t.x,t.y);
+      ctx.strokeStyle=hov===i?'rgba(0,212,170,0.28)':'rgba(0,212,170,0.07)';
+      ctx.lineWidth=hov===i?1.5:1;ctx.stroke();
+    }
+    frameN++;
+    if(frameN%45===0&&particles.length<18){
+      var to2=1+Math.floor(Math.random()*(nodes.length-1));
+      var dir=Math.random()>.5;
+      particles.push(mkPart(dir?0:to2,dir?to2:0));
+    }
+    particles=particles.filter(function(p){
+      p.t+=p.spd;
+      if(p.t>=1)return false;
+      var f=pos[p.from],t=pos[p.to];
+      var px2=f.x+(t.x-f.x)*p.t,py2=f.y+(t.y-f.y)*p.t;
+      var alpha=.7*(1-Math.abs(p.t-.5)*2);
+      ctx.beginPath();ctx.arc(px2,py2,2.2,0,Math.PI*2);ctx.fillStyle='rgba(0,212,170,'+alpha+')';ctx.fill();
+      return true;
+    });
+    nodes.forEach(function(_,i){drawNode(i,hov===i);});
+    requestAnimationFrame(draw);
+  }
+
+  canvas.addEventListener('mousemove',function(e){
+    var r2=canvas.getBoundingClientRect();var mx=e.clientX-r2.left,my=e.clientY-r2.top;hov=-1;
+    pos.forEach(function(p,i){var dx=mx-p.x,dy=my-p.y;if(Math.sqrt(dx*dx+dy*dy)<46)hov=i;});
+    canvas.style.cursor=hov>=0?'pointer':'default';
+  });
+  canvas.addEventListener('mouseleave',function(){hov=-1;});
+  window.addEventListener('resize',resize);
+  resize();draw();
+})();
+
+// ── MODALS ──
+(function(){
+  document.querySelectorAll('[data-modal]').forEach(function(card){
+    card.addEventListener('click',function(){
+      var modal=document.getElementById('modal-'+card.dataset.modal);
+      if(modal){modal.classList.add('open');document.body.style.overflow='hidden';}
+    });
+  });
+  document.querySelectorAll('.modal-close,[data-close]').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var ov=btn.closest('.modal-overlay');
+      if(ov){ov.classList.remove('open');document.body.style.overflow='';}
+    });
+  });
+  document.querySelectorAll('.modal-overlay').forEach(function(ov){
+    ov.addEventListener('click',function(e){
+      if(e.target===ov){ov.classList.remove('open');document.body.style.overflow='';}
+    });
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'){
+      document.querySelectorAll('.modal-overlay.open').forEach(function(ov){ov.classList.remove('open');document.body.style.overflow='';});
+    }
+  });
+})();
+
+// ── PIPELINE COUNCIL DASHBOARD ──
+(function(){
+  var pillarData={
+    quantity:'<div class="pc-kpi-strip"><div class="pc-kpi2"><div class="pc-kpi2-label">Total Pipeline</div><div class="pc-kpi2-val">$47.2M</div><div class="pc-kpi2-delta td-up">+12% vs Q3</div></div><div class="pc-kpi2"><div class="pc-kpi2-label">Coverage Ratio</div><div class="pc-kpi2-val">3.2x</div><div class="pc-kpi2-delta td-up">+0.4x vs target</div></div><div class="pc-kpi2"><div class="pc-kpi2-label">New Opps QTD</div><div class="pc-kpi2-val">142</div><div class="pc-kpi2-delta td-up">+18% vs goal</div></div><div class="pc-kpi2"><div class="pc-kpi2-label">MQL Volume</div><div class="pc-kpi2-val">1,847</div><div class="pc-kpi2-delta td-dn">-4% vs goal</div></div><div class="pc-kpi2"><div class="pc-kpi2-label">MQL to Opp %</div><div class="pc-kpi2-val">7.7%</div><div class="pc-kpi2-delta td-up">+1.2pp</div></div></div><div class="pc-section-title">Coverage by Segment</div><div class="pc-row-2"><div class="pc-card"><div class="pc-card-title">Pipeline by Segment <span class="pc-card-sub">$ millions</span></div><div class="pc-funnel"><div class="pc-funnel-step"><span class="pc-funnel-lbl">Enterprise</span><div class="pc-funnel-bar-wrap"><div class="pc-funnel-fill" style="width:87%;background:linear-gradient(90deg,#00d4aa,rgba(0,212,170,.4))"></div></div><span class="pc-funnel-vol">$24.1M</span><span class="pc-funnel-conv">3.8x</span></div><div class="pc-funnel-step"><span class="pc-funnel-lbl">Mid-Market</span><div class="pc-funnel-bar-wrap"><div class="pc-funnel-fill" style="width:68%;background:linear-gradient(90deg,#4a9eff,rgba(74,158,255,.4))"></div></div><span class="pc-funnel-vol">$14.2M</span><span class="pc-funnel-conv">2.9x</span></div><div class="pc-funnel-step"><span class="pc-funnel-lbl">Commercial</span><div class="pc-funnel-bar-wrap"><div class="pc-funnel-fill" style="width:42%;background:linear-gradient(90deg,#f5a623,rgba(245,166,35,.4))"></div></div><span class="pc-funnel-vol">$8.9M</span><span class="pc-funnel-conv">2.1x</span></div></div></div><div class="pc-card"><div class="pc-card-title">Source Mix <span class="pc-card-sub">% of pipeline value</span></div><div class="pc-donut-wrap" style="margin-top:.5rem"><svg class="pc-donut-svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="38" fill="none" stroke="rgba(255,255,255,.04)" stroke-width="18"/><circle cx="50" cy="50" r="38" fill="none" stroke="#00d4aa" stroke-width="18" stroke-dasharray="95.8 143.3" stroke-dashoffset="0" transform="rotate(-90 50 50)"/><circle cx="50" cy="50" r="38" fill="none" stroke="#4a9eff" stroke-width="18" stroke-dasharray="47.9 191.2" stroke-dashoffset="-95.8" transform="rotate(-90 50 50)"/><circle cx="50" cy="50" r="38" fill="none" stroke="#f5a623" stroke-width="18" stroke-dasharray="35.8 203.3" stroke-dashoffset="-143.7" transform="rotate(-90 50 50)"/><text x="50" y="47" text-anchor="middle" class="pc-donut-total">67%</text><text x="50" y="57" text-anchor="middle" class="pc-donut-total-lbl">MKTG</text></svg><div class="pc-donut-legend"><div class="pc-donut-item"><div class="pc-donut-dot" style="background:#00d4aa"></div><span class="pc-donut-lbl">Marketing</span><span class="pc-donut-val">67%</span></div><div class="pc-donut-item"><div class="pc-donut-dot" style="background:#4a9eff"></div><span class="pc-donut-lbl">Outbound</span><span class="pc-donut-val">24%</span></div><div class="pc-donut-item"><div class="pc-donut-dot" style="background:#f5a623"></div><span class="pc-donut-lbl">Partner</span><span class="pc-donut-val">9%</span></div></div></div></div></div><div class="pc-section-title">Regional Coverage</div><div class="pc-row-full"><div class="pc-card"><div class="pc-card-title">Coverage by Region</div><table class="pc-data-table"><thead><tr><th>Region</th><th>Pipeline</th><th>Quota</th><th>Coverage</th><th>Status</th></tr></thead><tbody><tr><td>AMER</td><td>$22.8M</td><td>$7.2M</td><td class="td-teal">3.2x</td><td class="td-green">On Track</td></tr><tr><td>EMEA</td><td>$17.1M</td><td>$5.6M</td><td class="td-teal">3.1x</td><td class="td-green">On Track</td></tr><tr><td>APJ</td><td>$7.3M</td><td>$3.2M</td><td class="td-amber">2.3x</td><td class="td-amber">At Risk</td></tr></tbody><tfoot><tr><td>Total</td><td>$47.2M</td><td>$16.0M</td><td class="td-teal">3.2x</td><td class="td-green">Above Target</td></tr></tfoot></table></div></div>',
+
+    quality:'<div class="pc-kpi-strip"><div class="pc-kpi2"><div class="pc-kpi2-label">ICP Score Avg</div><div class="pc-kpi2-val">82</div><div class="pc-kpi2-delta td-up">+6pts vs Q3</div></div><div class="pc-kpi2"><div class="pc-kpi2-label">Multi-Threaded</div><div class="pc-kpi2-val">61%</div><div class="pc-kpi2-delta td-up">+8pp vs goal</div></div><div class="pc-kpi2"><div class="pc-kpi2-label">Champion Confirmed</div><div class="pc-kpi2-val">54%</div><div class="pc-kpi2-delta">Baseline</div></div><div class="pc-kpi2"><div class="pc-kpi2-label">Intent Surging</div><div class="pc-kpi2-val">38</div><div class="pc-kpi2-delta td-up">accounts</div></div><div class="pc-kpi2"><div class="pc-kpi2-label">Competitive Overlap</div><div class="pc-kpi2-val">29%</div><div class="pc-kpi2-delta td-dn">+5pp vs Q3</div></div></div><div class="pc-section-title">Buyer Signal Breakdown</div><div class="pc-row-2"><div class="pc-card"><div class="pc-card-title">Stage Quality Flags</div><table class="pc-data-table"><thead><tr><th>Flag</th><th>Opps</th><th>Pipeline</th><th>Action</th></tr></thead><tbody><tr><td>No champion</td><td>42</td><td>$8.4M</td><td class="td-amber">Review</td></tr><tr><td>Single-threaded</td><td>55</td><td>$11.2M</td><td class="td-amber">Risk</td></tr><tr><td>Stalled 30+ days</td><td>28</td><td>$6.1M</td><td class="td-red">Escalate</td></tr><tr><td>No next step</td><td>19</td><td>$3.8M</td><td class="td-red">Action</td></tr></tbody></table></div><div class="pc-card"><div class="pc-card-title">ICP Tier Distribution</div><div class="pc-stacked-bar" style="margin-top:.75rem"><div class="pc-stacked-row"><span class="pc-stacked-lbl">Enterprise</span><div class="pc-stacked-track"><div class="pc-stacked-seg" style="width:72%;background:#00d4aa">72%</div><div class="pc-stacked-seg" style="width:20%;background:rgba(0,212,170,.4)">20%</div><div class="pc-stacked-seg" style="width:8%;background:rgba(255,255,255,.08)">8%</div></div></div><div class="pc-stacked-row"><span class="pc-stacked-lbl">Mid-Market</span><div class="pc-stacked-track"><div class="pc-stacked-seg" style="width:55%;background:#00d4aa">55%</div><div class="pc-stacked-seg" style="width:30%;background:rgba(0,212,170,.4)">30%</div><div class="pc-stacked-seg" style="width:15%;background:rgba(255,255,255,.08)">15%</div></div></div><div class="pc-stacked-row"><span class="pc-stacked-lbl">Commercial</span><div class="pc-stacked-track"><div class="pc-stacked-seg" style="width:38%;background:#00d4aa">38%</div><div class="pc-stacked-seg" style="width:38%;background:rgba(0,212,170,.4)">38%</div><div class="pc-stacked-seg" style="width:24%;background:rgba(255,255,255,.08)">24%</div></div></div></div><div style="display:flex;gap:1rem;margin-top:.75rem;font-size:.6rem;color:var(--muted2)"><span style="display:flex;align-items:center;gap:.3rem"><span style="display:inline-block;width:10px;height:10px;background:#00d4aa"></span>Tier 1</span><span style="display:flex;align-items:center;gap:.3rem"><span style="display:inline-block;width:10px;height:10px;background:rgba(0,212,170,.4)"></span>Tier 2</span><span style="display:flex;align-items:center;gap:.3rem"><span style="display:inline-block;width:10px;height:10px;background:rgba(255,255,255,.08)"></span>Tier 3</span></div></div></div>',
+
+    velocity:'<div class="pc-kpi-strip"><div class="pc-kpi2"><div class="pc-kpi2-label">Avg Days to Close</div><div class="pc-kpi2-val">87</div><div class="pc-kpi2-delta td-up">-11 days vs Q3</div></div><div class="pc-kpi2"><div class="pc-kpi2-label">Stage 2 Stall Rate</div><div class="pc-kpi2-val">18%</div><div class="pc-kpi2-delta td-dn">+3pp vs goal</div></div><div class="pc-kpi2"><div class="pc-kpi2-label">Disc to Demo %</div><div class="pc-kpi2-val">71%</div><div class="pc-kpi2-delta td-up">+4pp vs Q3</div></div><div class="pc-kpi2"><div class="pc-kpi2-label">Demo to Proposal</div><div class="pc-kpi2-val">58%</div><div class="pc-kpi2-delta">Stable</div></div><div class="pc-kpi2"><div class="pc-kpi2-label">Proposal to Close</div><div class="pc-kpi2-val">34%</div><div class="pc-kpi2-delta td-up">+2pp vs Q3</div></div></div><div class="pc-section-title">Stage Conversion Funnel</div><div class="pc-row-full"><div class="pc-card"><div class="pc-card-title">QTD Funnel Flow <span class="pc-card-sub">opps entering each stage</span></div><div class="pc-funnel" style="margin-top:.5rem"><div class="pc-funnel-step"><span class="pc-funnel-lbl">Qualified</span><div class="pc-funnel-bar-wrap"><div class="pc-funnel-fill" style="width:100%;background:linear-gradient(90deg,#00d4aa,rgba(0,212,170,.4))"></div></div><span class="pc-funnel-vol">142</span><span class="pc-funnel-conv">-</span></div><div class="pc-funnel-step"><span class="pc-funnel-lbl">Discovery</span><div class="pc-funnel-bar-wrap"><div class="pc-funnel-fill" style="width:82%;background:linear-gradient(90deg,#4a9eff,rgba(74,158,255,.4))"></div></div><span class="pc-funnel-vol">117</span><span class="pc-funnel-conv">82%</span></div><div class="pc-funnel-step"><span class="pc-funnel-lbl">Demo</span><div class="pc-funnel-bar-wrap"><div class="pc-funnel-fill" style="width:59%;background:linear-gradient(90deg,#4a9eff,rgba(74,158,255,.3))"></div></div><span class="pc-funnel-vol">83</span><span class="pc-funnel-conv">71%</span></div><div class="pc-funnel-step"><span class="pc-funnel-lbl">Proposal</span><div class="pc-funnel-bar-wrap"><div class="pc-funnel-fill" style="width:34%;background:linear-gradient(90deg,#f5a623,rgba(245,166,35,.4))"></div></div><span class="pc-funnel-vol">48</span><span class="pc-funnel-conv">58%</span></div><div class="pc-funnel-step"><span class="pc-funnel-lbl">Closed Won</span><div class="pc-funnel-bar-wrap"><div class="pc-funnel-fill" style="width:11%;background:linear-gradient(90deg,#00d4aa,rgba(0,212,170,.6))"></div></div><span class="pc-funnel-vol">16</span><span class="pc-funnel-conv">34%</span></div></div></div></div><div class="pc-section-title">Days in Stage (Avg)</div><div class="pc-row-3"><div class="pc-card"><div class="pc-card-title">Discovery</div><div style="font-family:var(--serif);font-size:1.8rem;font-weight:600;color:var(--teal)">14</div><div style="font-size:.68rem;color:var(--muted2)">days avg &middot; target 12</div></div><div class="pc-card"><div class="pc-card-title">Demo to Proposal</div><div style="font-family:var(--serif);font-size:1.8rem;font-weight:600;color:var(--teal)">22</div><div style="font-size:.68rem;color:var(--muted2)">days avg &middot; target 18</div></div><div class="pc-card"><div class="pc-card-title">Proposal to Close</div><div style="font-family:var(--serif);font-size:1.8rem;font-weight:600;color:#f5a623">51</div><div style="font-size:.68rem;color:var(--muted2)">days avg &middot; target 45</div></div></div>'
+  };
+
+  function render(name){
+    var el=document.getElementById('pc-pillar-content');
+    if(el&&pillarData[name])el.innerHTML=pillarData[name];
+  }
+
+  document.querySelectorAll('.pc-tab').forEach(function(tab){
+    tab.addEventListener('click',function(){
+      document.querySelectorAll('.pc-tab').forEach(function(t){t.classList.remove('pc-tab-active');});
+      tab.classList.add('pc-tab-active');
+      render(tab.dataset.pillar);
+    });
+  });
+
+  document.querySelectorAll('.pc-pill').forEach(function(pill){
+    pill.addEventListener('click',function(){
+      var f=pill.dataset.filter;
+      document.querySelectorAll('.pc-pill[data-filter="'+f+'"]').forEach(function(p){p.classList.remove('pc-pill-active');});
+      pill.classList.add('pc-pill-active');
+    });
+  });
+
+  render('quantity');
+})();
+
+// ── HERO PHOTO CANVAS (black bg removal) ──
+(function(){
+  var img    = document.getElementById('hero-photo-img');
+  var canvas = document.getElementById('hero-photo-canvas');
+  if(!img || !canvas) return;
+  var ctx = canvas.getContext('2d');
+
+  function processImage(){
+    canvas.width  = img.naturalWidth  || img.width  || 800;
+    canvas.height = img.naturalHeight || img.height || 1000;
+    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+    var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    var data = imageData.data;
+    for(var i = 0; i < data.length; i += 4){
+      var r = data[i], g = data[i+1], b = data[i+2];
+      var brightness = r * 0.299 + g * 0.587 + b * 0.114;
+      if(brightness < 30){
+        data[i+3] = 0;
+      } else if(brightness < 60){
+        data[i+3] = Math.round(((brightness - 30) / 30) * 255);
+      }
+    }
+    ctx.putImageData(imageData, 0, 0);
+  }
+
+  if(img.complete){
+    processImage();
+  } else {
+    img.onload = processImage;
+  }
+})();
+</script>
+</body>
+</html>
