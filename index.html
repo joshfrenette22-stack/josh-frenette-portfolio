@@ -332,6 +332,7 @@ footer span{font-size:.7rem;color:var(--muted);letter-spacing:.06em}
 .modal-close:hover{border-color:var(--teal);color:var(--teal)}
 .modal-divider{height:1px;background:var(--border2);margin:1.5rem 0}
 .modal-body{padding:0 2.5rem 2.5rem}
+.modal-img{width:100%;max-height:340px;object-fit:cover;object-position:center 30%;display:block;}
 .modal-section-title{font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);margin-bottom:.75rem;margin-top:1.5rem}
 .modal-text{font-size:.93rem;color:rgba(238,242,247,.72);line-height:1.85}
 .modal-text strong{color:var(--white);font-weight:500}
@@ -454,7 +455,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
 @media(max-width:700px){.metrics-bar-inner{grid-template-columns:repeat(2,1fr);}.metric-item:nth-child(2){border-right:none;}.metric-item:nth-child(3){border-right:1px solid var(--border2)}.metric-item{border-bottom:1px solid var(--border2)}.metric-item:last-child{border-bottom:none}}
 /* FIELD MARKETING CASE STUDIES */
 .fm-section{padding:7rem 3rem;background:var(--bg);}
-.fm-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem;}
+.fm-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:3rem;}
 .fm-card{background:var(--surface);border:1px solid var(--border2);padding:2rem;cursor:pointer;transition:border-color .2s,transform .2s;position:relative;overflow:hidden;}
 .fm-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--teal),transparent);opacity:0;transition:opacity .3s;}
 .fm-card:hover{border-color:rgba(0,212,170,.3);transform:translateY(-3px);}
@@ -787,7 +788,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
     <div class="reveal">
       <div class="sec-label">Field Marketing</div>
       <h2 class="sec-title">Field Marketing<br><em>in Action</em></h2>
-      <p class="proj-subhead">Real programs. Real pipeline. Three case studies from the field.</p>
+      <p class="proj-subhead">Real programs. Real pipeline. Four case studies from the field.</p>
     </div>
     <div class="fm-grid">
       <div class="fm-card reveal" data-modal="fm-connect">
@@ -822,6 +823,18 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
           <span class="fm-outcome">Budget Planning</span>
           <span class="fm-outcome">Bottom-Up Forecast</span>
           <span class="fm-outcome">18 Regions</span>
+        </div>
+        <div class="fm-cta">View Case Study <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+      </div>
+
+      <div class="fm-card reveal d3" data-modal="fm-laughlearn">
+        <div class="fm-tag">Creative Field Events</div>
+        <div class="fm-name">Laugh &amp; Learn Comedy Series</div>
+        <div class="fm-desc">Invented an unconventional field event format — blending stand-up comedy with cybersecurity education — that became one of Armis's most pipeline-productive event series, run two years in a row with 200+ attendees each.</div>
+        <div class="fm-outcomes">
+          <span class="fm-outcome">Deal Progression</span>
+          <span class="fm-outcome">Pipeline Generation</span>
+          <span class="fm-outcome">Key Account Influence</span>
         </div>
         <div class="fm-cta">View Case Study <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
       </div>
@@ -1372,6 +1385,39 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
         <span class="modal-chip">Single source of truth for field + partner spend</span>
         <span class="modal-chip">Pipeline attribution to program level</span>
         <span class="modal-chip">25% YoY pipeline outperformance</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-fm-laughlearn">
+  <div class="modal-box">
+    <button class="modal-close" data-close>&times;</button>
+    <img src="laugh-learn.jpg" alt="Laugh and Learn comedy event with Armis branding" class="modal-img">
+    <div class="modal-top">
+      <div class="modal-tag">Creative Field Events</div>
+      <h3 class="modal-title">Laugh &amp; Learn Comedy Series</h3>
+    </div>
+    <div class="modal-divider"></div>
+    <div class="modal-body">
+      <div class="modal-section-title">The Concept</div>
+      <p class="modal-text">Field event formats were predictable — another dinner, another executive briefing, another booth experience. The challenge was creating something memorable enough that prospects would actually show up, stay engaged, and leave with a genuine connection to Armis. The answer: comedy.</p>
+      <p class="modal-text">Laugh &amp; Learn paired professional stand-up comedians with cybersecurity education segments — giving prospects a reason to attend that had nothing to do with a sales pitch, and giving Armis a room full of decision-makers in a relaxed, high-trust environment.</p>
+      <div class="modal-section-title">Execution</div>
+      <div class="modal-workflow">
+        <div class="modal-step"><div class="modal-step-num">01</div><div class="modal-step-content"><div class="modal-step-title">Targeted account selection</div><div class="modal-step-desc">Used 6sense intent data and Salesforce pipeline stage signals to identify which accounts in each market were in active evaluation cycles or had stalled deals that needed re-engagement.</div></div></div>
+        <div class="modal-step"><div class="modal-step-num">02</div><div class="modal-step-content"><div class="modal-step-title">Format design &amp; production</div><div class="modal-step-desc">Structured each evening around a professional comedian headliner, short "learn" segments delivered by Armis technical leadership, and a curated networking reception — positioning the event as entertainment first, business second.</div></div></div>
+        <div class="modal-step"><div class="modal-step-num">03</div><div class="modal-step-content"><div class="modal-step-title">Sales alignment &amp; follow-up sequences</div><div class="modal-step-desc">Partnered with regional AEs to map every attendee to an open opportunity or target account. Post-event follow-up sequences were pre-built and personalized by account tier, timed to launch within 48 hours of the event.</div></div></div>
+        <div class="modal-step"><div class="modal-step-num">04</div><div class="modal-step-content"><div class="modal-step-title">Year 2 expansion</div><div class="modal-step-desc">Strong pipeline results from Year 1 justified running the series again. Year 2 expanded to additional markets, grew attendance, and sharpened the account targeting model based on prior conversion data.</div></div></div>
+      </div>
+      <div class="modal-section-title">Outcomes</div>
+      <div class="modal-chips">
+        <span class="modal-chip">2 years running</span>
+        <span class="modal-chip">200+ attendees per event</span>
+        <span class="modal-chip">Deal progression in key accounts</span>
+        <span class="modal-chip">Major pipeline generation</span>
+        <span class="modal-chip">High executive attendance rate</span>
+        <span class="modal-chip">Repeatable format &mdash; now in the playbook</span>
       </div>
     </div>
   </div>
