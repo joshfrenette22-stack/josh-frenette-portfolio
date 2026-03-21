@@ -488,7 +488,58 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
 .pw-gate-error{font-size:.75rem;color:#ff6b6b;min-height:1rem;opacity:0;transition:opacity .3s;}
 .pw-gate-error.show{opacity:1;}
 .pw-gate-divider{width:40px;height:1px;background:var(--border2);margin:2rem auto;}
-</style>
+
+/* ── FIELD WORK SECTION ── */
+.fw-disclaimer{font-size:.79rem;color:var(--muted2);margin-top:.6rem;font-style:italic;letter-spacing:.01em;}
+.fw-card-metrics{display:flex;gap:.75rem;margin:.9rem 0 1.1rem;padding:.8rem .9rem;background:rgba(0,212,170,0.04);border-radius:8px;border:1px solid rgba(0,212,170,0.1);}
+.fw-metric{flex:1;text-align:center;display:flex;flex-direction:column;gap:.2rem;}
+.fw-metric-val{font-family:var(--serif);font-size:1.25rem;font-weight:600;color:var(--teal);line-height:1.1;}
+.fw-metric-label{font-size:.65rem;color:var(--muted2);letter-spacing:.03em;line-height:1.3;}
+
+/* ── MODAL HERO IMAGE ── */
+.modal-hero{position:relative;width:calc(100% + 4rem);margin:-2rem -2rem 1.5rem;height:210px;overflow:hidden;border-radius:10px 10px 0 0;flex-shrink:0;}
+.modal-hero img{width:100%;height:100%;object-fit:cover;display:block;}
+.modal-hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(7,9,15,0.05) 0%,rgba(7,9,15,0.7) 100%);}
+.modal-hero-badge{position:absolute;top:1rem;left:1.25rem;}
+.modal-hero-tag{background:rgba(0,212,170,0.92);color:#07090f;font-size:.63rem;font-weight:600;letter-spacing:.09em;text-transform:uppercase;padding:.28rem .65rem;border-radius:4px;}
+
+/* ── MODAL STAT ROW ── */
+.modal-stat-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:.65rem;margin:1.1rem 0 1.3rem;}
+.modal-stat-item{background:rgba(0,212,170,0.05);border:1px solid rgba(0,212,170,0.12);border-radius:8px;padding:.8rem .65rem;text-align:center;}
+.modal-stat-num{font-family:var(--serif);font-size:1.35rem;font-weight:600;color:var(--teal);line-height:1.1;display:block;margin-bottom:.28rem;}
+.modal-stat-label{font-size:.65rem;color:var(--muted2);letter-spacing:.04em;line-height:1.3;display:block;}
+
+/* ── MODAL TABLES ── */
+.fw-table-wrap{background:rgba(0,212,170,0.025);border:1px solid rgba(0,212,170,0.1);border-radius:10px;overflow:hidden;margin:1rem 0;}
+.fw-table{width:100%;border-collapse:collapse;font-size:.81rem;}
+.fw-table th{text-align:left;padding:.6rem .8rem;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted2);border-bottom:1px solid rgba(0,212,170,0.12);font-weight:500;}
+.fw-table td{padding:.6rem .8rem;border-bottom:1px solid rgba(255,255,255,0.04);color:var(--white);}
+.fw-table tr:last-child td{border-bottom:none;}
+.fw-table tfoot td{border-top:1px solid rgba(0,212,170,0.18);font-weight:500;border-bottom:none;}
+.fw-td-teal{color:var(--teal)!important;font-weight:500;}
+.fw-td-bold{font-weight:500;}
+
+/* ── MODAL CALCULATOR ── */
+.fw-calc-section{background:rgba(0,212,170,0.03);border:1px solid rgba(0,212,170,0.12);border-radius:12px;padding:1.25rem;margin:1.25rem 0;}
+.fw-calc-title{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);font-weight:500;margin-bottom:.35rem;}
+.fw-calc-desc{font-size:.79rem;color:var(--muted2);margin-bottom:1rem;line-height:1.55;}
+.fw-calc-row{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin:.55rem 0;}
+.fw-calc-lbl{font-size:.77rem;color:var(--muted2);flex:1;min-width:0;}
+.fw-calc-lbl small{font-size:.66rem;color:var(--muted);margin-left:.3rem;}
+.fw-calc-slider-wrap{display:flex;align-items:center;gap:.6rem;flex:1.3;}
+.fw-calc-slider{-webkit-appearance:none;appearance:none;width:100%;height:3px;background:rgba(0,212,170,0.2);border-radius:2px;cursor:pointer;outline:none;}
+.fw-calc-slider::-webkit-slider-thumb{-webkit-appearance:none;width:14px;height:14px;border-radius:50%;background:var(--teal);cursor:pointer;box-shadow:0 0 8px rgba(0,212,170,0.5);}
+.fw-calc-slider::-moz-range-thumb{width:14px;height:14px;border-radius:50%;background:var(--teal);cursor:pointer;border:none;}
+.fw-calc-val{font-size:.77rem;font-weight:500;color:var(--white);width:3.8rem;text-align:right;flex-shrink:0;}
+.fw-calc-outputs{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-top:1rem;}
+.fw-calc-out{background:rgba(0,212,170,0.06);border:1px solid rgba(0,212,170,0.15);border-radius:8px;padding:.75rem .65rem;text-align:center;}
+.fw-calc-out.fw-primary{grid-column:1/-1;background:rgba(0,212,170,0.1);border-color:rgba(0,212,170,0.22);}
+.fw-calc-out-val{font-family:var(--serif);font-size:1.45rem;font-weight:600;color:var(--teal);display:block;line-height:1.1;}
+.fw-calc-out-val.warn{color:#f5a623;}
+.fw-calc-out-label{font-size:.65rem;color:var(--muted2);letter-spacing:.04em;margin-top:.3rem;display:block;}
+.fw-val-flash{animation:fw-flash .35s ease;}
+@keyframes fw-flash{0%{opacity:.45;transform:scale(.95)}100%{opacity:1;transform:scale(1)}}
+.fw-calc-divider{border:none;border-top:1px solid rgba(0,212,170,0.1);margin:1rem 0;}
 </head>
 <body>
 
@@ -502,8 +553,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
     <div class="pw-gate-label">Private Portfolio &mdash; Invite Only</div>
     <div class="pw-gate-divider"></div>
     <div class="pw-gate-title">You know Josh.<br>Prove it.</div>
-    <p class="pw-gate-sub">This portfolio is shared selectively. If you're here, you were sent the key &mdash; or you're smart enough to figure it out.</p>
-    <p class="pw-gate-hint">Hint: what did Josh name his first company? (lowercase, no spaces)</p>
+    <p class="pw-gate-sub">This portfolio is shared selectively. If you're here, you were sent the key.</p>
     <div class="pw-gate-field">
       <input type="password" class="pw-gate-input" id="pw-input" placeholder="Enter password..." autocomplete="off">
       <button class="pw-gate-btn" id="pw-btn">Unlock</button>
@@ -517,7 +567,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
   <ul class="nav-links">
     <li><a href="#bio">About</a></li>
     <li><a href="#career">Career</a></li>
-    <li><a href="#fieldmarketing">Field Mktg</a></li>
+    <li><a href="#field-work">Field Work</a></li>
     <li><a href="#projects">Work</a></li>
     <li><a href="#tools">Stack</a></li>
     <li><a href="#initiatives">Initiatives</a></li>
@@ -747,66 +797,6 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
   </div>
 </section>
 
-<!-- FIELD MARKETING IN ACTION -->
-<section id="fieldmarketing" class="fm-section">
-  <div class="container">
-    <div class="reveal">
-      <div class="sec-label">Field Marketing</div>
-      <h2 class="sec-title">Field Marketing<br><em>in Action</em></h2>
-      <p class="proj-subhead">Real programs. Real pipeline. Four case studies from the field.</p>
-    </div>
-    <div class="fm-grid">
-      <div class="fm-card reveal" data-modal="fm-connect">
-        <div class="fm-tag">Community &amp; Events</div>
-        <div class="fm-name">Armis Connect Global Rollout</div>
-        <div class="fm-desc">Built and launched a global customer community app from zero to 100K+ users — driving retention, upsell signals, and field marketing reach across 18 regions.</div>
-        <div class="fm-outcomes">
-          <span class="fm-outcome">Community Growth</span>
-          <span class="fm-outcome">Customer Retention</span>
-          <span class="fm-outcome">Global Scale</span>
-        </div>
-        <div class="fm-cta">View Case Study <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
-      </div>
-
-      <div class="fm-card reveal d1" data-modal="fm-blackhat">
-        <div class="fm-tag">Event-Led Pipeline</div>
-        <div class="fm-name">Black Hat Demand Generation</div>
-        <div class="fm-desc">Orchestrated Armis's presence at Black Hat — the cybersecurity industry's flagship event — into a high-efficiency pipeline engine combining executive dinners, booth activations, and post-show sequences.</div>
-        <div class="fm-outcomes">
-          <span class="fm-outcome">Event Strategy</span>
-          <span class="fm-outcome">Pipeline Generation</span>
-          <span class="fm-outcome">Cybersecurity</span>
-        </div>
-        <div class="fm-cta">View Case Study <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
-      </div>
-
-      <div class="fm-card reveal d2" data-modal="fm-forecast">
-        <div class="fm-tag">Planning &amp; Forecasting</div>
-        <div class="fm-name">Global Field &amp; Partner Budget Forecast</div>
-        <div class="fm-desc">Designed and owns the annual global field, partner, and campaigns budget model — a bottom-up forecast framework that connects program investment to pipeline contribution by region and segment.</div>
-        <div class="fm-outcomes">
-          <span class="fm-outcome">Budget Planning</span>
-          <span class="fm-outcome">Bottom-Up Forecast</span>
-          <span class="fm-outcome">18 Regions</span>
-        </div>
-        <div class="fm-cta">View Case Study <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
-      </div>
-
-      <div class="fm-card reveal d3" data-modal="fm-laughlearn">
-        <div class="fm-tag">Creative Field Events</div>
-        <div class="fm-name">Laugh &amp; Learn Comedy Series</div>
-        <div class="fm-desc">Invented an unconventional field event format — blending stand-up comedy with cybersecurity education — that became one of Armis's most pipeline-productive event series, run two years in a row with 200+ attendees each.</div>
-        <div class="fm-outcomes">
-          <span class="fm-outcome">Deal Progression</span>
-          <span class="fm-outcome">Pipeline Generation</span>
-          <span class="fm-outcome">Key Account Influence</span>
-        </div>
-        <div class="fm-cta">View Case Study <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- PROJECTS -->
 <section id="projects">
   <div class="container">
@@ -879,6 +869,103 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
     </div>
   </div>
 </section>
+
+
+<!-- FIELD WORK IN ACTION -->
+<section id="field-work" class="fm-section">
+  <div class="container">
+    <div class="reveal">
+      <div class="sec-label">Field Marketing</div>
+      <h2 class="sec-title">Field Marketing<br><em>in Action</em></h2>
+      <p class="proj-subhead">Four programs that show how field marketing drives pipeline when it&rsquo;s built with intention.</p>
+      <p class="fw-disclaimer">These aren&rsquo;t hypotheticals. Each one is a real program built and run at Armis Security.</p>
+    </div>
+    <div class="fm-grid">
+
+      <div class="fm-card reveal" data-modal="fw-blackhat">
+        <div class="fm-tag">Event-Led Pipeline</div>
+        <div class="fm-name">Black Hat Demand Generation</div>
+        <div class="fw-card-metrics">
+          <div class="fw-metric">
+            <span class="fw-metric-val">100+</span>
+            <span class="fw-metric-label">AE Meetings/Year</span>
+          </div>
+          <div class="fw-metric">
+            <span class="fw-metric-val">3x</span>
+            <span class="fw-metric-label">Consecutive YoY Growth</span>
+          </div>
+          <div class="fw-metric">
+            <span class="fw-metric-val">Multi</span>
+            <span class="fw-metric-label">Stakeholder Penetration</span>
+          </div>
+        </div>
+        <div class="fm-cta">View Case Study <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+      </div>
+
+      <div class="fm-card reveal d1" data-modal="fw-laughlearn">
+        <div class="fm-tag">Creative Events</div>
+        <div class="fm-name">Laugh &amp; Learn Comedy Series</div>
+        <div class="fw-card-metrics">
+          <div class="fw-metric">
+            <span class="fw-metric-val">300+</span>
+            <span class="fw-metric-label">Attendees (2 Years)</span>
+          </div>
+          <div class="fw-metric">
+            <span class="fw-metric-val">5</span>
+            <span class="fw-metric-label">Partner Co-Hosts</span>
+          </div>
+          <div class="fw-metric">
+            <span class="fw-metric-val">Annual</span>
+            <span class="fw-metric-label">Recurring Series</span>
+          </div>
+        </div>
+        <div class="fm-cta">View Case Study <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+      </div>
+
+      <div class="fm-card reveal d2" data-modal="fw-fy27">
+        <div class="fm-tag">Strategic Planning</div>
+        <div class="fm-name">FY27 Global Marketing Plan &amp; Bottom-Up Forecast</div>
+        <div class="fw-card-metrics">
+          <div class="fw-metric">
+            <span class="fw-metric-val">$19M</span>
+            <span class="fw-metric-label">Budget Owned</span>
+          </div>
+          <div class="fw-metric">
+            <span class="fw-metric-val">85%</span>
+            <span class="fw-metric-label">YoY Growth Mandate</span>
+          </div>
+          <div class="fw-metric">
+            <span class="fw-metric-val">34</span>
+            <span class="fw-metric-label">Campaigns</span>
+          </div>
+        </div>
+        <div class="fm-cta">View Case Study <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+      </div>
+
+      <div class="fm-card reveal d3" data-modal="fw-abm">
+        <div class="fm-tag">Account-Based Marketing</div>
+        <div class="fm-name">Account Exposure &amp; Engagement Matrix</div>
+        <div class="fw-card-metrics">
+          <div class="fw-metric">
+            <span class="fw-metric-val">$200K</span>
+            <span class="fw-metric-label">Pipeline at S4x26</span>
+          </div>
+          <div class="fw-metric">
+            <span class="fw-metric-val">22.2x</span>
+            <span class="fw-metric-label">Pipeline-to-Spend ROI</span>
+          </div>
+          <div class="fw-metric">
+            <span class="fw-metric-val">36.9%</span>
+            <span class="fw-metric-label">Target Accounts Engaged</span>
+          </div>
+        </div>
+        <div class="fm-cta">View Case Study <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- QUOTE BREAK -->
 <div class="quote-break reveal">
   <div class="quote-break-line"></div>
@@ -1336,44 +1423,14 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
   <span>Field Marketing. Global Programs. Pipeline Results.</span>
 </footer>
 
-<!-- FM MODALS -->
-<div class="modal-overlay" id="modal-fm-connect">
+<!-- FIELD WORK MODALS -->
+<div class="modal-overlay" id="modal-fw-blackhat">
   <div class="modal-box">
     <button class="modal-close" data-close>&times;</button>
-    <img src="event-booth.jpg" alt="Armis field event booth activation" class="modal-img">
-    <div class="modal-top">
-      <div class="modal-tag">Community &amp; Events</div>
-      <h3 class="modal-title">Armis Connect Global Rollout</h3>
-    </div>
-    <div class="modal-divider"></div>
-    <div class="modal-body">
-      <div class="modal-section-title">The Problem</div>
-      <p class="modal-text">Armis had a growing global customer base but no structured community to deepen relationships, surface expansion signals, or scale peer-to-peer advocacy. Retention risk was invisible until it became a churn event.</p>
-      <div class="modal-section-title">The Approach</div>
-      <p class="modal-text">Led the end-to-end launch of Armis Connect — a dedicated customer community platform built to serve field marketers, customer success, and product teams simultaneously. The rollout spanned strategy, platform build, content programming, regional chapter activation, and in-person event integration.</p>
-      <div class="modal-workflow">
-        <div class="modal-step"><div class="modal-step-num">01</div><div class="modal-step-content"><div class="modal-step-title">Platform strategy and build</div><div class="modal-step-desc">Evaluated community platforms, selected and configured the technology, and built the information architecture to serve global users across 18 regions.</div></div></div>
-        <div class="modal-step"><div class="modal-step-num">02</div><div class="modal-step-content"><div class="modal-step-title">Content and programming</div><div class="modal-step-desc">Developed an editorial calendar with product education, peer discussion, and exclusive content series to drive sustained engagement beyond launch.</div></div></div>
-        <div class="modal-step"><div class="modal-step-num">03</div><div class="modal-step-content"><div class="modal-step-title">Regional activation</div><div class="modal-step-desc">Launched regional chapters tied to in-person field events — driving local cohesion and connecting virtual community to physical touchpoints.</div></div></div>
-        <div class="modal-step"><div class="modal-step-num">04</div><div class="modal-step-content"><div class="modal-step-title">CS and field marketing integration</div><div class="modal-step-desc">Connected community activity signals to Salesforce, enabling CS teams to identify engaged accounts and field marketers to prioritize retention plays.</div></div></div>
-      </div>
-      <div class="modal-section-title">Outcomes</div>
-      <div class="modal-chips">
-        <span class="modal-chip">100K+ app users</span>
-        <span class="modal-chip">18 regional chapters activated</span>
-        <span class="modal-chip">Customer retention signal layer built</span>
-        <span class="modal-chip">Upsell pipeline attributed to community</span>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="modal-overlay" id="modal-fm-blackhat">
-  <div class="modal-box">
-    <button class="modal-close" data-close>&times;</button>
-    <div class="modal-photo-strip">
-      <img src="event-blackhat-1.jpg" alt="Josh at the Armis Black Hat booth" class="modal-photo-strip-img">
-      <img src="event-blackhat-2.jpg" alt="Armis booth at Black Hat" class="modal-photo-strip-img">
+    <div class="modal-hero">
+      <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=900&auto=format&q=80" alt="Cybersecurity conference" loading="lazy">
+      <div class="modal-hero-overlay"></div>
+      <div class="modal-hero-badge"><span class="modal-hero-tag">Event-Led Pipeline</span></div>
     </div>
     <div class="modal-top">
       <div class="modal-tag">Event-Led Pipeline</div>
@@ -1381,89 +1438,304 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
     </div>
     <div class="modal-divider"></div>
     <div class="modal-body">
-      <div class="modal-section-title">The Problem</div>
-      <p class="modal-text">Black Hat is the highest-density event in cybersecurity — and one of the most expensive. Prior years treated it as a brand play with limited pipeline accountability. The challenge was turning an $800K+ event investment into a measurable revenue motion.</p>
-      <div class="modal-section-title">The Approach</div>
-      <p class="modal-text">Rebuilt the Black Hat program from the ground up as a full-funnel demand generation engine. Every touchpoint — from pre-show outreach to executive dinner to post-show sequence — was designed to move a specific audience segment toward pipeline.</p>
-      <div class="modal-workflow">
-        <div class="modal-step"><div class="modal-step-num">01</div><div class="modal-step-content"><div class="modal-step-title">Pre-show account targeting</div><div class="modal-step-desc">Used 6sense intent data and Salesforce account scoring to build tiered outreach lists by segment. Coordinated sales outreach, sponsored session invites, and executive dinner targeting 60 days pre-show.</div></div></div>
-        <div class="modal-step"><div class="modal-step-num">02</div><div class="modal-step-content"><div class="modal-step-title">On-site activation</div><div class="modal-step-desc">Managed booth logistics, speaking session coordination, meeting suite programming, and a CISO-level executive dinner with hosted speakers and structured networking.</div></div></div>
-        <div class="modal-step"><div class="modal-step-num">03</div><div class="modal-step-content"><div class="modal-step-title">Post-show pipeline sequence</div><div class="modal-step-desc">Launched segmented Marketo sequences within 48 hours of show close. Each sequence was tailored by interaction type — booth scan, dinner attendee, speaking session viewer.</div></div></div>
-        <div class="modal-step"><div class="modal-step-num">04</div><div class="modal-step-content"><div class="modal-step-title">Pipeline attribution and reporting</div><div class="modal-step-desc">Built custom Salesforce reporting to track sourced vs. influenced pipeline by event cohort, with 90-day and 180-day pipeline waterfall views presented to the executive team.</div></div></div>
+      <div class="modal-stat-row">
+        <div class="modal-stat-item"><span class="modal-stat-num">100+</span><span class="modal-stat-label">AE Meetings/Year</span></div>
+        <div class="modal-stat-item"><span class="modal-stat-num">3x</span><span class="modal-stat-label">Consecutive YoY Growth</span></div>
+        <div class="modal-stat-item"><span class="modal-stat-num">Multi</span><span class="modal-stat-label">Stakeholder Accounts</span></div>
       </div>
-      <div class="modal-section-title">Outcomes</div>
+      <div class="modal-section-title">The Challenge</div>
+      <p class="modal-text">Black Hat is the highest-density event in cybersecurity &mdash; and one of the most scrutinized line items in the field marketing budget. 100+ AE meetings per year isn&rsquo;t a coincidence. It&rsquo;s the output of a demand generation system built before anyone steps on a plane.</p>
+      <div class="modal-section-title">What I Owned</div>
+      <p class="modal-text">End-to-end ownership of Armis&rsquo;s Black Hat program: from account targeting strategy and pre-show outreach to on-site activation, executive dinner production, and post-show pipeline sequences. Full budget ownership, vendor management, and cross-functional alignment with Sales, SDR, and Product.</p>
+      <div class="modal-section-title">How It Worked</div>
+      <div class="modal-workflow">
+        <div class="modal-step">
+          <div class="modal-step-num">01</div>
+          <div class="modal-step-content">
+            <div class="modal-step-title">Pre-Show &mdash; 60-Day Account Targeting Engine</div>
+            <div class="modal-step-desc">Used 6sense intent data and Salesforce account scoring to build tiered outreach lists by segment. Coordinated AE outreach, sponsored session invites, and executive dinner targeting across three tiers: must-win enterprise, high-intent mid-market, and re-engagement targets. Personalized sequences deployed 8 weeks out.</div>
+          </div>
+        </div>
+        <div class="modal-step">
+          <div class="modal-step-num">02</div>
+          <div class="modal-step-content">
+            <div class="modal-step-title">On-Site &mdash; Multi-Format Activation</div>
+            <div class="modal-step-desc">Managed booth strategy, meeting suite programming, sponsored speaking session, and a CISO-level executive dinner &mdash; each with a distinct audience and pipeline objective. Every touchpoint was designed to penetrate multiple stakeholders in the same account, not just collect badge scans.</div>
+          </div>
+        </div>
+        <div class="modal-step">
+          <div class="modal-step-num">03</div>
+          <div class="modal-step-content">
+            <div class="modal-step-title">Post-Show &mdash; Segmented Pipeline Sequences</div>
+            <div class="modal-step-desc">Launched segmented Marketo sequences within 48 hours of show close &mdash; each tailored by interaction type: booth scan, dinner attendee, session viewer, no-show follow. 90-day and 180-day pipeline waterfall reporting presented directly to the executive team.</div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-section-title">Results</div>
       <div class="modal-chips">
-        <span class="modal-chip">Top sourced pipeline event of the year</span>
-        <span class="modal-chip">25%+ pipeline outperformance vs. prior year</span>
-        <span class="modal-chip">60+ executive meetings booked</span>
-        <span class="modal-chip">Post-show sequence open rates 38%</span>
+        <span class="modal-chip">100+ AE meetings booked annually</span>
+        <span class="modal-chip">3 consecutive years of YoY meeting growth</span>
+        <span class="modal-chip">Multi-stakeholder penetration in top accounts</span>
+        <span class="modal-chip">Top sourced pipeline event each year</span>
+        <span class="modal-chip">Executive dinner repeat demand year-over-year</span>
       </div>
     </div>
   </div>
 </div>
 
-<div class="modal-overlay" id="modal-fm-forecast">
+<div class="modal-overlay" id="modal-fw-laughlearn">
   <div class="modal-box">
     <button class="modal-close" data-close>&times;</button>
-    <div class="modal-top">
-      <div class="modal-tag">Planning &amp; Forecasting</div>
-      <h3 class="modal-title">Global Field &amp; Partner Budget Forecast</h3>
+    <div class="modal-hero">
+      <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=900&auto=format&q=80" alt="Evening event crowd" loading="lazy">
+      <div class="modal-hero-overlay"></div>
+      <div class="modal-hero-badge"><span class="modal-hero-tag">Creative Events</span></div>
     </div>
-    <div class="modal-divider"></div>
-    <div class="modal-body">
-      <div class="modal-section-title">The Problem</div>
-      <p class="modal-text">With field marketing programs running across 18 global regions and a partner co-marketing portfolio spanning dozens of programs, budget planning was decentralized, reactive, and disconnected from pipeline targets. Spend happened; pipeline impact was assumed.</p>
-      <div class="modal-section-title">The Approach</div>
-      <p class="modal-text">Built and now owns the annual global field, partner, and campaigns budget model — a bottom-up forecast framework that starts with regional pipeline targets and works backward to program investment requirements, activity volume, and expected sourced pipeline by quarter.</p>
-      <div class="modal-workflow">
-        <div class="modal-step"><div class="modal-step-num">01</div><div class="modal-step-content"><div class="modal-step-title">Regional pipeline target setting</div><div class="modal-step-desc">Collaborated with regional sales leaders and RevOps to establish field marketing pipeline contribution targets by region, segment, and quarter.</div></div></div>
-        <div class="modal-step"><div class="modal-step-num">02</div><div class="modal-step-content"><div class="modal-step-title">Activity-to-pipeline modeling</div><div class="modal-step-desc">Built conversion assumptions from program type (event, webinar, partner co-market) to MQL, to SAO, to pipeline — benchmarked against two years of actuals in Salesforce and HockeyStack.</div></div></div>
-        <div class="modal-step"><div class="modal-step-num">03</div><div class="modal-step-content"><div class="modal-step-title">Partner co-marketing integration</div><div class="modal-step-desc">Incorporated partner co-marketing programs into the model with shared pipeline attribution framework — giving channel leadership visibility into field + partner combined contribution.</div></div></div>
-        <div class="modal-step"><div class="modal-step-num">04</div><div class="modal-step-content"><div class="modal-step-title">Quarterly tracking and reallocation</div><div class="modal-step-desc">Model is live throughout the year — actuals vs. forecast tracked quarterly with budget reallocation recommendations based on program ROI signals.</div></div></div>
-      </div>
-      <div class="modal-section-title">Outcomes</div>
-      <div class="modal-chips">
-        <span class="modal-chip">18 regions modeled bottom-up</span>
-        <span class="modal-chip">Single source of truth for field + partner spend</span>
-        <span class="modal-chip">Pipeline attribution to program level</span>
-        <span class="modal-chip">25% YoY pipeline outperformance</span>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="modal-overlay" id="modal-fm-laughlearn">
-  <div class="modal-box">
-    <button class="modal-close" data-close>&times;</button>
-    <img src="laugh-learn.jpg" alt="Laugh and Learn comedy event with Armis branding" class="modal-img">
     <div class="modal-top">
-      <div class="modal-tag">Creative Field Events</div>
+      <div class="modal-tag">Creative Events</div>
       <h3 class="modal-title">Laugh &amp; Learn Comedy Series</h3>
     </div>
     <div class="modal-divider"></div>
     <div class="modal-body">
+      <div class="modal-stat-row">
+        <div class="modal-stat-item"><span class="modal-stat-num">300+</span><span class="modal-stat-label">Total Attendees (2 Years)</span></div>
+        <div class="modal-stat-item"><span class="modal-stat-num">5</span><span class="modal-stat-label">Partner Co-Hosts</span></div>
+        <div class="modal-stat-item"><span class="modal-stat-num">Annual</span><span class="modal-stat-label">Recurring Series</span></div>
+      </div>
       <div class="modal-section-title">The Concept</div>
-      <p class="modal-text">Field event formats were predictable — another dinner, another executive briefing, another booth experience. The challenge was creating something memorable enough that prospects would actually show up, stay engaged, and leave with a genuine connection to Armis. The answer: comedy.</p>
-      <p class="modal-text">Laugh &amp; Learn paired professional stand-up comedians with cybersecurity education segments — giving prospects a reason to attend that had nothing to do with a sales pitch, and giving Armis a room full of decision-makers in a relaxed, high-trust environment.</p>
+      <p class="modal-text">Most field events compete on the same dimension: venue quality, food, speaker credentials. The result is a market where every invite looks identical and attendance rates reflect it. Laugh &amp; Learn was built on a different premise &mdash; give people a genuine reason to show up that has nothing to do with a sales pitch.</p>
+      <p class="modal-text">The format: professional stand-up comedian headliner, short cybersecurity &ldquo;learn&rdquo; segments delivered by Armis technical leadership, and a curated networking reception. Entertainment first. Business second. Pipeline as the result, not the ask.</p>
       <div class="modal-section-title">Execution</div>
       <div class="modal-workflow">
-        <div class="modal-step"><div class="modal-step-num">01</div><div class="modal-step-content"><div class="modal-step-title">Targeted account selection</div><div class="modal-step-desc">Used 6sense intent data and Salesforce pipeline stage signals to identify which accounts in each market were in active evaluation cycles or had stalled deals that needed re-engagement.</div></div></div>
-        <div class="modal-step"><div class="modal-step-num">02</div><div class="modal-step-content"><div class="modal-step-title">Format design &amp; production</div><div class="modal-step-desc">Structured each evening around a professional comedian headliner, short "learn" segments delivered by Armis technical leadership, and a curated networking reception — positioning the event as entertainment first, business second.</div></div></div>
-        <div class="modal-step"><div class="modal-step-num">03</div><div class="modal-step-content"><div class="modal-step-title">Sales alignment &amp; follow-up sequences</div><div class="modal-step-desc">Partnered with regional AEs to map every attendee to an open opportunity or target account. Post-event follow-up sequences were pre-built and personalized by account tier, timed to launch within 48 hours of the event.</div></div></div>
-        <div class="modal-step"><div class="modal-step-num">04</div><div class="modal-step-content"><div class="modal-step-title">Year 2 expansion</div><div class="modal-step-desc">Strong pipeline results from Year 1 justified running the series again. Year 2 expanded to additional markets, grew attendance, and sharpened the account targeting model based on prior conversion data.</div></div></div>
+        <div class="modal-step">
+          <div class="modal-step-num">01</div>
+          <div class="modal-step-content">
+            <div class="modal-step-title">Account Selection &amp; Partner Activation</div>
+            <div class="modal-step-desc">Used 6sense intent data and pipeline stage signals to identify accounts in active evaluation or stalled cycles. Brought in 5 channel partners as co-hosts &mdash; extending reach, sharing costs, and giving attendees another reason to attend beyond Armis alone.</div>
+          </div>
+        </div>
+        <div class="modal-step">
+          <div class="modal-step-num">02</div>
+          <div class="modal-step-content">
+            <div class="modal-step-title">Event Production &amp; Format Design</div>
+            <div class="modal-step-desc">Handled venue selection, comedian booking, AV production, and evening flow design. Structured each event to maximize informal relationship time &mdash; cocktail hour before and after the main program, table seating designed for cross-account conversation.</div>
+          </div>
+        </div>
+        <div class="modal-step">
+          <div class="modal-step-num">03</div>
+          <div class="modal-step-content">
+            <div class="modal-step-title">Sales Alignment &amp; Post-Event Pipeline</div>
+            <div class="modal-step-desc">Every attendee mapped to an open opportunity or target account before the event. Post-event follow-up sequences pre-built and personalized by account tier, launched within 48 hours. AE debrief called within 24 hours to capture conversation intelligence.</div>
+          </div>
+        </div>
+        <div class="modal-step">
+          <div class="modal-step-num">04</div>
+          <div class="modal-step-content">
+            <div class="modal-step-title">Year 2 Expansion</div>
+            <div class="modal-step-desc">Strong pipeline results from Year 1 justified expanding to additional markets in Year 2. Refined the account targeting model based on Year 1 conversion data. Grew total attendance and maintained the format integrity that made it work.</div>
+          </div>
+        </div>
       </div>
-      <div class="modal-section-title">Outcomes</div>
+      <div class="modal-section-title">Results</div>
       <div class="modal-chips">
-        <span class="modal-chip">2 years running</span>
-        <span class="modal-chip">200+ attendees per event</span>
-        <span class="modal-chip">Deal progression in key accounts</span>
-        <span class="modal-chip">Major pipeline generation</span>
+        <span class="modal-chip">300+ attendees across two years</span>
+        <span class="modal-chip">5 partner co-hosts across the series</span>
+        <span class="modal-chip">Deal progression in key target accounts</span>
+        <span class="modal-chip">Annual format &mdash; now in the playbook</span>
         <span class="modal-chip">High executive attendance rate</span>
-        <span class="modal-chip">Repeatable format &mdash; now in the playbook</span>
+        <span class="modal-chip">Co-marketing budget offset via partners</span>
       </div>
     </div>
   </div>
 </div>
+
+<div class="modal-overlay" id="modal-fw-fy27">
+  <div class="modal-box">
+    <button class="modal-close" data-close>&times;</button>
+    <div class="modal-hero">
+      <img src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=900&auto=format&q=80" alt="Strategic planning session" loading="lazy">
+      <div class="modal-hero-overlay"></div>
+      <div class="modal-hero-badge"><span class="modal-hero-tag">Strategic Planning</span></div>
+    </div>
+    <div class="modal-top">
+      <div class="modal-tag">Strategic Planning</div>
+      <h3 class="modal-title">FY27 Global Marketing Plan &amp; Bottom-Up Forecast</h3>
+    </div>
+    <div class="modal-divider"></div>
+    <div class="modal-body">
+      <div class="modal-stat-row">
+        <div class="modal-stat-item"><span class="modal-stat-num">$19M</span><span class="modal-stat-label">Total Budget Owned</span></div>
+        <div class="modal-stat-item"><span class="modal-stat-num">85%</span><span class="modal-stat-label">YoY Growth Mandate</span></div>
+        <div class="modal-stat-item"><span class="modal-stat-num">34</span><span class="modal-stat-label">Campaigns Planned</span></div>
+      </div>
+      <div class="modal-section-title">The Context</div>
+      <p class="modal-text">FY27 is the year Armis scales aggressively. The $19M field and partner marketing budget reflects an 85% YoY increase in spend &mdash; matched against a pipeline target that requires the entire marketing organization to operate with precision. Every dollar has to earn its place.</p>
+      <div class="modal-section-title">Budget Architecture</div>
+      <div class="fw-table-wrap">
+        <table class="fw-table">
+          <thead>
+            <tr>
+              <th>Category</th>
+              <th>Budget</th>
+              <th>% of Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Field Marketing</td><td class="fw-td-teal">$6.85M</td><td>36%</td></tr>
+            <tr><td>Global Events</td><td class="fw-td-teal">$4.00M</td><td>21%</td></tr>
+            <tr><td>Campaigns &amp; Demand Gen</td><td class="fw-td-teal">$5.15M</td><td>27%</td></tr>
+            <tr><td>Partner Marketing</td><td class="fw-td-teal">$3.00M</td><td>16%</td></tr>
+          </tbody>
+          <tfoot>
+            <tr><td class="fw-td-bold">Total</td><td class="fw-td-teal fw-td-bold">$19.00M</td><td>100%</td></tr>
+          </tfoot>
+        </table>
+      </div>
+      <div class="modal-section-title">Campaign Architecture</div>
+      <p class="modal-text">34 campaigns organized across three phases: pipeline generation (Q1&ndash;Q2 emphasis), pipeline acceleration (ongoing), and expansion/retention (Q3&ndash;Q4 emphasis). Each campaign mapped to a segment, region, budget line, and expected pipeline contribution before launch.</p>
+      <div class="modal-section-title">Scale</div>
+      <p class="modal-text">The plan spans 3 theaters (AMER, EMEA, APJ), 12 field marketing regions, and a partner co-marketing program covering 20+ technology and channel partners. Built bottom-up from regional pipeline targets &mdash; not allocated top-down from finance.</p>
+      <hr class="fw-calc-divider">
+      <div class="fw-calc-section">
+        <div class="fw-calc-title">Interactive Forecast Model</div>
+        <div class="fw-calc-desc">Adjust the assumptions below and watch the model update in real time. The same logic that drives the FY27 planning sessions.</div>
+        <div class="fw-calc-row">
+          <div class="fw-calc-lbl">Target Accounts <small>count</small></div>
+          <div class="fw-calc-slider-wrap">
+            <input type="range" class="fw-calc-slider" id="fw27-accounts" min="500" max="6000" step="100" value="3300">
+            <span class="fw-calc-val" id="fw27-accounts-val">3,300</span>
+          </div>
+        </div>
+        <div class="fw-calc-row">
+          <div class="fw-calc-lbl">AE Meeting Rate <small>% of accounts</small></div>
+          <div class="fw-calc-slider-wrap">
+            <input type="range" class="fw-calc-slider" id="fw27-meeting-rate" min="1" max="25" step="0.5" value="8">
+            <span class="fw-calc-val" id="fw27-meeting-rate-val">8%</span>
+          </div>
+        </div>
+        <div class="fw-calc-row">
+          <div class="fw-calc-lbl">Meeting to Opp <small>conversion</small></div>
+          <div class="fw-calc-slider-wrap">
+            <input type="range" class="fw-calc-slider" id="fw27-opp-rate" min="10" max="80" step="1" value="35">
+            <span class="fw-calc-val" id="fw27-opp-rate-val">35%</span>
+          </div>
+        </div>
+        <div class="fw-calc-row">
+          <div class="fw-calc-lbl">Opp to Close <small>win rate</small></div>
+          <div class="fw-calc-slider-wrap">
+            <input type="range" class="fw-calc-slider" id="fw27-win-rate" min="5" max="50" step="1" value="22">
+            <span class="fw-calc-val" id="fw27-win-rate-val">22%</span>
+          </div>
+        </div>
+        <div class="fw-calc-row">
+          <div class="fw-calc-lbl">Avg Contract Value <small>$K ACV</small></div>
+          <div class="fw-calc-slider-wrap">
+            <input type="range" class="fw-calc-slider" id="fw27-acv" min="20" max="500" step="5" value="95">
+            <span class="fw-calc-val" id="fw27-acv-val">$95K</span>
+          </div>
+        </div>
+        <div class="fw-calc-outputs">
+          <div class="fw-calc-out fw-primary">
+            <span class="fw-calc-out-val" id="fw27-pipeline">$29.7M</span>
+            <span class="fw-calc-out-label">Projected Field Pipeline</span>
+          </div>
+          <div class="fw-calc-out">
+            <span class="fw-calc-out-val" id="fw27-opps">346</span>
+            <span class="fw-calc-out-label">Opps Created</span>
+          </div>
+          <div class="fw-calc-out">
+            <span class="fw-calc-out-val" id="fw27-logos">76</span>
+            <span class="fw-calc-out-label">New Logos Est.</span>
+          </div>
+          <div class="fw-calc-out">
+            <span class="fw-calc-out-val" id="fw27-coverage">15.0%</span>
+            <span class="fw-calc-out-label">% of $197.5M Target</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-fw-abm">
+  <div class="modal-box">
+    <button class="modal-close" data-close>&times;</button>
+    <div class="modal-hero">
+      <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&auto=format&q=80" alt="Analytics dashboard" loading="lazy">
+      <div class="modal-hero-overlay"></div>
+      <div class="modal-hero-badge"><span class="modal-hero-tag">Account-Based Marketing</span></div>
+    </div>
+    <div class="modal-top">
+      <div class="modal-tag">Account-Based Marketing</div>
+      <h3 class="modal-title">Account Exposure &amp; Engagement Matrix</h3>
+    </div>
+    <div class="modal-divider"></div>
+    <div class="modal-body">
+      <div class="modal-stat-row">
+        <div class="modal-stat-item"><span class="modal-stat-num">$200K</span><span class="modal-stat-label">Pipeline at S4x26</span></div>
+        <div class="modal-stat-item"><span class="modal-stat-num">22.2x</span><span class="modal-stat-label">Pipeline-to-Spend ROI</span></div>
+        <div class="modal-stat-item"><span class="modal-stat-num">36.9%</span><span class="modal-stat-label">Target Accounts Engaged</span></div>
+      </div>
+      <div class="modal-section-title">The System</div>
+      <p class="modal-text">Field marketing programs generate a lot of activity. The Account Exposure &amp; Engagement Matrix is the layer that turns activity into accountability &mdash; tracking which accounts were touched, how deeply, and what happened to the pipeline afterward.</p>
+      <div class="modal-section-title">Three-Phase Framework</div>
+      <div class="modal-workflow">
+        <div class="modal-step">
+          <div class="modal-step-num">01</div>
+          <div class="modal-step-content">
+            <div class="modal-step-title">Pre-Event Gap Analysis</div>
+            <div class="modal-step-desc">Before every event, a gap analysis is run against the target account list: which accounts are registered, which are missing, and which require direct outreach escalation. AEs are briefed with account-specific intelligence and talking points pulled from 6sense and Salesforce before they arrive on-site.</div>
+          </div>
+        </div>
+        <div class="modal-step">
+          <div class="modal-step-num">02</div>
+          <div class="modal-step-content">
+            <div class="modal-step-title">Live Engagement Tracking</div>
+            <div class="modal-step-desc">Real-time campaign member tracking during the event against the pre-built target account matrix. Engagement signals (sessions attended, meeting held, booth visit, dinner attendee) are logged and categorized. Each account gets an exposure score based on touchpoint depth.</div>
+          </div>
+        </div>
+        <div class="modal-step">
+          <div class="modal-step-num">03</div>
+          <div class="modal-step-content">
+            <div class="modal-step-title">Post-Event Pipeline Readout</div>
+            <div class="modal-step-desc">A structured pipeline readout is produced within 5 business days: pipeline sourced, opportunities influenced, accounts touched vs. target, and ROI calculation against total program spend. The readout goes to Sales, RevOps, and Marketing leadership with no interpretation &mdash; just the numbers.</div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-section-title">S4x26 Results</div>
+      <div class="modal-stat-row">
+        <div class="modal-stat-item"><span class="modal-stat-num">$200K</span><span class="modal-stat-label">Pipeline Created</span></div>
+        <div class="modal-stat-item"><span class="modal-stat-num">5</span><span class="modal-stat-label">Opps Created</span></div>
+        <div class="modal-stat-item"><span class="modal-stat-num">111</span><span class="modal-stat-label">Campaign Members</span></div>
+        <div class="modal-stat-item"><span class="modal-stat-num">43</span><span class="modal-stat-label">Account Touches</span></div>
+      </div>
+      <div class="modal-stat-row">
+        <div class="modal-stat-item"><span class="modal-stat-num">22.2x</span><span class="modal-stat-label">ROI on $9K Spend</span></div>
+        <div class="modal-stat-item"><span class="modal-stat-num">51.4%</span><span class="modal-stat-label">Customer Accounts Engaged</span></div>
+        <div class="modal-stat-item"><span class="modal-stat-num">36.9%</span><span class="modal-stat-label">Target Accounts Engaged</span></div>
+      </div>
+      <div class="modal-section-title">Account Segment Breakdown</div>
+      <div class="fw-table-wrap">
+        <table class="fw-table">
+          <thead>
+            <tr>
+              <th>Segment</th>
+              <th>Registered</th>
+              <th>Engaged</th>
+              <th>Engagement Rate</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>All Target Accounts</td><td>195</td><td>72</td><td class="fw-td-teal">36.9%</td></tr>
+            <tr><td>Customers</td><td>37</td><td>19</td><td class="fw-td-teal">51.4%</td></tr>
+            <tr><td>Prospects</td><td>152</td><td>50</td><td class="fw-td-teal">32.9%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <!-- MODALS -->
 <div class="modal-overlay" id="modal-proj-gtm">
@@ -2130,8 +2402,8 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
 
   function attempt(){
     var val = input.value.trim().toLowerCase();
-    // btoa('littlej') === 'bGl0dGxlag=='
-    if(btoa(val) === 'bGl0dGxlag=='){
+    // btoa('joshfrenette') === 'am9zaGZyZW5ldHRl'
+    if(btoa(val) === 'am9zaGZyZW5ldHRl'){
       sessionStorage.setItem('jf_unlocked','1');
       gate.classList.add('unlocked');
       err.classList.remove('show');
@@ -2146,6 +2418,67 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
   btn.addEventListener('click', attempt);
   input.addEventListener('keydown', function(e){ if(e.key === 'Enter') attempt(); });
 })();
+
+// ── FW27 FORECAST CALCULATOR ──
+(function(){
+  var PIPELINE_TARGET = 197.5; // $M
+
+  function fmtN(n){return n>=10000?(n/1000).toFixed(1)+'K':Math.round(n).toLocaleString();}
+  function fmtM(n){return n>=1?'$'+n.toFixed(1)+'M':'$'+Math.round(n*1000)+'K';}
+  function fw27Flash(id,val){
+    var el=document.getElementById(id);if(!el)return;
+    el.textContent=val;el.classList.remove('fw-val-flash');void el.offsetWidth;el.classList.add('fw-val-flash');
+  }
+
+  function fw27Calc(){
+    var accts=+document.getElementById('fw27-accounts').value;
+    var mr=+document.getElementById('fw27-meeting-rate').value/100;
+    var or2=+document.getElementById('fw27-opp-rate').value/100;
+    var wr=+document.getElementById('fw27-win-rate').value/100;
+    var acv=+document.getElementById('fw27-acv').value;
+
+    var meetings=Math.round(accts*mr);
+    var opps=Math.round(meetings*or2);
+    var logos=Math.round(opps*wr);
+    var pipeline=+(opps*acv/1000).toFixed(1);
+    var coverage=+(pipeline/PIPELINE_TARGET*100).toFixed(1);
+
+    fw27Flash('fw27-pipeline',fmtM(pipeline));
+    fw27Flash('fw27-opps',fmtN(opps));
+    fw27Flash('fw27-logos',fmtN(logos));
+
+    var covEl=document.getElementById('fw27-coverage');
+    if(covEl){
+      covEl.textContent=coverage+'%';
+      covEl.classList.remove('fw-val-flash','warn');
+      void covEl.offsetWidth;
+      covEl.classList.add('fw-val-flash');
+      if(coverage<10)covEl.classList.add('warn');
+    }
+
+    document.getElementById('fw27-accounts-val').textContent=fmtN(accts);
+    document.getElementById('fw27-meeting-rate-val').textContent=Math.round(mr*100)+'%';
+    document.getElementById('fw27-opp-rate-val').textContent=Math.round(or2*100)+'%';
+    document.getElementById('fw27-win-rate-val').textContent=Math.round(wr*100)+'%';
+    document.getElementById('fw27-acv-val').textContent='$'+acv+'K';
+  }
+
+  function initFw27(){
+    var sliders=document.querySelectorAll('.fw-calc-slider');
+    if(!sliders.length)return;
+    sliders.forEach(function(s){s.addEventListener('input',fw27Calc);});
+    fw27Calc();
+  }
+
+  // Re-init whenever the FY27 modal opens (sliders may not exist at page load)
+  document.addEventListener('click',function(e){
+    var t=e.target.closest('[data-modal="fw-fy27"]');
+    if(t)setTimeout(initFw27,50);
+  });
+
+  initFw27();
+})();
+
 </script>
 </body>
 </html>
