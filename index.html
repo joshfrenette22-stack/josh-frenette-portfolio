@@ -56,7 +56,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:1.1rem 3rem;display:
 .hero-photo-wrap{position:absolute;left:50%;top:0;bottom:0;transform:translateX(-42%);width:60%;max-width:780px;z-index:3;pointer-events:none;animation:fadeup 1s .25s both;}
 .hero-photo-inner{width:100%;height:100%;position:relative;}
 .hero-photo-img{display:none;}
-.hero-photo-canvas{width:100%;height:100%;object-fit:contain;display:block;-webkit-mask-image:linear-gradient(to bottom,black 70%,transparent 98%);mask-image:linear-gradient(to bottom,black 70%,transparent 98%);user-select:none;mix-blend-mode:screen;}
+.hero-photo-canvas{width:100%;height:100%;object-fit:contain;display:block;-webkit-mask-image:linear-gradient(to bottom,black 72%,transparent 97%);mask-image:linear-gradient(to bottom,black 72%,transparent 97%);user-select:none;}
 .hero-descriptor{position:absolute;right:3rem;top:50%;transform:translateY(-50%);z-index:5;text-align:right;display:flex;flex-direction:column;gap:.1rem;animation:fadeup .9s .5s both;}
 .hero-descriptor span{display:block;font-family:var(--sans);font-size:clamp(.7rem,1.1vw,1rem);font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(238,242,247,.18);line-height:1.5;}
 .hero-descriptor span.hd-accent{color:var(--teal);font-size:.62rem;letter-spacing:.25em;margin-top:.4rem}
@@ -1987,7 +1987,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
   render('quantity');
 })();
 
-// ── HERO PHOTO CANVAS (black bg removal) ──
+// ── HERO PHOTO CANVAS (white bg removal) ──
 (function(){
   var img    = document.getElementById('hero-photo-img');
   var canvas = document.getElementById('hero-photo-canvas');
@@ -2002,11 +2002,18 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
     var data = imageData.data;
     for(var i = 0; i < data.length; i += 4){
       var r = data[i], g = data[i+1], b = data[i+2];
-      var brightness = r * 0.299 + g * 0.587 + b * 0.114;
-      if(brightness < 30){
+      // Average luminance and max channel deviation (measures "colorfulness")
+      var avg = (r + g + b) / 3;
+      var maxDev = Math.max(Math.abs(r - avg), Math.abs(g - avg), Math.abs(b - avg));
+      // Pure white bg: high avg, very low color deviation → fully transparent
+      if(avg > 235 && maxDev < 14){
         data[i+3] = 0;
-      } else if(brightness < 60){
-        data[i+3] = Math.round(((brightness - 30) / 30) * 255);
+      } else if(avg > 210 && maxDev < 22){
+        // Soft transition: edge anti-alias pixels near hair/skin/clothing
+        var lumFactor  = (avg - 210) / 25;           // 0→1 as avg goes 210→235
+        var satFactor  = (22 - maxDev) / 22;         // 1→0 as color increases
+        var blendAlpha = 1 - (lumFactor * satFactor * 0.95);
+        data[i+3] = Math.round(Math.max(0, Math.min(1, blendAlpha)) * 255);
       }
     }
     ctx.putImageData(imageData, 0, 0);
