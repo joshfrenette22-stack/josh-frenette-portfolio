@@ -43,6 +43,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:1.1rem 3rem;display:
 .nav-links a::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:1px;background:var(--teal);transform:scaleX(0);transform-origin:left;transition:transform .25s ease;}
 .nav-links a:hover{color:var(--teal)}
 .nav-links a:hover::after{transform:scaleX(1)}
+.nav-resume-btn{display:inline-flex;align-items:center;gap:.5rem;padding:.4rem 1rem;border:1px solid rgba(0,212,170,.3);color:var(--teal);font-size:.7rem;font-weight:500;letter-spacing:.09em;text-transform:uppercase;text-decoration:none;border-radius:3px;transition:background .2s,border-color .2s;white-space:nowrap;flex-shrink:0;}
+.nav-resume-btn:hover{background:rgba(0,212,170,.09);border-color:var(--teal);}
+.nav-resume-btn svg{flex-shrink:0;}
+@media(max-width:900px){.nav-resume-btn{display:none;}}
 #hero{position:relative;min-height:100svh;overflow:hidden;background:var(--bg);}
 .hero-canvas{position:absolute;inset:0;z-index:0;pointer-events:none;width:100%;height:100%;}
 .hero-orb{position:absolute;border-radius:50%;filter:blur(110px);pointer-events:none}
@@ -53,7 +57,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:1.1rem 3rem;display:
 .hero-greeting{position:absolute;top:6%;left:50%;transform:translateX(-46%);font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(7rem,17vw,18rem);color:rgba(238,242,247,0.032);white-space:nowrap;pointer-events:none;z-index:1;letter-spacing:-.03em;line-height:1;animation:fadeup 1.4s .05s both;}
 .hero-badge{position:absolute;top:calc(var(--nav-h,72px) + 2.5rem);left:3rem;z-index:5;display:inline-flex;align-items:center;gap:.65rem;border:1px solid rgba(0,212,170,.22);background:rgba(0,212,170,.05);backdrop-filter:blur(8px);padding:.45rem 1rem .45rem .7rem;font-family:var(--sans);font-size:.68rem;font-weight:400;letter-spacing:.06em;color:rgba(238,242,247,.65);animation:fadeup .8s .15s both;}
 .hero-badge-dot{width:7px;height:7px;border-radius:50%;background:var(--teal);flex-shrink:0;box-shadow:0 0 8px var(--teal);animation:dotPulse 2.2s ease-in-out infinite;}
-.hero-photo-wrap{position:absolute;right:0;bottom:0;top:0;width:52%;max-width:700px;z-index:3;pointer-events:none;animation:fadeup 1s .25s both;display:flex;align-items:flex-end;}
+.hero-photo-wrap{position:absolute;right:0;bottom:0;top:0;width:44%;max-width:600px;z-index:3;pointer-events:none;animation:fadeup 1s .25s both;display:flex;align-items:flex-end;}
 .hero-photo-inner{width:100%;position:relative;display:flex;align-items:flex-end;}
 .hero-photo-img{display:none;}
 .hero-photo-canvas{width:100%;height:auto;display:block;-webkit-mask-image:linear-gradient(to bottom,black 68%,transparent 95%);mask-image:linear-gradient(to bottom,black 68%,transparent 95%);user-select:none;}
@@ -327,7 +331,8 @@ footer span{font-size:.7rem;color:var(--muted);letter-spacing:.06em}
 .modal-top{padding:2.5rem 2.5rem 0}
 .modal-tag{font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);margin-bottom:.75rem;display:flex;align-items:center;gap:.5rem}
 .modal-tag::before{content:'';width:20px;height:1px;background:var(--teal);display:block}
-.modal-title{font-family:var(--serif);font-size:1.85rem;font-weight:600;line-height:1.15;letter-spacing:-.02em;color:var(--white);margin-bottom:1.5rem}
+.modal-title{font-family:var(--serif);font-size:1.85rem;font-weight:600;line-height:1.15;letter-spacing:-.02em;color:var(--white);margin-bottom:.5rem}
+.modal-subtitle{font-size:.8rem;color:var(--muted2);letter-spacing:.04em;margin-bottom:1.5rem;line-height:1.5;}
 .modal-close{position:absolute;top:1.5rem;right:1.5rem;width:36px;height:36px;border:1px solid var(--border2);background:transparent;color:var(--muted2);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:border-color .2s,color .2s;font-size:1.1rem;}
 .modal-close:hover{border-color:var(--teal);color:var(--teal)}
 .modal-divider{height:1px;background:var(--border2);margin:1.5rem 0}
@@ -575,6 +580,10 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
     <li><a href="#testimonials">Testimonials</a></li>
     <li><a href="#connect">Connect</a></li>
   </ul>
+  <a href="resume.docx" class="nav-resume-btn" download>
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    Resume
+  </a>
 </nav>
 
 <section id="hero">
@@ -618,14 +627,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
     <div class="bio-grid reveal">
       <div class="bio-img-wrap">
         <div class="bio-img-frame">
-          <div class="bio-img-inner">
-            <div class="bio-img-icon">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
-              </svg>
-            </div>
-            <p>Photo<br>coming soon</p>
-          </div>
+          <img src="award.jpg" alt="Josh Frenette — Marketing Above and Beyond Award, Armis Connect" style="width:100%;height:100%;object-fit:cover;object-position:center 30%;">
         </div>
         <div class="bio-corner tl"></div>
         <div class="bio-corner br"></div>
@@ -638,7 +640,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
         <p>At Armis I work shoulder-to-shoulder with regional sales leaders and field teams to co-own pipeline targets and design the programs that support them. That means territory reviews, shared dashboards, and a constant loop between what's happening in the field and how marketing is responding. <strong>Sales alignment isn't a talking point — it's my operating model.</strong></p>
         <p>My toolkit spans the full field marketing stack: Marketo for campaign orchestration, 6sense and Demandbase for account targeting, HockeyStack and DreamData for attribution, and a custom bottom-up budget model that connects every dollar of field and partner spend to a pipeline contribution by region and quarter. I also built and own Armis Connect — a global customer community platform with 100K+ users.</p>
         <p>Outside the day job: I serve on the Strategic AI Advisory Board at UCCS and advise early-stage founders on GTM motion and field strategy.</p>
-        <a href="#" class="btn-resume">
+        <a href="resume.docx" class="btn-resume" download>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
           Download Resume
         </a>
@@ -863,6 +865,18 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
           <span class="proj-outcome">Sales Intelligence</span>
           <span class="proj-outcome">Automation</span>
           <span class="proj-outcome">Intent Data</span>
+        </div>
+        <div class="proj-cta">View Project <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+      </div>
+
+      <div class="proj-card reveal" data-modal="proj-connect">
+        <div class="proj-tag">Community Platform</div>
+        <div class="proj-name">Armis Connect</div>
+        <div class="proj-desc">Built and own Armis Connect — a global customer community platform scaled to 100K+ registered users across 18 markets. Designed the engagement model, content architecture, and community health framework from zero.</div>
+        <div class="proj-outcomes">
+          <span class="proj-outcome">100K+ Users</span>
+          <span class="proj-outcome">Customer Retention</span>
+          <span class="proj-outcome">Community-Led Growth</span>
         </div>
         <div class="proj-cta">View Project <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
       </div>
@@ -1912,6 +1926,47 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
   </div>
 </div>
 
+<div class="modal-overlay" id="modal-proj-connect">
+  <div class="modal-box">
+    <button class="modal-close" data-close>&times;</button>
+    <div class="modal-hero">
+      <img src="award.jpg" alt="Josh Frenette — Marketing Above and Beyond Award" loading="lazy">
+      <div class="modal-hero-overlay"></div>
+      <div class="modal-hero-badge"><span class="modal-hero-tag">Community Platform</span></div>
+    </div>
+    <div class="modal-top">
+      <div class="modal-tag">Armis · Community</div>
+      <h3 class="modal-title">Armis Connect</h3>
+      <p class="modal-subtitle">Global customer community — 100K+ users, 18 markets, built from zero</p>
+    </div>
+    <div class="modal-divider"></div>
+    <div class="modal-body">
+      <div class="modal-stat-row">
+        <div class="modal-stat-item"><span class="modal-stat-val">100K+</span><span class="modal-stat-label">Registered Users</span></div>
+        <div class="modal-stat-item"><span class="modal-stat-val">18</span><span class="modal-stat-label">Global Markets</span></div>
+        <div class="modal-stat-item"><span class="modal-stat-val">#1</span><span class="modal-stat-label">Marketing Award</span></div>
+      </div>
+      <div class="modal-section-title">The Challenge</div>
+      <p class="modal-text">Armis had a fast-growing enterprise customer base with no structured way for customers to connect, share knowledge, or self-serve product guidance. Community-driven retention and expansion was completely untapped.</p>
+      <div class="modal-section-title">The Build</div>
+      <p class="modal-text">I designed and launched Armis Connect — a dedicated global community platform with structured forums, product roadmap visibility, peer-to-peer support channels, and curated content tracks by role and vertical. <strong>Scaled from zero to 100,000+ registered users</strong> with a community health model I built from scratch to track engagement, adoption, and churn risk signals.</p>
+      <div class="modal-workflow">
+        <div class="modal-step"><div class="modal-step-num">01</div><div class="modal-step-content"><div class="modal-step-title">Platform Architecture</div><div class="modal-step-desc">Selected and configured the community platform, built the IA, and defined engagement categories aligned to customer journey stages and product lines.</div></div></div>
+        <div class="modal-step"><div class="modal-step-num">02</div><div class="modal-step-content"><div class="modal-step-title">Community Health Model</div><div class="modal-step-desc">Defined DAU/MAU benchmarks, thread velocity targets, and CSAT measurement. Built the moderator program and seeded content tracks across roles and verticals.</div></div></div>
+        <div class="modal-step"><div class="modal-step-num">03</div><div class="modal-step-content"><div class="modal-step-title">Retention & Expansion Loop</div><div class="modal-step-desc">Connected community engagement signals to CS workflows to surface expansion opportunities and reduce churn risk based on product adoption patterns.</div></div></div>
+      </div>
+      <div class="modal-section-title">Results</div>
+      <div class="modal-chips">
+        <span class="modal-chip">100K+ registered users</span>
+        <span class="modal-chip">18 global markets activated</span>
+        <span class="modal-chip">Community-led retention signal</span>
+        <span class="modal-chip">Marketing Above &amp; Beyond Award</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <script>
 // ── CURSOR ──
 (function(){
@@ -2357,7 +2412,10 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
   function processImage(){
     canvas.width  = img.naturalWidth  || img.width  || 800;
     canvas.height = img.naturalHeight || img.height || 1000;
-    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+    // Crop horizontal whitespace so subject appears more prominent & centered
+    var cropX = Math.round(img.naturalWidth * 0.13);
+    var cropW = img.naturalWidth - cropX * 2;
+    ctx.drawImage(img, cropX, 0, cropW, img.naturalHeight, 0, 0, canvas.width, canvas.height);
     var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
     var data = imageData.data;
     for(var i = 0; i < data.length; i += 4){
