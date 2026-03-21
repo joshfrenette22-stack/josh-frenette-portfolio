@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Josh Frenette -- Demand Gen & Pipeline Operations leader at Armis Security.">
-<title>Josh Frenette -- Demand Gen & Pipeline Operations</title>
+<meta name="description" content="Josh Frenette -- Field Marketing leader at Armis Security. Driving pipeline through events, field programs, and partner marketing across 18 global regions.">
+<title>Josh Frenette -- Field Marketing Leader</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -56,7 +56,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:1.1rem 3rem;display:
 .hero-photo-wrap{position:absolute;left:50%;top:0;bottom:0;transform:translateX(-42%);width:60%;max-width:780px;z-index:3;pointer-events:none;animation:fadeup 1s .25s both;}
 .hero-photo-inner{width:100%;height:100%;position:relative;}
 .hero-photo-img{display:none;}
-.hero-photo-canvas{width:100%;height:100%;object-fit:contain;display:block;-webkit-mask-image:linear-gradient(to bottom,black 70%,transparent 98%);mask-image:linear-gradient(to bottom,black 70%,transparent 98%);user-select:none;}
+.hero-photo-canvas{width:100%;height:100%;object-fit:contain;display:block;-webkit-mask-image:linear-gradient(to bottom,black 70%,transparent 98%);mask-image:linear-gradient(to bottom,black 70%,transparent 98%);user-select:none;mix-blend-mode:screen;}
 .hero-descriptor{position:absolute;right:3rem;top:50%;transform:translateY(-50%);z-index:5;text-align:right;display:flex;flex-direction:column;gap:.1rem;animation:fadeup .9s .5s both;}
 .hero-descriptor span{display:block;font-family:var(--sans);font-size:clamp(.7rem,1.1vw,1rem);font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(238,242,247,.18);line-height:1.5;}
 .hero-descriptor span.hd-accent{color:var(--teal);font-size:.62rem;letter-spacing:.25em;margin-top:.4rem}
@@ -444,6 +444,28 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
   .tools-category-row{grid-template-columns:repeat(2,1fr)}
 }
 @media(prefers-reduced-motion:reduce){*{animation-duration:.01ms !important;transition-duration:.01ms !important}}
+/* METRICS BAR */
+.metrics-bar{background:var(--bg2);border-top:1px solid var(--border2);border-bottom:1px solid var(--border2);padding:2.5rem 3rem;}
+.metrics-bar-inner{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:0;}
+.metric-item{text-align:center;padding:1rem 1.5rem;border-right:1px solid var(--border2);}
+.metric-item:last-child{border-right:none;}
+.metric-num{font-family:var(--serif);font-size:clamp(2.2rem,4vw,3rem);font-weight:700;color:var(--teal);line-height:1;display:block;margin-bottom:.35rem;}
+.metric-label{font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted2);line-height:1.5;display:block;}
+@media(max-width:700px){.metrics-bar-inner{grid-template-columns:repeat(2,1fr);}.metric-item:nth-child(2){border-right:none;}.metric-item:nth-child(3){border-right:1px solid var(--border2)}.metric-item{border-bottom:1px solid var(--border2)}.metric-item:last-child{border-bottom:none}}
+/* FIELD MARKETING CASE STUDIES */
+.fm-section{padding:7rem 3rem;background:var(--bg);}
+.fm-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem;}
+.fm-card{background:var(--surface);border:1px solid var(--border2);padding:2rem;cursor:pointer;transition:border-color .2s,transform .2s;position:relative;overflow:hidden;}
+.fm-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--teal),transparent);opacity:0;transition:opacity .3s;}
+.fm-card:hover{border-color:rgba(0,212,170,.3);transform:translateY(-3px);}
+.fm-card:hover::before{opacity:1;}
+.fm-tag{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);margin-bottom:.85rem;}
+.fm-name{font-family:var(--serif);font-size:1.25rem;font-weight:600;color:var(--white);line-height:1.2;margin-bottom:.9rem;}
+.fm-desc{font-size:.82rem;color:var(--muted2);line-height:1.7;margin-bottom:1.25rem;}
+.fm-outcomes{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.5rem;}
+.fm-outcome{font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);border:1px solid var(--border2);padding:.25rem .6rem;}
+.fm-cta{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);display:flex;align-items:center;gap:.5rem;}
+@media(max-width:900px){.fm-grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
@@ -458,6 +480,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
     <li><a href="#career">Career</a></li>
     <li><a href="#projects">Work</a></li>
     <li><a href="#tools">Stack</a></li>
+    <li><a href="#fieldmarketing">Field Mktg</a></li>
     <li><a href="#initiatives">Initiatives</a></li>
     <li><a href="#conduit">Conduit</a></li>
     <li><a href="#testimonials">Testimonials</a></li>
@@ -470,10 +493,9 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
   <div class="hero-orb orb-a"></div>
   <div class="hero-orb orb-b"></div>
   <div class="hero-orb orb-c"></div>
-  <div class="hero-greeting">Hey,</div>
   <div class="hero-badge">
     <span class="hero-badge-dot"></span>
-    Demand Gen &amp; Pipeline Operations &middot; Armis Security
+    Field Marketing &middot; Armis Security
   </div>
   <div class="hero-photo-wrap">
     <div class="hero-photo-inner">
@@ -482,10 +504,10 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
     </div>
   </div>
   <div class="hero-descriptor">
-    <span>Pipeline Architect</span>
-    <span>Demand Alchemist</span>
-    <span>Revenue Thinker</span>
-    <span>B2B GTM Leader</span>
+    <span>Field Marketing Leader</span>
+    <span>Event-Driven Pipeline</span>
+    <span>Cybersecurity Specialist</span>
+    <span>Award-Winning Marketer</span>
     <span class="hd-accent">Currently @ Armis</span>
   </div>
   <div class="hero-name-block">
@@ -493,7 +515,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
       <span class="hn-first">Josh</span>
       <span class="hn-last">Frenette</span>
     </h1>
-    <p class="hero-name-sub">Demand Gen &amp; Pipeline Operations leader building the systems that turn market signal into closed revenue.</p>
+    <p class="hero-name-sub">Field Marketing leader turning live experiences and regional programs into qualified pipeline across 18 global markets.</p>
   </div>
   <div class="scroll-cue">
     <span>Scroll</span>
@@ -522,11 +544,11 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
       </div>
       <div class="bio-text">
         <div class="sec-label">About</div>
-        <h2 class="sec-title">The operator<br>behind the <em>numbers</em></h2>
-        <p>I spent the first part of my career in the trades, running crews, bidding jobs, and learning early that the gap between effort and revenue is almost always a process problem. That instinct followed me into B2B SaaS.</p>
-        <p>For the past several years I have built and operated demand gen and pipeline programs at Series B through post-IPO companies. <strong>My work lives at the intersection of strategy and infrastructure</strong> — I am as comfortable designing the GTM model as I am wiring the Salesforce workflows that enforce it.</p>
-        <p>At Armis I lead Demand Generation and Pipeline Operations for a cybersecurity platform protecting the world's most critical infrastructure. Before that, I built pipeline engines at companies ranging from digital agencies to enterprise SaaS.</p>
-        <p>Outside the day job: I advise founders on GTM motion design, mentor early-career operators, and contribute to the go-to-market conversation through the University of Colorado Colorado Springs business advisory board.</p>
+        <h2 class="sec-title">The marketer<br>who moves <em>markets</em></h2>
+        <p>I lead Field and Partner Marketing at Armis Security — a global cybersecurity platform protecting the world's most critical infrastructure. My team of 7+ runs integrated field programs, executive events, and partner activations across <strong>18 global regions</strong>.</p>
+        <p>I came up in the trades before pivoting to B2B marketing, and that background shapes how I operate: I think in systems, hold myself accountable to revenue output, and I don't confuse activity with impact. <strong>My work lives at the intersection of live experience and pipeline math</strong> — every event, every field play, every partner activation is tied to a number we're trying to move.</p>
+        <p>At Armis I've built the Field Marketing function from the ground up — standing up Armis Connect (our global customer user group app with 100K+ users), co-owning the channel partner ecosystem, and running the annual global budget and bottom-up forecast model for field, partner, and campaign spend.</p>
+        <p>Outside the day job: I serve on the Strategic AI Advisory Board at UCCS and advise early-stage founders on GTM motion and field strategy.</p>
         <a href="#" class="btn-resume">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
           Download Resume
@@ -535,6 +557,28 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
     </div>
   </div>
 </section>
+
+<!-- METRICS BAR -->
+<div class="metrics-bar reveal">
+  <div class="metrics-bar-inner">
+    <div class="metric-item">
+      <span class="metric-num">25%</span>
+      <span class="metric-label">Pipeline Outperformance<br>YoY</span>
+    </div>
+    <div class="metric-item">
+      <span class="metric-num">3×</span>
+      <span class="metric-label">Stale Pipeline<br>Reduction</span>
+    </div>
+    <div class="metric-item">
+      <span class="metric-num">18</span>
+      <span class="metric-label">Global Regions<br>Activated</span>
+    </div>
+    <div class="metric-item">
+      <span class="metric-num">100K</span>
+      <span class="metric-label">Armis Connect<br>App Users</span>
+    </div>
+  </div>
+</div>
 
 <!-- CAREER -->
 <section id="career">
@@ -552,8 +596,8 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
       </div>
       <div class="award-text">
         <span class="award-label">Recognition</span>
-        <span class="award-name">Top 25 Revenue Operations Leader &mdash; 2024</span>
-        <span class="award-desc">Recognized for pipeline systems design and cross-functional GTM alignment at scale.</span>
+        <span class="award-name">2025 Armis Above &amp; Beyond Award</span>
+        <span class="award-desc">Recognized for exceptional field marketing impact and cross-functional leadership driving pipeline results across global regions.</span>
       </div>
     </div>
     <div class="timeline">
@@ -563,10 +607,10 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
       <div class="tl-item reveal">
         <div class="tl-card tl-current">
           <span class="tl-current-badge">Current</span>
-          <div class="tl-period">2022 &mdash; Present</div>
-          <div class="tl-role">Director, Demand Gen &amp; Pipeline Operations</div>
+          <div class="tl-period">2024 &mdash; Present</div>
+          <div class="tl-role">Sr. Manager, Field &amp; Partner Marketing</div>
           <div class="tl-company">Armis Security</div>
-          <div class="tl-desc">Leading demand generation and pipeline operations for a global cybersecurity platform. Built the pipeline council framework, GTM forecast model, and funnel intelligence infrastructure from the ground up.</div>
+          <div class="tl-desc">Leading field and partner marketing across 18 global regions with a team of 7+. Own integrated event strategy, executive programs, partner co-marketing, and the annual field + partner budget and bottom-up forecast model.</div>
         </div>
         <div class="tl-dot-col"><div class="tl-dot tl-dot-active"></div></div>
         <div class="tl-empty"></div>
@@ -576,19 +620,41 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
         <div class="tl-empty"></div>
         <div class="tl-dot-col"><div class="tl-dot"></div></div>
         <div class="tl-card">
-          <div class="tl-period">2020 &mdash; 2022</div>
-          <div class="tl-role">Head of Demand Generation</div>
-          <div class="tl-company">Series B SaaS</div>
-          <div class="tl-desc">Built demand gen motion from first hire. Scaled MQL volume 3x in 18 months through ABM, content, and paid infrastructure. Owned the full funnel from impression to opportunity creation.</div>
+          <div class="tl-period">2022 &mdash; 2024</div>
+          <div class="tl-role">Marketing Manager, Field &amp; Partner Marketing</div>
+          <div class="tl-company">Armis Security</div>
+          <div class="tl-desc">Built and scaled the field marketing function. Launched Armis Connect — a global customer user group app with 100K+ users. Managed partner co-marketing programs and regional field event calendars.</div>
         </div>
       </div>
 
       <div class="tl-item reveal">
         <div class="tl-card">
-          <div class="tl-period">2018 &mdash; 2020</div>
-          <div class="tl-role">Senior Manager, Revenue Marketing</div>
-          <div class="tl-company">Mid-Market SaaS</div>
-          <div class="tl-desc">Managed $2.4M demand gen budget across paid, events, and partner channels. Introduced pipeline velocity tracking and built the first cross-functional pipeline review cadence.</div>
+          <div class="tl-period">2021 &mdash; 2022</div>
+          <div class="tl-role">Marketing Manager, Demand Generation</div>
+          <div class="tl-company">Armis Security</div>
+          <div class="tl-desc">Owned demand generation programs including ABM, paid digital, and campaign orchestration. Built pipeline reporting infrastructure and led cross-functional pipeline review cadences with Sales and RevOps.</div>
+        </div>
+        <div class="tl-dot-col"><div class="tl-dot"></div></div>
+        <div class="tl-empty"></div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-empty"></div>
+        <div class="tl-dot-col"><div class="tl-dot"></div></div>
+        <div class="tl-card">
+          <div class="tl-period">2020 &mdash; 2021</div>
+          <div class="tl-role">Marketing Coordinator</div>
+          <div class="tl-company">Armis Security</div>
+          <div class="tl-desc">Joined Armis in an early marketing role supporting demand gen campaigns, event coordination, and CRM operations. Laid the foundation for what became a full field marketing function.</div>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-card">
+          <div class="tl-period">2018 &mdash; Present</div>
+          <div class="tl-role">Founder</div>
+          <div class="tl-company">Little J Digital</div>
+          <div class="tl-desc">Founded a boutique digital marketing consultancy serving SMB and startup clients. Advise on GTM strategy, demand gen infrastructure, and paid media programs. Ongoing alongside full-time role.</div>
         </div>
         <div class="tl-dot-col"><div class="tl-dot"></div></div>
         <div class="tl-empty"></div>
@@ -599,18 +665,18 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
         <div class="tl-dot-col"><div class="tl-dot"></div></div>
         <div class="tl-card">
           <div class="tl-period">2016 &mdash; 2018</div>
-          <div class="tl-role">Digital Marketing Manager</div>
-          <div class="tl-company">Digital Agency</div>
-          <div class="tl-desc">Led digital strategy and paid media for B2B clients across technology, professional services, and manufacturing verticals. Built reporting infrastructure connecting ad spend to revenue.</div>
+          <div class="tl-role">Digital Marketing Consultant</div>
+          <div class="tl-company">Little J Digital</div>
+          <div class="tl-desc">Delivered digital strategy, paid media, and lead generation programs for B2B clients. Built foundational skills in marketing operations, reporting, and channel optimization.</div>
         </div>
       </div>
 
       <div class="tl-item reveal">
         <div class="tl-card">
-          <div class="tl-period">2014 &mdash; 2016</div>
-          <div class="tl-role">Marketing Specialist</div>
+          <div class="tl-period">2015 &mdash; 2016</div>
+          <div class="tl-role">Marketing Intern</div>
           <div class="tl-company">B2B Technology</div>
-          <div class="tl-desc">First marketing hire. Owned content, email, and trade show programs. Built the company's first formal lead scoring model in Marketo and stood up the initial attribution reporting layer.</div>
+          <div class="tl-desc">Supported content marketing, email campaigns, and trade show coordination. First exposure to Marketo and CRM-driven pipeline reporting in a B2B SaaS environment.</div>
         </div>
         <div class="tl-dot-col"><div class="tl-dot"></div></div>
         <div class="tl-empty"></div>
@@ -620,20 +686,20 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
         <div class="tl-empty"></div>
         <div class="tl-dot-col"><div class="tl-dot"></div></div>
         <div class="tl-card">
-          <div class="tl-period">2010 &mdash; 2014</div>
-          <div class="tl-role">Project Lead / Estimator</div>
-          <div class="tl-company">Benchmark Electrical</div>
-          <div class="tl-desc">Led electrical crews on commercial and residential projects. Managed job bids, material procurement, and subcontractor relationships. Learned firsthand that revenue is a systems problem.</div>
+          <div class="tl-period">2014 &mdash; 2015</div>
+          <div class="tl-role">Digital Marketing Intern</div>
+          <div class="tl-company">Digital Agency</div>
+          <div class="tl-desc">Assisted with paid search, social campaigns, and analytics reporting for agency clients. Built early proficiency in Google Ads, analytics platforms, and performance marketing fundamentals.</div>
         </div>
       </div>
 
       <div class="tl-item reveal">
         <div class="tl-card tl-advisory">
           <span class="tl-advisory-tag">Advisory Role</span>
-          <div class="tl-period">2023 &mdash; Present</div>
-          <div class="tl-role">Business Advisory Board Member</div>
+          <div class="tl-period">June 2024 &mdash; Present</div>
+          <div class="tl-role">Strategic AI Advisory Board Member</div>
           <div class="tl-company">UCCS &mdash; University of Colorado Colorado Springs</div>
-          <div class="tl-desc">Advising on curriculum development and real-world GTM application for business students. Contributing to internship program design and industry partnership strategy.</div>
+          <div class="tl-desc">Serving on the Strategic AI Advisory Board, contributing industry perspective on AI applications in marketing and business operations. Supporting curriculum development and real-world GTM application for students.</div>
         </div>
         <div class="tl-dot-col"><div class="tl-dot"></div></div>
         <div class="tl-empty"></div>
@@ -715,6 +781,54 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
   </div>
 </section>
 
+<!-- FIELD MARKETING IN ACTION -->
+<section id="fieldmarketing" class="fm-section">
+  <div class="container">
+    <div class="reveal">
+      <div class="sec-label">Field Marketing</div>
+      <h2 class="sec-title">Field Marketing<br><em>in Action</em></h2>
+      <p class="proj-subhead">Real programs. Real pipeline. Three case studies from the field.</p>
+    </div>
+    <div class="fm-grid">
+      <div class="fm-card reveal" data-modal="fm-connect">
+        <div class="fm-tag">Community &amp; Events</div>
+        <div class="fm-name">Armis Connect Global Rollout</div>
+        <div class="fm-desc">Built and launched a global customer community app from zero to 100K+ users — driving retention, upsell signals, and field marketing reach across 18 regions.</div>
+        <div class="fm-outcomes">
+          <span class="fm-outcome">Community Growth</span>
+          <span class="fm-outcome">Customer Retention</span>
+          <span class="fm-outcome">Global Scale</span>
+        </div>
+        <div class="fm-cta">View Case Study <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+      </div>
+
+      <div class="fm-card reveal d1" data-modal="fm-blackhat">
+        <div class="fm-tag">Event-Led Pipeline</div>
+        <div class="fm-name">Black Hat Demand Generation</div>
+        <div class="fm-desc">Orchestrated Armis's presence at Black Hat — the cybersecurity industry's flagship event — into a high-efficiency pipeline engine combining executive dinners, booth activations, and post-show sequences.</div>
+        <div class="fm-outcomes">
+          <span class="fm-outcome">Event Strategy</span>
+          <span class="fm-outcome">Pipeline Generation</span>
+          <span class="fm-outcome">Cybersecurity</span>
+        </div>
+        <div class="fm-cta">View Case Study <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+      </div>
+
+      <div class="fm-card reveal d2" data-modal="fm-forecast">
+        <div class="fm-tag">Planning &amp; Forecasting</div>
+        <div class="fm-name">Global Field &amp; Partner Budget Forecast</div>
+        <div class="fm-desc">Designed and owns the annual global field, partner, and campaigns budget model — a bottom-up forecast framework that connects program investment to pipeline contribution by region and segment.</div>
+        <div class="fm-outcomes">
+          <span class="fm-outcome">Budget Planning</span>
+          <span class="fm-outcome">Bottom-Up Forecast</span>
+          <span class="fm-outcome">18 Regions</span>
+        </div>
+        <div class="fm-cta">View Case Study <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- QUOTE BREAK -->
 <div class="quote-break reveal">
   <div class="quote-break-line"></div>
@@ -739,32 +853,36 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
     </div>
     <div class="tools-category-row reveal">
       <div>
-        <div class="tools-cat-label">CRM</div>
+        <div class="tools-cat-label">Marketing Automation</div>
+        <div class="tools-logo-strip">
+          <div class="tool-logo-card">
+            <svg viewBox="0 0 36 24" fill="none"><text x="2" y="17" fill="#5c4ee5" font-size="9" font-weight="700" font-family="Arial">MKT</text></svg>
+            <span>Marketo</span>
+          </div>
+          <div class="tool-logo-card">
+            <svg viewBox="0 0 36 24" fill="none"><text x="3" y="17" fill="#ff7a59" font-size="11" font-weight="700" font-family="Arial">HS</text></svg>
+            <span>HubSpot</span>
+          </div>
+          <div class="tool-logo-card">
+            <svg viewBox="0 0 36 24" fill="none"><text x="3" y="17" fill="#00d4aa" font-size="9" font-weight="700" font-family="Arial">CLY</text></svg>
+            <span>Clay</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="tools-cat-label">CRM &amp; Revenue Intelligence</div>
         <div class="tools-logo-strip">
           <div class="tool-logo-card">
             <svg viewBox="0 0 36 24" fill="none"><text x="3" y="17" fill="#00a1e0" font-size="11" font-weight="700" font-family="Arial">SF</text></svg>
             <span>Salesforce</span>
           </div>
           <div class="tool-logo-card">
-            <svg viewBox="0 0 36 24" fill="none"><text x="3" y="17" fill="#ff7a59" font-size="11" font-weight="700" font-family="Arial">HS</text></svg>
-            <span>HubSpot</span>
-          </div>
-        </div>
-      </div>
-      <div>
-        <div class="tools-cat-label">Analytics</div>
-        <div class="tools-logo-strip">
-          <div class="tool-logo-card">
-            <svg viewBox="0 0 36 24" fill="none"><text x="2" y="17" fill="#e37400" font-size="10" font-weight="700" font-family="Arial">GA4</text></svg>
-            <span>Google Analytics</span>
+            <svg viewBox="0 0 36 24" fill="none"><text x="2" y="17" fill="#7b68ee" font-size="9" font-weight="700" font-family="Arial">HKS</text></svg>
+            <span>HockeyStack</span>
           </div>
           <div class="tool-logo-card">
-            <svg viewBox="0 0 36 24" fill="none"><text x="3" y="17" fill="#7b68ee" font-size="10" font-weight="700" font-family="Arial">LKR</text></svg>
-            <span>Looker</span>
-          </div>
-          <div class="tool-logo-card">
-            <svg viewBox="0 0 36 24" fill="none"><text x="3" y="17" fill="#e8742a" font-size="10" font-weight="700" font-family="Arial">TBL</text></svg>
-            <span>Tableau</span>
+            <svg viewBox="0 0 36 24" fill="none"><text x="2" y="17" fill="#f5a623" font-size="9" font-weight="700" font-family="Arial">DRD</text></svg>
+            <span>DreamData</span>
           </div>
         </div>
       </div>
@@ -780,25 +898,57 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
             <span>Demandbase</span>
           </div>
           <div class="tool-logo-card">
-            <svg viewBox="0 0 36 24" fill="none"><text x="2" y="17" fill="#f4b400" font-size="10" font-weight="700" font-family="Arial">BM</text></svg>
-            <span>Bombora</span>
+            <svg viewBox="0 0 36 24" fill="none"><text x="2" y="17" fill="#e37400" font-size="9" font-weight="700" font-family="Arial">TFU</text></svg>
+            <span>Tofu</span>
           </div>
         </div>
       </div>
       <div>
-        <div class="tools-cat-label">AI / LLMs</div>
+        <div class="tools-cat-label">Paid Media</div>
         <div class="tools-logo-strip">
           <div class="tool-logo-card">
-            <svg viewBox="0 0 36 24" fill="none"><text x="2" y="17" fill="#10a37f" font-size="9" font-weight="700" font-family="Arial">GPT</text></svg>
-            <span>ChatGPT / GPT-4o</span>
+            <svg viewBox="0 0 36 24" fill="none"><text x="2" y="17" fill="#0a66c2" font-size="9" font-weight="700" font-family="Arial">LIN</text></svg>
+            <span>LinkedIn Ads</span>
           </div>
           <div class="tool-logo-card">
-            <svg viewBox="0 0 36 24" fill="none"><text x="2" y="17" fill="#cc785c" font-size="9" font-weight="700" font-family="Arial">ANT</text></svg>
-            <span>Claude / Anthropic</span>
+            <svg viewBox="0 0 36 24" fill="none"><text x="2" y="17" fill="#4285f4" font-size="9" font-weight="700" font-family="Arial">GGL</text></svg>
+            <span>Google Ads</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tools-category-row reveal" style="margin-top:1.25rem">
+      <div>
+        <div class="tools-cat-label">Reporting &amp; BI</div>
+        <div class="tools-logo-strip">
+          <div class="tool-logo-card">
+            <svg viewBox="0 0 36 24" fill="none"><text x="2" y="17" fill="#3399cc" font-size="9" font-weight="700" font-family="Arial">DMO</text></svg>
+            <span>Domo</span>
           </div>
           <div class="tool-logo-card">
-            <svg viewBox="0 0 36 24" fill="none"><text x="2" y="17" fill="#4285f4" font-size="9" font-weight="700" font-family="Arial">GEM</text></svg>
-            <span>Gemini</span>
+            <svg viewBox="0 0 36 24" fill="none"><text x="3" y="17" fill="#00a1e0" font-size="11" font-weight="700" font-family="Arial">SF</text></svg>
+            <span>SF Dashboards</span>
+          </div>
+          <div class="tool-logo-card">
+            <svg viewBox="0 0 36 24" fill="none"><text x="2" y="17" fill="#1d7145" font-size="9" font-weight="700" font-family="Arial">XLS</text></svg>
+            <span>Excel</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="tools-cat-label">Productivity</div>
+        <div class="tools-logo-strip">
+          <div class="tool-logo-card">
+            <svg viewBox="0 0 36 24" fill="none"><text x="2" y="17" fill="#f06a35" font-size="9" font-weight="700" font-family="Arial">ASN</text></svg>
+            <span>Asana</span>
+          </div>
+          <div class="tool-logo-card">
+            <svg viewBox="0 0 36 24" fill="none"><text x="2" y="17" fill="#4a154b" font-size="9" font-weight="700" font-family="Arial">SLK</text></svg>
+            <span>Slack</span>
+          </div>
+          <div class="tool-logo-card">
+            <svg viewBox="0 0 36 24" fill="none"><text x="2" y="17" fill="#4285f4" font-size="9" font-weight="700" font-family="Arial">GWS</text></svg>
+            <span>Google Workspace</span>
           </div>
         </div>
       </div>
@@ -817,7 +967,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
   <div class="init-header reveal">
     <div class="container">
       <div class="sec-label">Initiatives</div>
-      <h2 class="sec-title">Work in motion</h2>
+      <h2 class="sec-title">Field programs<br><em>in motion</em></h2>
     </div>
   </div>
 
@@ -1111,16 +1261,20 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
 <section id="connect">
   <div class="connect-watermark">Let's Talk</div>
   <div class="connect-inner">
-    <h2 class="connect-title reveal">Let's build<br>something <em>deliberate</em></h2>
-    <p class="connect-sub reveal">Whether you are scaling a demand gen motion, rearchitecting your pipeline operating model, or just want to compare notes, I am worth an hour of your time.</p>
+    <h2 class="connect-title reveal">Let's build<br><em>pipeline</em> together</h2>
+    <p class="connect-sub reveal">Whether you're building a field marketing motion, scaling regional programs, or just want to compare notes on what's actually working in cybersecurity GTM — I'm worth an hour of your time.</p>
     <div class="connect-btns reveal">
       <a href="mailto:josh@joshfrenette.com" class="btn-c btn-c-primary">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
         Get in Touch
       </a>
-      <a href="https://linkedin.com/in/joshfrenette" class="btn-c btn-c-outline" target="_blank" rel="noopener noreferrer">
+      <a href="https://linkedin.com/in/josh-frenette" class="btn-c btn-c-outline" target="_blank" rel="noopener noreferrer">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
         LinkedIn
+      </a>
+      <a href="https://joshfrenette.com" class="btn-c btn-c-outline" target="_blank" rel="noopener noreferrer">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        Website
       </a>
     </div>
   </div>
@@ -1129,8 +1283,99 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
 <footer>
   <div class="footer-logo">J<span>.</span></div>
   <span>&copy; 2025 Josh Frenette. All rights reserved.</span>
-  <span>Pipeline Ops. Demand Gen. Revenue Systems.</span>
+  <span>Field Marketing. Global Programs. Pipeline Results.</span>
 </footer>
+
+<!-- FM MODALS -->
+<div class="modal-overlay" id="modal-fm-connect">
+  <div class="modal-box">
+    <button class="modal-close" data-close>&times;</button>
+    <div class="modal-top">
+      <div class="modal-tag">Community &amp; Events</div>
+      <h3 class="modal-title">Armis Connect Global Rollout</h3>
+    </div>
+    <div class="modal-divider"></div>
+    <div class="modal-body">
+      <div class="modal-section-title">The Problem</div>
+      <p class="modal-text">Armis had a growing global customer base but no structured community to deepen relationships, surface expansion signals, or scale peer-to-peer advocacy. Retention risk was invisible until it became a churn event.</p>
+      <div class="modal-section-title">The Approach</div>
+      <p class="modal-text">Led the end-to-end launch of Armis Connect — a dedicated customer community platform built to serve field marketers, customer success, and product teams simultaneously. The rollout spanned strategy, platform build, content programming, regional chapter activation, and in-person event integration.</p>
+      <div class="modal-workflow">
+        <div class="modal-step"><div class="modal-step-num">01</div><div class="modal-step-content"><div class="modal-step-title">Platform strategy and build</div><div class="modal-step-desc">Evaluated community platforms, selected and configured the technology, and built the information architecture to serve global users across 18 regions.</div></div></div>
+        <div class="modal-step"><div class="modal-step-num">02</div><div class="modal-step-content"><div class="modal-step-title">Content and programming</div><div class="modal-step-desc">Developed an editorial calendar with product education, peer discussion, and exclusive content series to drive sustained engagement beyond launch.</div></div></div>
+        <div class="modal-step"><div class="modal-step-num">03</div><div class="modal-step-content"><div class="modal-step-title">Regional activation</div><div class="modal-step-desc">Launched regional chapters tied to in-person field events — driving local cohesion and connecting virtual community to physical touchpoints.</div></div></div>
+        <div class="modal-step"><div class="modal-step-num">04</div><div class="modal-step-content"><div class="modal-step-title">CS and field marketing integration</div><div class="modal-step-desc">Connected community activity signals to Salesforce, enabling CS teams to identify engaged accounts and field marketers to prioritize retention plays.</div></div></div>
+      </div>
+      <div class="modal-section-title">Outcomes</div>
+      <div class="modal-chips">
+        <span class="modal-chip">100K+ app users</span>
+        <span class="modal-chip">18 regional chapters activated</span>
+        <span class="modal-chip">Customer retention signal layer built</span>
+        <span class="modal-chip">Upsell pipeline attributed to community</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-fm-blackhat">
+  <div class="modal-box">
+    <button class="modal-close" data-close>&times;</button>
+    <div class="modal-top">
+      <div class="modal-tag">Event-Led Pipeline</div>
+      <h3 class="modal-title">Black Hat Demand Generation</h3>
+    </div>
+    <div class="modal-divider"></div>
+    <div class="modal-body">
+      <div class="modal-section-title">The Problem</div>
+      <p class="modal-text">Black Hat is the highest-density event in cybersecurity — and one of the most expensive. Prior years treated it as a brand play with limited pipeline accountability. The challenge was turning an $800K+ event investment into a measurable revenue motion.</p>
+      <div class="modal-section-title">The Approach</div>
+      <p class="modal-text">Rebuilt the Black Hat program from the ground up as a full-funnel demand generation engine. Every touchpoint — from pre-show outreach to executive dinner to post-show sequence — was designed to move a specific audience segment toward pipeline.</p>
+      <div class="modal-workflow">
+        <div class="modal-step"><div class="modal-step-num">01</div><div class="modal-step-content"><div class="modal-step-title">Pre-show account targeting</div><div class="modal-step-desc">Used 6sense intent data and Salesforce account scoring to build tiered outreach lists by segment. Coordinated sales outreach, sponsored session invites, and executive dinner targeting 60 days pre-show.</div></div></div>
+        <div class="modal-step"><div class="modal-step-num">02</div><div class="modal-step-content"><div class="modal-step-title">On-site activation</div><div class="modal-step-desc">Managed booth logistics, speaking session coordination, meeting suite programming, and a CISO-level executive dinner with hosted speakers and structured networking.</div></div></div>
+        <div class="modal-step"><div class="modal-step-num">03</div><div class="modal-step-content"><div class="modal-step-title">Post-show pipeline sequence</div><div class="modal-step-desc">Launched segmented Marketo sequences within 48 hours of show close. Each sequence was tailored by interaction type — booth scan, dinner attendee, speaking session viewer.</div></div></div>
+        <div class="modal-step"><div class="modal-step-num">04</div><div class="modal-step-content"><div class="modal-step-title">Pipeline attribution and reporting</div><div class="modal-step-desc">Built custom Salesforce reporting to track sourced vs. influenced pipeline by event cohort, with 90-day and 180-day pipeline waterfall views presented to the executive team.</div></div></div>
+      </div>
+      <div class="modal-section-title">Outcomes</div>
+      <div class="modal-chips">
+        <span class="modal-chip">Top sourced pipeline event of the year</span>
+        <span class="modal-chip">25%+ pipeline outperformance vs. prior year</span>
+        <span class="modal-chip">60+ executive meetings booked</span>
+        <span class="modal-chip">Post-show sequence open rates 38%</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-fm-forecast">
+  <div class="modal-box">
+    <button class="modal-close" data-close>&times;</button>
+    <div class="modal-top">
+      <div class="modal-tag">Planning &amp; Forecasting</div>
+      <h3 class="modal-title">Global Field &amp; Partner Budget Forecast</h3>
+    </div>
+    <div class="modal-divider"></div>
+    <div class="modal-body">
+      <div class="modal-section-title">The Problem</div>
+      <p class="modal-text">With field marketing programs running across 18 global regions and a partner co-marketing portfolio spanning dozens of programs, budget planning was decentralized, reactive, and disconnected from pipeline targets. Spend happened; pipeline impact was assumed.</p>
+      <div class="modal-section-title">The Approach</div>
+      <p class="modal-text">Built and now owns the annual global field, partner, and campaigns budget model — a bottom-up forecast framework that starts with regional pipeline targets and works backward to program investment requirements, activity volume, and expected sourced pipeline by quarter.</p>
+      <div class="modal-workflow">
+        <div class="modal-step"><div class="modal-step-num">01</div><div class="modal-step-content"><div class="modal-step-title">Regional pipeline target setting</div><div class="modal-step-desc">Collaborated with regional sales leaders and RevOps to establish field marketing pipeline contribution targets by region, segment, and quarter.</div></div></div>
+        <div class="modal-step"><div class="modal-step-num">02</div><div class="modal-step-content"><div class="modal-step-title">Activity-to-pipeline modeling</div><div class="modal-step-desc">Built conversion assumptions from program type (event, webinar, partner co-market) to MQL, to SAO, to pipeline — benchmarked against two years of actuals in Salesforce and HockeyStack.</div></div></div>
+        <div class="modal-step"><div class="modal-step-num">03</div><div class="modal-step-content"><div class="modal-step-title">Partner co-marketing integration</div><div class="modal-step-desc">Incorporated partner co-marketing programs into the model with shared pipeline attribution framework — giving channel leadership visibility into field + partner combined contribution.</div></div></div>
+        <div class="modal-step"><div class="modal-step-num">04</div><div class="modal-step-content"><div class="modal-step-title">Quarterly tracking and reallocation</div><div class="modal-step-desc">Model is live throughout the year — actuals vs. forecast tracked quarterly with budget reallocation recommendations based on program ROI signals.</div></div></div>
+      </div>
+      <div class="modal-section-title">Outcomes</div>
+      <div class="modal-chips">
+        <span class="modal-chip">18 regions modeled bottom-up</span>
+        <span class="modal-chip">Single source of truth for field + partner spend</span>
+        <span class="modal-chip">Pipeline attribution to program level</span>
+        <span class="modal-chip">25% YoY pipeline outperformance</span>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- MODALS -->
 <div class="modal-overlay" id="modal-proj-gtm">
