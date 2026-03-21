@@ -53,10 +53,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:1.1rem 3rem;display:
 .hero-greeting{position:absolute;top:6%;left:50%;transform:translateX(-46%);font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(7rem,17vw,18rem);color:rgba(238,242,247,0.032);white-space:nowrap;pointer-events:none;z-index:1;letter-spacing:-.03em;line-height:1;animation:fadeup 1.4s .05s both;}
 .hero-badge{position:absolute;top:calc(var(--nav-h,72px) + 2.5rem);left:3rem;z-index:5;display:inline-flex;align-items:center;gap:.65rem;border:1px solid rgba(0,212,170,.22);background:rgba(0,212,170,.05);backdrop-filter:blur(8px);padding:.45rem 1rem .45rem .7rem;font-family:var(--sans);font-size:.68rem;font-weight:400;letter-spacing:.06em;color:rgba(238,242,247,.65);animation:fadeup .8s .15s both;}
 .hero-badge-dot{width:7px;height:7px;border-radius:50%;background:var(--teal);flex-shrink:0;box-shadow:0 0 8px var(--teal);animation:dotPulse 2.2s ease-in-out infinite;}
-.hero-photo-wrap{position:absolute;left:50%;top:0;bottom:0;transform:translateX(-42%);width:60%;max-width:780px;z-index:3;pointer-events:none;animation:fadeup 1s .25s both;}
-.hero-photo-inner{width:100%;height:100%;position:relative;}
+.hero-photo-wrap{position:absolute;right:0;bottom:0;top:0;width:52%;max-width:700px;z-index:3;pointer-events:none;animation:fadeup 1s .25s both;display:flex;align-items:flex-end;}
+.hero-photo-inner{width:100%;position:relative;display:flex;align-items:flex-end;}
 .hero-photo-img{display:none;}
-.hero-photo-canvas{width:100%;height:100%;object-fit:contain;display:block;-webkit-mask-image:linear-gradient(to bottom,black 72%,transparent 97%);mask-image:linear-gradient(to bottom,black 72%,transparent 97%);user-select:none;}
+.hero-photo-canvas{width:100%;height:auto;display:block;-webkit-mask-image:linear-gradient(to bottom,black 68%,transparent 95%);mask-image:linear-gradient(to bottom,black 68%,transparent 95%);user-select:none;}
 .hero-descriptor{position:absolute;right:3rem;top:50%;transform:translateY(-50%);z-index:5;text-align:right;display:flex;flex-direction:column;gap:.1rem;animation:fadeup .9s .5s both;}
 .hero-descriptor span{display:block;font-family:var(--sans);font-size:clamp(.7rem,1.1vw,1rem);font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(238,242,247,.18);line-height:1.5;}
 .hero-descriptor span.hd-accent{color:var(--teal);font-size:.62rem;letter-spacing:.25em;margin-top:.4rem}
@@ -333,6 +333,8 @@ footer span{font-size:.7rem;color:var(--muted);letter-spacing:.06em}
 .modal-divider{height:1px;background:var(--border2);margin:1.5rem 0}
 .modal-body{padding:0 2.5rem 2.5rem}
 .modal-img{width:100%;max-height:340px;object-fit:cover;object-position:center 30%;display:block;}
+.modal-photo-strip{display:grid;grid-template-columns:1fr 1fr;gap:3px;}
+.modal-photo-strip-img{width:100%;height:220px;object-fit:cover;display:block;}
 .modal-section-title{font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);margin-bottom:.75rem;margin-top:1.5rem}
 .modal-text{font-size:.93rem;color:rgba(238,242,247,.72);line-height:1.85}
 .modal-text strong{color:var(--white);font-weight:500}
@@ -467,6 +469,25 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
 .fm-outcome{font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);border:1px solid var(--border2);padding:.25rem .6rem;}
 .fm-cta{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);display:flex;align-items:center;gap:.5rem;}
 @media(max-width:900px){.fm-grid{grid-template-columns:1fr;}}
+
+/* ── PASSWORD GATE ── */
+#pw-gate{position:fixed;inset:0;z-index:9999;background:var(--bg);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:0;transition:opacity .5s,visibility .5s;}
+#pw-gate.unlocked{opacity:0;visibility:hidden;pointer-events:none;}
+.pw-gate-inner{text-align:center;max-width:440px;padding:2rem;}
+.pw-gate-logo{font-family:var(--serif);font-size:3.5rem;font-weight:700;color:var(--white);letter-spacing:-.03em;margin-bottom:1.5rem;line-height:1;}
+.pw-gate-logo span{color:var(--teal);}
+.pw-gate-label{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:2rem;}
+.pw-gate-title{font-family:var(--serif);font-size:1.4rem;color:var(--white);margin-bottom:.6rem;font-weight:600;}
+.pw-gate-sub{font-size:.82rem;color:rgba(238,242,247,.5);margin-bottom:2rem;line-height:1.7;}
+.pw-gate-hint{font-size:.72rem;color:rgba(0,212,170,.6);font-style:italic;margin-bottom:1.5rem;}
+.pw-gate-field{display:flex;gap:.5rem;margin-bottom:.75rem;}
+.pw-gate-input{flex:1;background:rgba(255,255,255,.05);border:1px solid var(--border);color:var(--white);padding:.85rem 1.2rem;font-size:.88rem;font-family:var(--sans);outline:none;transition:border-color .2s;}
+.pw-gate-input:focus{border-color:var(--teal);}
+.pw-gate-btn{background:var(--teal);color:#07090f;border:none;padding:.85rem 1.6rem;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;cursor:pointer;font-family:var(--sans);transition:opacity .2s;}
+.pw-gate-btn:hover{opacity:.85;}
+.pw-gate-error{font-size:.75rem;color:#ff6b6b;min-height:1rem;opacity:0;transition:opacity .3s;}
+.pw-gate-error.show{opacity:1;}
+.pw-gate-divider{width:40px;height:1px;background:var(--border2);margin:2rem auto;}
 </style>
 </head>
 <body>
@@ -474,14 +495,31 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
 <div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="cursorRing"></div>
 
+<!-- PASSWORD GATE -->
+<div id="pw-gate">
+  <div class="pw-gate-inner">
+    <div class="pw-gate-logo">J<span>.</span></div>
+    <div class="pw-gate-label">Private Portfolio &mdash; Invite Only</div>
+    <div class="pw-gate-divider"></div>
+    <div class="pw-gate-title">You know Josh.<br>Prove it.</div>
+    <p class="pw-gate-sub">This portfolio is shared selectively. If you're here, you were sent the key &mdash; or you're smart enough to figure it out.</p>
+    <p class="pw-gate-hint">Hint: what did Josh name his first company? (lowercase, no spaces)</p>
+    <div class="pw-gate-field">
+      <input type="password" class="pw-gate-input" id="pw-input" placeholder="Enter password..." autocomplete="off">
+      <button class="pw-gate-btn" id="pw-btn">Unlock</button>
+    </div>
+    <div class="pw-gate-error" id="pw-error">That's not it. Think smaller. Think Josh.</div>
+  </div>
+</div>
+
 <nav>
   <div class="nav-logo">J<span>.</span></div>
   <ul class="nav-links">
     <li><a href="#bio">About</a></li>
     <li><a href="#career">Career</a></li>
+    <li><a href="#fieldmarketing">Field Mktg</a></li>
     <li><a href="#projects">Work</a></li>
     <li><a href="#tools">Stack</a></li>
-    <li><a href="#fieldmarketing">Field Mktg</a></li>
     <li><a href="#initiatives">Initiatives</a></li>
     <li><a href="#conduit">Conduit</a></li>
     <li><a href="#testimonials">Testimonials</a></li>
@@ -709,6 +747,66 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
   </div>
 </section>
 
+<!-- FIELD MARKETING IN ACTION -->
+<section id="fieldmarketing" class="fm-section">
+  <div class="container">
+    <div class="reveal">
+      <div class="sec-label">Field Marketing</div>
+      <h2 class="sec-title">Field Marketing<br><em>in Action</em></h2>
+      <p class="proj-subhead">Real programs. Real pipeline. Four case studies from the field.</p>
+    </div>
+    <div class="fm-grid">
+      <div class="fm-card reveal" data-modal="fm-connect">
+        <div class="fm-tag">Community &amp; Events</div>
+        <div class="fm-name">Armis Connect Global Rollout</div>
+        <div class="fm-desc">Built and launched a global customer community app from zero to 100K+ users — driving retention, upsell signals, and field marketing reach across 18 regions.</div>
+        <div class="fm-outcomes">
+          <span class="fm-outcome">Community Growth</span>
+          <span class="fm-outcome">Customer Retention</span>
+          <span class="fm-outcome">Global Scale</span>
+        </div>
+        <div class="fm-cta">View Case Study <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+      </div>
+
+      <div class="fm-card reveal d1" data-modal="fm-blackhat">
+        <div class="fm-tag">Event-Led Pipeline</div>
+        <div class="fm-name">Black Hat Demand Generation</div>
+        <div class="fm-desc">Orchestrated Armis's presence at Black Hat — the cybersecurity industry's flagship event — into a high-efficiency pipeline engine combining executive dinners, booth activations, and post-show sequences.</div>
+        <div class="fm-outcomes">
+          <span class="fm-outcome">Event Strategy</span>
+          <span class="fm-outcome">Pipeline Generation</span>
+          <span class="fm-outcome">Cybersecurity</span>
+        </div>
+        <div class="fm-cta">View Case Study <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+      </div>
+
+      <div class="fm-card reveal d2" data-modal="fm-forecast">
+        <div class="fm-tag">Planning &amp; Forecasting</div>
+        <div class="fm-name">Global Field &amp; Partner Budget Forecast</div>
+        <div class="fm-desc">Designed and owns the annual global field, partner, and campaigns budget model — a bottom-up forecast framework that connects program investment to pipeline contribution by region and segment.</div>
+        <div class="fm-outcomes">
+          <span class="fm-outcome">Budget Planning</span>
+          <span class="fm-outcome">Bottom-Up Forecast</span>
+          <span class="fm-outcome">18 Regions</span>
+        </div>
+        <div class="fm-cta">View Case Study <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+      </div>
+
+      <div class="fm-card reveal d3" data-modal="fm-laughlearn">
+        <div class="fm-tag">Creative Field Events</div>
+        <div class="fm-name">Laugh &amp; Learn Comedy Series</div>
+        <div class="fm-desc">Invented an unconventional field event format — blending stand-up comedy with cybersecurity education — that became one of Armis's most pipeline-productive event series, run two years in a row with 200+ attendees each.</div>
+        <div class="fm-outcomes">
+          <span class="fm-outcome">Deal Progression</span>
+          <span class="fm-outcome">Pipeline Generation</span>
+          <span class="fm-outcome">Key Account Influence</span>
+        </div>
+        <div class="fm-cta">View Case Study <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- PROJECTS -->
 <section id="projects">
   <div class="container">
@@ -781,67 +879,6 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
     </div>
   </div>
 </section>
-
-<!-- FIELD MARKETING IN ACTION -->
-<section id="fieldmarketing" class="fm-section">
-  <div class="container">
-    <div class="reveal">
-      <div class="sec-label">Field Marketing</div>
-      <h2 class="sec-title">Field Marketing<br><em>in Action</em></h2>
-      <p class="proj-subhead">Real programs. Real pipeline. Four case studies from the field.</p>
-    </div>
-    <div class="fm-grid">
-      <div class="fm-card reveal" data-modal="fm-connect">
-        <div class="fm-tag">Community &amp; Events</div>
-        <div class="fm-name">Armis Connect Global Rollout</div>
-        <div class="fm-desc">Built and launched a global customer community app from zero to 100K+ users — driving retention, upsell signals, and field marketing reach across 18 regions.</div>
-        <div class="fm-outcomes">
-          <span class="fm-outcome">Community Growth</span>
-          <span class="fm-outcome">Customer Retention</span>
-          <span class="fm-outcome">Global Scale</span>
-        </div>
-        <div class="fm-cta">View Case Study <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
-      </div>
-
-      <div class="fm-card reveal d1" data-modal="fm-blackhat">
-        <div class="fm-tag">Event-Led Pipeline</div>
-        <div class="fm-name">Black Hat Demand Generation</div>
-        <div class="fm-desc">Orchestrated Armis's presence at Black Hat — the cybersecurity industry's flagship event — into a high-efficiency pipeline engine combining executive dinners, booth activations, and post-show sequences.</div>
-        <div class="fm-outcomes">
-          <span class="fm-outcome">Event Strategy</span>
-          <span class="fm-outcome">Pipeline Generation</span>
-          <span class="fm-outcome">Cybersecurity</span>
-        </div>
-        <div class="fm-cta">View Case Study <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
-      </div>
-
-      <div class="fm-card reveal d2" data-modal="fm-forecast">
-        <div class="fm-tag">Planning &amp; Forecasting</div>
-        <div class="fm-name">Global Field &amp; Partner Budget Forecast</div>
-        <div class="fm-desc">Designed and owns the annual global field, partner, and campaigns budget model — a bottom-up forecast framework that connects program investment to pipeline contribution by region and segment.</div>
-        <div class="fm-outcomes">
-          <span class="fm-outcome">Budget Planning</span>
-          <span class="fm-outcome">Bottom-Up Forecast</span>
-          <span class="fm-outcome">18 Regions</span>
-        </div>
-        <div class="fm-cta">View Case Study <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
-      </div>
-
-      <div class="fm-card reveal d3" data-modal="fm-laughlearn">
-        <div class="fm-tag">Creative Field Events</div>
-        <div class="fm-name">Laugh &amp; Learn Comedy Series</div>
-        <div class="fm-desc">Invented an unconventional field event format — blending stand-up comedy with cybersecurity education — that became one of Armis's most pipeline-productive event series, run two years in a row with 200+ attendees each.</div>
-        <div class="fm-outcomes">
-          <span class="fm-outcome">Deal Progression</span>
-          <span class="fm-outcome">Pipeline Generation</span>
-          <span class="fm-outcome">Key Account Influence</span>
-        </div>
-        <div class="fm-cta">View Case Study <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- QUOTE BREAK -->
 <div class="quote-break reveal">
   <div class="quote-break-line"></div>
@@ -1303,6 +1340,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
 <div class="modal-overlay" id="modal-fm-connect">
   <div class="modal-box">
     <button class="modal-close" data-close>&times;</button>
+    <img src="event-booth.jpg" alt="Armis field event booth activation" class="modal-img">
     <div class="modal-top">
       <div class="modal-tag">Community &amp; Events</div>
       <h3 class="modal-title">Armis Connect Global Rollout</h3>
@@ -1333,6 +1371,10 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
 <div class="modal-overlay" id="modal-fm-blackhat">
   <div class="modal-box">
     <button class="modal-close" data-close>&times;</button>
+    <div class="modal-photo-strip">
+      <img src="event-blackhat-1.jpg" alt="Josh at the Armis Black Hat booth" class="modal-photo-strip-img">
+      <img src="event-blackhat-2.jpg" alt="Armis booth at Black Hat" class="modal-photo-strip-img">
+    </div>
     <div class="modal-top">
       <div class="modal-tag">Event-Led Pipeline</div>
       <h3 class="modal-title">Black Hat Demand Generation</h3>
@@ -2070,6 +2112,39 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
   } else {
     img.onload = processImage;
   }
+})();
+
+// ── PASSWORD GATE ──
+(function(){
+  var gate  = document.getElementById('pw-gate');
+  var input = document.getElementById('pw-input');
+  var btn   = document.getElementById('pw-btn');
+  var err   = document.getElementById('pw-error');
+  if(!gate) return;
+
+  // Check if already unlocked this session
+  if(sessionStorage.getItem('jf_unlocked') === '1'){
+    gate.classList.add('unlocked');
+    return;
+  }
+
+  function attempt(){
+    var val = input.value.trim().toLowerCase();
+    // btoa('littlej') === 'bGl0dGxlag=='
+    if(btoa(val) === 'bGl0dGxlag=='){
+      sessionStorage.setItem('jf_unlocked','1');
+      gate.classList.add('unlocked');
+      err.classList.remove('show');
+    } else {
+      err.classList.add('show');
+      input.value = '';
+      input.focus();
+      setTimeout(function(){ err.classList.remove('show'); }, 3000);
+    }
+  }
+
+  btn.addEventListener('click', attempt);
+  input.addEventListener('keydown', function(e){ if(e.key === 'Enter') attempt(); });
 })();
 </script>
 </body>
