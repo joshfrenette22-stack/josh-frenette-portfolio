@@ -2425,20 +2425,27 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
     ctx.drawImage(img, cropX, 0, cropW, naturalH, 0, 0, cropW, naturalH);
     var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
     var data = imageData.data;
+    // Dark bg color (#07090f) — used to premultiply edge pixels so they don't glow
+    var BG_R = 7, BG_G = 9, BG_B = 15;
     for(var i = 0; i < data.length; i += 4){
       var r = data[i], g = data[i+1], b = data[i+2];
-      // Average luminance and max channel deviation (measures "colorfulness")
       var avg = (r + g + b) / 3;
       var maxDev = Math.max(Math.abs(r - avg), Math.abs(g - avg), Math.abs(b - avg));
-      // Pure white bg: high avg, very low color deviation → fully transparent
-      if(avg > 235 && maxDev < 14){
+      if(avg > 228 && maxDev < 16){
+        // Pure white background → fully transparent
         data[i+3] = 0;
-      } else if(avg > 210 && maxDev < 22){
-        // Soft transition: edge anti-alias pixels near hair/skin/clothing
-        var lumFactor  = (avg - 210) / 25;           // 0→1 as avg goes 210→235
-        var satFactor  = (22 - maxDev) / 22;         // 1→0 as color increases
-        var blendAlpha = 1 - (lumFactor * satFactor * 0.95);
-        data[i+3] = Math.round(Math.max(0, Math.min(1, blendAlpha)) * 255);
+      } else if(avg > 195 && maxDev < 30){
+        // Transition zone: compute how "white/background" this pixel is
+        var lumF = (avg - 195) / 33;       // 0→1 as avg approaches 228
+        var satF = (30 - maxDev) / 30;     // 1→0 as color saturation increases
+        var t    = Math.min(1, lumF * satF * 1.15);  // removal factor
+        var a    = 1 - t;                             // remaining opacity
+        // Premultiply RGB toward dark bg — eliminates white halo fringing
+        // Without this, semi-transparent near-white pixels glow over dark backgrounds
+        data[i]   = Math.round(r * a + BG_R * (1 - a));
+        data[i+1] = Math.round(g * a + BG_G * (1 - a));
+        data[i+2] = Math.round(b * a + BG_B * (1 - a));
+        data[i+3] = Math.round(a * 255);
       }
     }
     ctx.putImageData(imageData, 0, 0);
