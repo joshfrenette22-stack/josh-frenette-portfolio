@@ -150,8 +150,8 @@
   --gutter:clamp(1.5rem,5vw,3rem);
   --section-v:clamp(4rem,8vw,7rem);
 }
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--white);font-family:var(--sans);font-weight:300;line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+html{scroll-behavior:smooth;overflow-x:hidden;max-width:100%}
+body{background:var(--bg);color:var(--white);font-family:var(--sans);font-weight:300;line-height:1.7;overflow-x:hidden;max-width:100%;-webkit-font-smoothing:antialiased;}
 .cursor,.cursor-ring{position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);border-radius:50%;}
 .cursor{width:8px;height:8px;background:var(--teal);transition:transform .08s,width .2s,height .2s;mix-blend-mode:screen;}
 .cursor-ring{width:32px;height:32px;border:1px solid rgba(0,212,170,0.4);transition:transform .14s ease-out,width .25s,height .25s,border-color .2s;}
@@ -718,6 +718,10 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
 }
 /* Cursor: hide on touch devices — no mouse, no need */
 @media(hover:none){.cursor,.cursor-ring{display:none!important;}}
+/* ── PREVENT HORIZONTAL SCROLL ── */
+/* html + body both need the lock; overflow on body alone still lets html scroll */
+*{box-sizing:border-box;}
+img,video,canvas,svg,iframe{max-width:100%;}
 </style>
 </head>
 <body>
