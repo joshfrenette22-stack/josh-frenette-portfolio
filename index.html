@@ -170,6 +170,7 @@ section{padding:var(--section-v) var(--gutter)}
 .quote-break-line{flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--border))}
 .quote-break-line:last-child{background:linear-gradient(270deg,transparent,var(--border))}
 .quote-break-text{font-family:var(--serif);font-size:clamp(1.1rem,2.2vw,1.55rem);font-weight:300;font-style:italic;color:rgba(238,242,247,.55);text-align:center;flex-shrink:0;letter-spacing:-.01em}
+.quote-break-attr{margin-top:.85rem;font-family:var(--sans);font-size:.65rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);text-align:center;opacity:.8}
 #tools{background:var(--bg2);border-top:1px solid var(--border2);padding:var(--section-v) var(--gutter) calc(var(--section-v) * 0.6)}
 .tools-header{margin-bottom:3rem}
 .tools-subhead{font-size:.92rem;color:rgba(238,242,247,.55);line-height:1.85;margin-top:.75rem}
@@ -987,7 +988,10 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
 <!-- QUOTE BREAK -->
 <div class="quote-break reveal">
   <div class="quote-break-line"></div>
-  <div class="quote-break-text">"From job sites to boardrooms — I've always been the one who takes extreme ownership and optimizes the system."</div>
+  <div class="quote-break-text">
+    <p>"Josh brings something rare — an operator's instinct at every altitude. From job sites to boardrooms, he's always the one optimizing the system."</p>
+    <p class="quote-break-attr">— VP of Sales, Enterprise · Armis Security</p>
+  </div>
   <div class="quote-break-line"></div>
 </div>
 
