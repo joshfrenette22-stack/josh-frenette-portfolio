@@ -2414,12 +2414,15 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
   var ctx = canvas.getContext('2d');
 
   function processImage(){
-    canvas.width  = img.naturalWidth  || img.width  || 800;
-    canvas.height = img.naturalHeight || img.height || 1000;
+    var naturalW = img.naturalWidth  || img.width  || 800;
+    var naturalH = img.naturalHeight || img.height || 1000;
     // Crop horizontal whitespace so subject appears more prominent & centered
-    var cropX = Math.round(img.naturalWidth * 0.13);
-    var cropW = img.naturalWidth - cropX * 2;
-    ctx.drawImage(img, cropX, 0, cropW, img.naturalHeight, 0, 0, canvas.width, canvas.height);
+    var cropX = Math.round(naturalW * 0.13);
+    var cropW = naturalW - cropX * 2;
+    // Size canvas to the cropped area — 1:1 draw, no stretching or distortion
+    canvas.width  = cropW;
+    canvas.height = naturalH;
+    ctx.drawImage(img, cropX, 0, cropW, naturalH, 0, 0, cropW, naturalH);
     var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
     var data = imageData.data;
     for(var i = 0; i < data.length; i += 4){
