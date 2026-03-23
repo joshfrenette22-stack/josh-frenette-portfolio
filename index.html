@@ -97,9 +97,9 @@ section{padding:var(--section-v) var(--gutter)}
 .sec-title em{font-style:italic;font-weight:300;color:rgba(238,242,247,.45)}
 #bio{background:var(--bg2);position:relative;overflow:hidden;border-top:1px solid var(--border2);}
 #bio::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent 0%,var(--teal) 50%,transparent 100%);}
-.bio-grid{display:grid;grid-template-columns:clamp(260px,30%,360px) 1fr;gap:clamp(2.5rem,5vw,5.5rem);align-items:start;}
+.bio-grid{display:grid;grid-template-columns:clamp(360px,46%,580px) 1fr;gap:clamp(2rem,4vw,4.5rem);align-items:start;}
 .bio-img-wrap{position:relative}
-.bio-img-frame{position:relative;width:100%;aspect-ratio:4/3;background:linear-gradient(135deg,var(--bg3) 0%,rgba(0,212,170,.04) 100%);border:1px solid var(--border);overflow:hidden;}
+.bio-img-frame{position:relative;width:100%;aspect-ratio:4/3;background:linear-gradient(160deg,#0b1018 0%,rgba(0,212,170,.08) 100%);border:1px solid rgba(0,212,170,.22);overflow:hidden;box-shadow:0 0 0 1px rgba(0,212,170,.06),0 24px 60px rgba(0,0,0,.45);}
 .bio-img-inner{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;color:var(--muted);}
 .bio-img-icon{width:72px;height:72px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--muted);}
 .bio-img-inner p{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;text-align:center;line-height:1.6;max-width:160px}
@@ -112,6 +112,13 @@ section{padding:var(--section-v) var(--gutter)}
 .bio-text p strong{color:var(--white);font-weight:500}
 .btn-resume{display:inline-flex;align-items:center;gap:.65rem;margin-top:.75rem;padding:.85rem 1.9rem;background:var(--teal);color:var(--bg);font-family:var(--sans);font-size:.78rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:box-shadow .3s,transform .2s;}
 .btn-resume:hover{box-shadow:0 12px 36px var(--teal-glow);transform:translateY(-2px)}
+.bio-creds{margin-top:1.2rem;padding:.95rem 1.1rem;background:rgba(0,212,170,.04);border:1px solid var(--border);border-left:2px solid var(--teal);}
+.bio-creds-label{display:block;font-size:.57rem;letter-spacing:.2em;text-transform:uppercase;color:var(--teal);margin-bottom:.75rem;opacity:.8;}
+.bio-cred-person{margin-bottom:.55rem;}
+.bio-cred-person:last-child{margin-bottom:0;}
+.bio-cred-name{display:block;font-family:var(--serif);font-size:.92rem;font-weight:600;color:var(--white);line-height:1.2;}
+.bio-cred-title-tag{display:block;font-size:.62rem;color:var(--muted2);letter-spacing:.04em;margin-top:.12rem;}
+.bio-cred-divider{height:1px;background:var(--border2);margin:.6rem 0;}
 #career{background:var(--bg);position:relative}
 .career-header{text-align:center;margin-bottom:5rem}
 .career-header .sec-label{justify-content:center}
@@ -640,10 +647,22 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
         <div class="bio-corner tl"></div>
         <div class="bio-corner br"></div>
         <div class="bio-tag">Denver, CO &middot; Open to Advisory</div>
+        <div class="bio-creds">
+          <span class="bio-creds-label">Recognized by field leaders</span>
+          <div class="bio-cred-person">
+            <span class="bio-cred-name">Robert Driggers</span>
+            <span class="bio-cred-title-tag">Top Strategic Account Executive · Armis</span>
+          </div>
+          <div class="bio-cred-divider"></div>
+          <div class="bio-cred-person">
+            <span class="bio-cred-name">Chris Archinal</span>
+            <span class="bio-cred-title-tag">Field Account Executive · Armis</span>
+          </div>
+        </div>
       </div>
       <div class="bio-text">
         <div class="sec-label">About</div>
-        <h2 class="sec-title">Data-led.<br><em>Field-proven.</em></h2>
+        <h2 class="sec-title">Field-led.<br><em>Revenue-accountable.</em></h2>
         <p>I'm a field marketer who runs on data. Before I plan a single event or partner activation, I'm already in Salesforce and HockeyStack — looking at pipeline coverage by region, account-level intent signals, and what our conversion rates actually say about where to invest. <strong>Every program I build starts with a number we're trying to move</strong>, not an activity calendar we're trying to fill.</p>
         <p>At Armis I work shoulder-to-shoulder with regional sales leaders and field teams to co-own pipeline targets and design the programs that support them. That means territory reviews, shared dashboards, and a constant loop between what's happening in the field and how marketing is responding. <strong>Sales alignment isn't a talking point — it's my operating model.</strong></p>
         <p>My toolkit spans the full field marketing stack: Marketo for campaign orchestration, 6sense and Demandbase for account targeting, HockeyStack and DreamData for attribution, and a custom bottom-up budget model that connects every dollar of field and partner spend to a pipeline contribution by region and quarter. I also built and own Armis Connect — a global customer community platform with 100K+ users.</p>
@@ -804,92 +823,6 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
   </div>
 </section>
 
-<!-- PROJECTS -->
-<section id="projects">
-  <div class="container">
-    <div class="proj-header reveal">
-      <div class="sec-label">Featured Work</div>
-      <h2 class="sec-title">Systems built,<br><em>revenue moved</em></h2>
-      <p class="proj-subhead">A selection of initiatives that define how I operate.</p>
-    </div>
-    <div class="proj-grid">
-      <div class="proj-card reveal" data-modal="proj-gtm">
-        <div class="proj-tag">Forecasting</div>
-        <div class="proj-name">Bottom-Up GTM Forecast Model</div>
-        <div class="proj-desc">Replaced gut-feel pipeline targets with a driver-based model that cascades from target account universe through conversion rates to closed ARR, by region, segment, and product line.</div>
-        <div class="proj-outcomes">
-          <span class="proj-outcome">Forecast Accuracy</span>
-          <span class="proj-outcome">Board Reporting</span>
-          <span class="proj-outcome">RevOps</span>
-        </div>
-        <div class="proj-cta">View Project <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
-      </div>
-
-      <div class="proj-card reveal d1" data-modal="proj-council">
-        <div class="proj-tag">Pipeline Governance</div>
-        <div class="proj-name">Pipeline Council Framework</div>
-        <div class="proj-desc">Designed and operationalized a weekly cross-functional pipeline review that aligned Sales, Marketing, RevOps, and CS around a shared set of leading indicators, not just late-stage deals.</div>
-        <div class="proj-outcomes">
-          <span class="proj-outcome">Pipeline Velocity</span>
-          <span class="proj-outcome">Cross-Functional</span>
-          <span class="proj-outcome">Governance</span>
-        </div>
-        <div class="proj-cta">View Project <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
-      </div>
-
-      <div class="proj-card reveal" data-modal="proj-bowtie">
-        <div class="proj-tag">Analytics</div>
-        <div class="proj-name">Bowtie Funnel Intelligence</div>
-        <div class="proj-desc">Mapped the full bowtie from anonymous visitor through expansion, surfacing where pipeline was leaking and where marketing was actually contributing to retention and expansion revenue.</div>
-        <div class="proj-outcomes">
-          <span class="proj-outcome">Funnel Analytics</span>
-          <span class="proj-outcome">Attribution</span>
-          <span class="proj-outcome">Expansion</span>
-        </div>
-        <div class="proj-cta">View Project <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
-      </div>
-
-      <div class="proj-card reveal d1" data-modal="proj-digital">
-        <div class="proj-tag">Strategy</div>
-        <div class="proj-name">Digital Strategy Rebuild</div>
-        <div class="proj-desc">Audited and rebuilt a fragmented digital marketing infrastructure, consolidating four attribution systems, rebuilding paid media targeting architecture, and establishing a unified performance reporting layer.</div>
-        <div class="proj-outcomes">
-          <span class="proj-outcome">Paid Media</span>
-          <span class="proj-outcome">Attribution</span>
-          <span class="proj-outcome">Infrastructure</span>
-        </div>
-        <div class="proj-cta">View Project <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
-      </div>
-
-      <div class="proj-card proj-card-wide reveal" data-modal="proj-llm">
-        <div class="proj-tag">AI / GTM Intelligence</div>
-        <div class="proj-name">Custom LLM Pipeline Intelligence Engine</div>
-        <div class="proj-desc">Built a custom LLM layer on top of CRM and intent data to surface pipeline risk, identify buyer signals, and generate account-level talking points for sales, eliminating six hours of weekly manual research per AE.</div>
-        <div class="proj-outcomes">
-          <span class="proj-outcome">AI / LLM</span>
-          <span class="proj-outcome">Sales Intelligence</span>
-          <span class="proj-outcome">Automation</span>
-          <span class="proj-outcome">Intent Data</span>
-        </div>
-        <div class="proj-cta">View Project <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
-      </div>
-
-      <div class="proj-card reveal" data-modal="proj-connect">
-        <div class="proj-tag">Community Platform</div>
-        <div class="proj-name">Armis Connect</div>
-        <div class="proj-desc">Built and own Armis Connect — a global customer community platform scaled to 100K+ registered users across 18 markets. Designed the engagement model, content architecture, and community health framework from zero.</div>
-        <div class="proj-outcomes">
-          <span class="proj-outcome">100K+ Users</span>
-          <span class="proj-outcome">Customer Retention</span>
-          <span class="proj-outcome">Community-Led Growth</span>
-        </div>
-        <div class="proj-cta">View Project <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
 <!-- FIELD WORK IN ACTION -->
 <section id="field-work" class="fm-section">
   <div class="container">
@@ -981,6 +914,92 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
         <div class="fm-cta">View Case Study <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
       </div>
 
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <div class="proj-header reveal">
+      <div class="sec-label">Featured Work</div>
+      <h2 class="sec-title">Systems built,<br><em>revenue moved</em></h2>
+      <p class="proj-subhead">A selection of initiatives that define how I operate.</p>
+    </div>
+    <div class="proj-grid">
+      <div class="proj-card reveal" data-modal="proj-gtm">
+        <div class="proj-tag">Forecasting</div>
+        <div class="proj-name">Bottom-Up GTM Forecast Model</div>
+        <div class="proj-desc">Replaced gut-feel pipeline targets with a driver-based model that cascades from target account universe through conversion rates to closed ARR, by region, segment, and product line.</div>
+        <div class="proj-outcomes">
+          <span class="proj-outcome">Forecast Accuracy</span>
+          <span class="proj-outcome">Board Reporting</span>
+          <span class="proj-outcome">RevOps</span>
+        </div>
+        <div class="proj-cta">View Project <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+      </div>
+
+      <div class="proj-card reveal d1" data-modal="proj-council">
+        <div class="proj-tag">Pipeline Governance</div>
+        <div class="proj-name">Pipeline Council Framework</div>
+        <div class="proj-desc">Designed and operationalized a weekly cross-functional pipeline review that aligned Sales, Marketing, RevOps, and CS around a shared set of leading indicators, not just late-stage deals.</div>
+        <div class="proj-outcomes">
+          <span class="proj-outcome">Pipeline Velocity</span>
+          <span class="proj-outcome">Cross-Functional</span>
+          <span class="proj-outcome">Governance</span>
+        </div>
+        <div class="proj-cta">View Project <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+      </div>
+
+      <div class="proj-card reveal" data-modal="proj-bowtie">
+        <div class="proj-tag">Analytics</div>
+        <div class="proj-name">Bowtie Funnel Intelligence</div>
+        <div class="proj-desc">Mapped the full bowtie from anonymous visitor through expansion, surfacing where pipeline was leaking and where marketing was actually contributing to retention and expansion revenue.</div>
+        <div class="proj-outcomes">
+          <span class="proj-outcome">Funnel Analytics</span>
+          <span class="proj-outcome">Attribution</span>
+          <span class="proj-outcome">Expansion</span>
+        </div>
+        <div class="proj-cta">View Project <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+      </div>
+
+      <div class="proj-card reveal d1" data-modal="proj-digital">
+        <div class="proj-tag">Strategy</div>
+        <div class="proj-name">Digital Strategy Rebuild</div>
+        <div class="proj-desc">Audited and rebuilt a fragmented digital marketing infrastructure, consolidating four attribution systems, rebuilding paid media targeting architecture, and establishing a unified performance reporting layer.</div>
+        <div class="proj-outcomes">
+          <span class="proj-outcome">Paid Media</span>
+          <span class="proj-outcome">Attribution</span>
+          <span class="proj-outcome">Infrastructure</span>
+        </div>
+        <div class="proj-cta">View Project <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+      </div>
+
+      <div class="proj-card proj-card-wide reveal" data-modal="proj-llm">
+        <div class="proj-tag">AI / GTM Intelligence</div>
+        <div class="proj-name">Custom LLM Pipeline Intelligence Engine</div>
+        <div class="proj-desc">Built a custom LLM layer on top of CRM and intent data to surface pipeline risk, identify buyer signals, and generate account-level talking points for sales, eliminating six hours of weekly manual research per AE.</div>
+        <div class="proj-outcomes">
+          <span class="proj-outcome">AI / LLM</span>
+          <span class="proj-outcome">Sales Intelligence</span>
+          <span class="proj-outcome">Automation</span>
+          <span class="proj-outcome">Intent Data</span>
+        </div>
+        <div class="proj-cta">View Project <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+      </div>
+
+      <div class="proj-card reveal" data-modal="proj-connect">
+        <div class="proj-tag">Global Event Activation</div>
+        <div class="proj-name">Armis Connect · Global Event Series</div>
+        <div class="proj-desc">Designed and executed a global event activation series spanning 18 markets — user conferences, customer summits, and field activations that drove field pipeline and partner-sourced revenue. Built the engagement architecture that grew the Armis Connect community to 100K+ members.</div>
+        <div class="proj-outcomes">
+          <span class="proj-outcome">18 Markets</span>
+          <span class="proj-outcome">Field Pipeline</span>
+          <span class="proj-outcome">Event-Led Growth</span>
+          <span class="proj-outcome">100K+ Members</span>
+        </div>
+        <div class="proj-cta">View Project <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+      </div>
     </div>
   </div>
 </section>
@@ -1390,7 +1409,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
         <div class="test-body">Josh brings something rare to the table: he can design the strategy <em>and</em> build the infrastructure to execute it. Most people are good at one or the other. He has built systems at Armis that I have seen take entire RevOps teams to replicate elsewhere.</div>
         <div class="test-author">
           <span class="test-name">Robert Driggers</span>
-          <span class="test-title">VP of Revenue Operations</span>
+          <span class="test-title">Top Strategic Account Executive · Armis</span>
           <span class="test-date">2024</span>
         </div>
       </div>
@@ -1408,7 +1427,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
         <div class="test-body">The forecast model Josh built changed how we talk to the board. Instead of defending a number, <em>we were walking through a machine</em>, here are the inputs, here are the conversion rates, here is the output. That is exactly the level of rigor a board wants to see.</div>
         <div class="test-author">
           <span class="test-name">Chris Archinal</span>
-          <span class="test-title">Chief Revenue Officer</span>
+          <span class="test-title">Field Account Executive · Armis</span>
           <span class="test-date">2024</span>
         </div>
       </div>
@@ -1940,34 +1959,35 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
     <div class="modal-hero">
       <img src="award.jpg" alt="Josh Frenette — Marketing Above and Beyond Award" loading="lazy">
       <div class="modal-hero-overlay"></div>
-      <div class="modal-hero-badge"><span class="modal-hero-tag">Community Platform</span></div>
+      <div class="modal-hero-badge"><span class="modal-hero-tag">Global Event Activation</span></div>
     </div>
     <div class="modal-top">
-      <div class="modal-tag">Armis · Community</div>
-      <h3 class="modal-title">Armis Connect</h3>
-      <p class="modal-subtitle">Global customer community — 100K+ users, 18 markets, built from zero</p>
+      <div class="modal-tag">Armis · Field Marketing</div>
+      <h3 class="modal-title">Armis Connect · Global Event Series</h3>
+      <p class="modal-subtitle">18-market event activation series — field pipeline, partner-sourced revenue, 100K+ community members</p>
     </div>
     <div class="modal-divider"></div>
     <div class="modal-body">
       <div class="modal-stat-row">
-        <div class="modal-stat-item"><span class="modal-stat-val">100K+</span><span class="modal-stat-label">Registered Users</span></div>
         <div class="modal-stat-item"><span class="modal-stat-val">18</span><span class="modal-stat-label">Global Markets</span></div>
+        <div class="modal-stat-item"><span class="modal-stat-val">100K+</span><span class="modal-stat-label">Community Members</span></div>
         <div class="modal-stat-item"><span class="modal-stat-val">#1</span><span class="modal-stat-label">Marketing Award</span></div>
       </div>
       <div class="modal-section-title">The Challenge</div>
-      <p class="modal-text">Armis had a fast-growing enterprise customer base with no structured way for customers to connect, share knowledge, or self-serve product guidance. Community-driven retention and expansion was completely untapped.</p>
-      <div class="modal-section-title">The Build</div>
-      <p class="modal-text">I designed and launched Armis Connect — a dedicated global community platform with structured forums, product roadmap visibility, peer-to-peer support channels, and curated content tracks by role and vertical. <strong>Scaled from zero to 100,000+ registered users</strong> with a community health model I built from scratch to track engagement, adoption, and churn risk signals.</p>
+      <p class="modal-text">Armis needed a scalable field activation model that could generate pipeline across 18 global markets without relying solely on third-party events. The opportunity was to own the room — build a proprietary event series that put Armis at the center of the customer conversation.</p>
+      <div class="modal-section-title">The Execution</div>
+      <p class="modal-text">I designed and executed the Armis Connect global event activation series — user conferences, regional customer summits, and partner co-hosted field activations across 18 markets. Built the engagement architecture, event-to-pipeline attribution model, and partner activation playbook from zero. <strong>Scaled to 100K+ community members</strong> while generating measurable field pipeline and partner-sourced revenue each quarter.</p>
       <div class="modal-workflow">
-        <div class="modal-step"><div class="modal-step-num">01</div><div class="modal-step-content"><div class="modal-step-title">Platform Architecture</div><div class="modal-step-desc">Selected and configured the community platform, built the IA, and defined engagement categories aligned to customer journey stages and product lines.</div></div></div>
-        <div class="modal-step"><div class="modal-step-num">02</div><div class="modal-step-content"><div class="modal-step-title">Community Health Model</div><div class="modal-step-desc">Defined DAU/MAU benchmarks, thread velocity targets, and CSAT measurement. Built the moderator program and seeded content tracks across roles and verticals.</div></div></div>
-        <div class="modal-step"><div class="modal-step-num">03</div><div class="modal-step-content"><div class="modal-step-title">Retention & Expansion Loop</div><div class="modal-step-desc">Connected community engagement signals to CS workflows to surface expansion opportunities and reduce churn risk based on product adoption patterns.</div></div></div>
+        <div class="modal-step"><div class="modal-step-num">01</div><div class="modal-step-content"><div class="modal-step-title">Event Architecture &amp; Playbook</div><div class="modal-step-desc">Designed the event tier strategy — flagship conferences, regional summits, and partner micro-events — with consistent messaging, ICP targeting, and pipeline objectives per market.</div></div></div>
+        <div class="modal-step"><div class="modal-step-num">02</div><div class="modal-step-content"><div class="modal-step-title">Field-to-Pipeline Attribution</div><div class="modal-step-desc">Built the attribution model connecting event attendance and engagement to pipeline stages. Established pre/post event sequences in Marketo with AE follow-up SLAs and opportunity tracking in Salesforce.</div></div></div>
+        <div class="modal-step"><div class="modal-step-num">03</div><div class="modal-step-content"><div class="modal-step-title">Community &amp; Retention Layer</div><div class="modal-step-desc">Extended the event series into a year-round digital community — keeping customer relationships active between events, surfacing expansion signals, and building the brand equity that made Armis Connect the go-to network for security practitioners.</div></div></div>
       </div>
       <div class="modal-section-title">Results</div>
       <div class="modal-chips">
-        <span class="modal-chip">100K+ registered users</span>
         <span class="modal-chip">18 global markets activated</span>
-        <span class="modal-chip">Community-led retention signal</span>
+        <span class="modal-chip">100K+ community members</span>
+        <span class="modal-chip">Field pipeline attributed per quarter</span>
+        <span class="modal-chip">Partner-sourced revenue</span>
         <span class="modal-chip">Marketing Above &amp; Beyond Award</span>
       </div>
     </div>
