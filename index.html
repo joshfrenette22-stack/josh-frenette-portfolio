@@ -573,6 +573,17 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
 @media(max-width:900px){.nav-hamburger{display:flex;}}
 @media(max-width:700px){.tools-flow-wrap{padding:1.25rem var(--gutter);}}
 @media(max-width:480px){.tools-category-row{grid-template-columns:1fr;}}
+/* ── MOBILE FIXES ── */
+/* Headshot: switch to width-driven scaling on small screens */
+@media(max-width:700px){.hero-photo-canvas{height:auto;width:100%;}}
+/* Quote: allow text to shrink and wrap instead of overflowing */
+@media(max-width:700px){
+  .quote-break{flex-wrap:wrap;justify-content:center;}
+  .quote-break-text{flex-shrink:1;width:100%;font-size:clamp(.95rem,4.2vw,1.2rem);}
+  .quote-break-line{flex:0 0 2.5rem;}
+}
+/* Cursor: hide on touch devices — no mouse, no need */
+@media(hover:none){.cursor,.cursor-ring{display:none!important;}}
 </style>
 </head>
 <body>
@@ -2016,6 +2027,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
 <script>
 // ── CURSOR ──
 (function(){
+  if('ontouchstart' in window || navigator.maxTouchPoints > 0) return;
   var cur=document.getElementById('cursor'),ring=document.getElementById('cursorRing');
   var mx=0,my=0,rx=0,ry=0;
   document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
