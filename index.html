@@ -616,9 +616,11 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
 @media(max-width:900px){.fm-grid{grid-template-columns:1fr;}}
 
 /* ── PASSWORD GATE ── */
-#pw-gate{position:fixed;inset:0;z-index:9999;background:var(--bg);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:0;transition:opacity .5s,visibility .5s;}
+#pw-gate{position:fixed;inset:0;z-index:9999;background:var(--bg);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:0;transition:opacity .5s,visibility .5s;
+  /* Mobile: allow inner scroll when keyboard pushes content up */
+  overflow-y:auto;-webkit-overflow-scrolling:touch;}
 #pw-gate.unlocked{opacity:0;visibility:hidden;pointer-events:none;}
-.pw-gate-inner{text-align:center;max-width:440px;padding:2rem;}
+.pw-gate-inner{text-align:center;max-width:440px;width:100%;padding:2rem;}
 .pw-gate-logo{font-family:var(--serif);font-size:3.5rem;font-weight:700;color:var(--white);letter-spacing:-.03em;margin-bottom:1.5rem;line-height:1;}
 .pw-gate-logo span{color:var(--teal);}
 .pw-gate-label{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:2rem;}
@@ -626,9 +628,12 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
 .pw-gate-sub{font-size:.82rem;color:rgba(238,242,247,.5);margin-bottom:2rem;line-height:1.7;}
 .pw-gate-hint{font-size:.72rem;color:rgba(0,212,170,.6);font-style:italic;margin-bottom:1.5rem;}
 .pw-gate-field{display:flex;gap:.5rem;margin-bottom:.75rem;}
-.pw-gate-input{flex:1;background:rgba(255,255,255,.05);border:1px solid var(--border);color:var(--white);padding:.85rem 1.2rem;font-size:.88rem;font-family:var(--sans);outline:none;transition:border-color .2s;}
+/* font-size:16px prevents iOS Safari from zooming the page on input focus —
+   any value below 16px triggers an automatic viewport zoom that causes
+   horizontal scroll and breaks the layout until the user manually zooms back */
+.pw-gate-input{flex:1;min-width:0;background:rgba(255,255,255,.05);border:1px solid var(--border);color:var(--white);padding:.85rem 1.2rem;font-size:16px;font-family:var(--sans);outline:none;transition:border-color .2s;}
 .pw-gate-input:focus{border-color:var(--teal);}
-.pw-gate-btn{background:var(--teal);color:#07090f;border:none;padding:.85rem 1.6rem;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;cursor:pointer;font-family:var(--sans);transition:opacity .2s;}
+.pw-gate-btn{background:var(--teal);color:#07090f;border:none;padding:.85rem 1.6rem;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;cursor:pointer;font-family:var(--sans);transition:opacity .2s;white-space:nowrap;flex-shrink:0;}
 .pw-gate-btn:hover{opacity:.85;}
 .pw-gate-error{font-size:.75rem;color:#ff6b6b;min-height:1rem;opacity:0;transition:opacity .3s;}
 .pw-gate-error.show{opacity:1;}
@@ -2699,11 +2704,35 @@ img,video,svg,iframe{max-width:100%;}   /* canvas excluded — JS sizes it expli
     return;
   }
 
+  // Lock body scroll while gate is active — prevents the underlying page
+  // from scrolling on iOS when the keyboard appears (which would create
+  // horizontal scroll artifacts from the page content behind the overlay)
+  document.body.style.overflow = 'hidden';
+  document.body.style.position = 'fixed';
+  document.body.style.width    = '100%';
+  document.body.style.top      = '0';
+
+  function unlockBody(){
+    document.body.style.overflow = '';
+    document.body.style.position = '';
+    document.body.style.width    = '';
+    document.body.style.top      = '';
+  }
+
+  // On mobile, when the keyboard appears it shrinks the visible area.
+  // Scroll the input into view so it's not hidden behind the keyboard.
+  input.addEventListener('focus', function(){
+    setTimeout(function(){
+      input.scrollIntoView({behavior:'smooth', block:'center'});
+    }, 350); // wait for keyboard animation to finish
+  });
+
   function attempt(){
     var val = input.value.trim().toLowerCase();
     // btoa('joshfrenette') === 'am9zaGZyZW5ldHRl'
     if(btoa(val) === 'am9zaGZyZW5ldHRl'){
       sessionStorage.setItem('jf_unlocked','1');
+      unlockBody();
       gate.classList.add('unlocked');
       err.classList.remove('show');
     } else {
